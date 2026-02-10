@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CAA WINDOWS | Aluminium Windows & Doors | South Australia</title>
+  <meta name="description" content="Aluminium windows & doors in South Australia. Measure & quote, supply & install. 2-year warranty (T&Cs apply)." />
+  <style>
+    :root{
+      --bg:#111315; --card:#1C2026; --line:#2A3038;
+      --text:#F5F7FA; --muted:#B7BEC8; --accent:#F28C28;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
+    .wrap{max-width:1120px;margin:0 auto;padding:24px}
+    .header{position:sticky;top:0;background:rgba(17,19,21,.75);backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--accent);z-index:10}
+    .header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{font-weight:700;letter-spacing:.08em}
+    .btn{display:inline-block;padding:12px 16px;border-radius:10px;text-decoration:none;color:var(--text);
+      border:1px solid transparent;font-weight:600}
+    .btn.primary{background:var(--accent);box-shadow:0 8px 24px rgba(242,140,40,.25)}
+    .btn.secondary{background:var(--card);border-color:var(--line)}
+    .btn.ghost{background:transparent;border-color:var(--line)}
+    .hero{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(17,19,21,.92) 0%, rgba(17,19,21,.65) 45%, rgba(17,19,21,.25) 100%),
+        url("hero-4panel.jpg") center/cover no-repeat;
+      min-height:72vh;display:flex;align-items:center}
+    .hero-card{max-width:640px;background:rgba(28,32,38,.55);border:1px solid var(--line);
+      border-radius:16px;padding:28px}
+    h1{margin:0 0 10px;font-size:52px;line-height:1.05}
+    .sub{color:var(--muted);margin:0 0 18px;font-size:16px}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+    .pill{background:rgba(28,32,38,.7);border:1px solid var(--line);border-radius:14px;padding:12px}
+    .pill b{display:block;font-size:14px;margin-bottom:4px}
+    .pill span{color:var(--muted);font-size:12px}
+    @media (max-width:900px){
+      h1{font-size:34px}
+      .trust{grid-template-columns:repeat(2,1fr)}
+      .hero{min-height:64vh}
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="wrap">
+      <div class="brand">CAA WINDOWS</div>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn ghost" href="#contact">EN / 中文</a>
+        <a class="btn secondary" href="#contact">Book a Measure</a>
+        <a class="btn ghost" href="tel:XX_PHONE">Call Now</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <h1>Aluminium Windows & Doors<br/>in South Australia</h1>
+        <p class="sub">Measure & Quote • Supply & Install • Built for Australian Conditions<br/>
+          2-year warranty (T&Cs apply)</p>
+        <div class="cta">
+          <a class="btn primary" href="#contact">Get a Free Quote</a>
+          <a class="btn secondary" href="#contact">Book a Measure</a>
+          <a class="btn ghost" href="tel:XX_PHONE">Call Now</a>
+        </div>
+
+        <div class="trust">
+          <div class="pill"><b>Serving South Australia</b><span>Adelaide & surrounds</span></div>
+          <div class="pill"><b>Measure & Installation</b><span>On-site measure available</span></div>
+          <div class="pill"><b>Fast & Reliable Service</b><span>Clear timelines & updates</span></div>
+          <div class="pill"><b>2-Year Warranty</b><span>T&Cs apply</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap" id="contact" style="padding-top:64px">
+    <div style="background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px">
+      <h2 style="margin:0 0 8px">Contact</h2>
+      <p style="margin:0;color:var(--muted)">Phone: XX_PHONE · Email: XX_EMAIL · Address: XX_ADDRESS</p>
+      <p style="margin-top:14px;color:var(--muted)">Next: we’ll add a form here (Formspree / Google Form) for quick launch.</p>
+    </div>
+  </div>
+</body>
+</html>
