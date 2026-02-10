@@ -25,7 +25,7 @@
     .hero{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
       background:
         linear-gradient(90deg, rgba(17,19,21,.92) 0%, rgba(17,19,21,.65) 45%, rgba(17,19,21,.25) 100%),
-        url("hero-4panel.jpg") center/cover no-repeat;
+        url("hero-4panel-desktop.webp") center/cover no-repeat;
       min-height:72vh;display:flex;align-items:center}
     .hero-card{max-width:640px;background:rgba(28,32,38,.55);border:1px solid var(--line);
       border-radius:16px;padding:28px}
@@ -37,6 +37,12 @@
     .pill b{display:block;font-size:14px;margin-bottom:4px}
     .pill span{color:var(--muted);font-size:12px}
     @media (max-width:900px){
+      .hero{
+  background:
+    linear-gradient(90deg, rgba(17,19,21,.92) 0%, rgba(17,19,21,.65) 45%, rgba(17,19,21,.25) 100%),
+    url("hero-4panel-mobile.webp") center/cover no-repeat;
+            }
+
       h1{font-size:34px}
       .trust{grid-template-columns:repeat(2,1fr)}
       .hero{min-height:64vh}
