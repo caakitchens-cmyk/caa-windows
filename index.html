@@ -84,11 +84,57 @@
   </section>
 
   <div class="wrap" id="contact" style="padding-top:64px">
-    <div style="background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px">
-      <h2 style="margin:0 0 8px">Contact</h2>
-      <p style="margin:0;color:var(--muted)">Phone: XX_PHONE · Email: XX_EMAIL · Address: XX_ADDRESS</p>
-      <p style="margin-top:14px;color:var(--muted)">Next: we’ll add a form here (Formspree / Google Form) for quick launch.</p>
-    </div>
-  </div>
+  <div style="background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px">
+    <h2 style="margin:0 0 8px">Get a Quote / Book a Measure</h2>
+    <p style="margin:0 0 18px;color:var(--muted)">
+      South Australia · Measure & Quote · Supply & Install · 2-Year Warranty (T&Cs apply)
+    </p>
+
+    <form action="https://formspree.io/f/mkovoavz" method="POST" enctype="multipart/form-data"
+          style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+
+      <input name="name" placeholder="Name" required
+             style="padding:12px;border-radius:10px;border:1px solid var(--line);background:#111315;color:var(--text)"/>
+
+      <input name="phone" placeholder="Phone" required
+             style="padding:12px;border-radius:10px;border:1px solid var(--line);background:#111315;color:var(--text)"/>
+
+      <input name="email" type="email" placeholder="Email" required
+             style="padding:12px;border-radius:10px;border:1px solid var(--line);background:#111315;color:var(--text)"/>
+
+      <input name="suburb" placeholder="Suburb (e.g., Adelaide)" required
+             style="padding:12px;border-radius:10px;border:1px solid var(--line);background:#111315;color:var(--text)"/>
+
+      <select name="service" required
+              style="padding:12px;border-radius:10px;border:1px solid var(--line);background:#111315;color:var(--text)">
+        <option value="">Service Type</option>
+        <option>Measure & Quote</option>
+        <option>Supply Only</option>
+        <option>Supply & Install</option>
+      </select>
+
+      <select name="product" required
+              style="padding:12px;border-radius:10px;border:1px solid var(--line);background:#111315;color:var(--text)">
+        <option value="">Product Type</option>
+        <option>Windows</option>
+        <option>Doors</option>
+        <option>Windows & Doors</option>
+      </select>
+
+      <textarea name="message" placeholder="Tell us what you need (sizes, qty, timeframe)…" rows="4"
+                style="grid-column:1/-1;padding:12px;border-radius:10px;border:1px solid var(--line);background:#111315;color:var(--text)"></textarea>
+
+      <div style="grid-column:1/-1;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <input type="file" name="attachment" accept="image/*,.pdf" />
+        <button class="btn primary" type="submit">Submit</button>
+        <span style="color:var(--muted);font-size:12px">Attach photos/drawings (optional)</span>
+      </div>
+
+      <input type="hidden" name="_subject" value="New enquiry - CAA WINDOWS" />
+    </form>
+
+    <p style="margin:14px 0 0;color:var(--muted);font-size:12px">
+      By sub
+
 </body>
 </html>
