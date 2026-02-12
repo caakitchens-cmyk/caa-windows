@@ -1,426 +1,299 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CAA WINDOWS | Aluminium Windows & Doors | South Australia</title>
-  <meta name="description" content="Aluminium windows & doors in South Australia. Measure & quote, supply & install. 2-year warranty (T&Cs apply)." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CAA WINDOWS | Aluminium Windows & Doors in South Australia</title>
 
-  <!-- Favicons / App Icons -->
-  <link rel="icon" href="/favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#111315">
+<meta name="description" content="CAA WINDOWS provides aluminium windows and doors in South Australia. Measure & Quote, Supply Only, Supply & Install. Adelaide & Surrounds." />
+<meta property="og:title" content="CAA WINDOWS | Aluminium Windows & Doors SA" />
+<meta property="og:description" content="Measure & Quote · Supply · Install. Serving Adelaide & Surrounds." />
+<meta property="og:image" content="https://caawindows.com/og-cover.jpg" />
+<meta property="og:url" content="https://caawindows.com" />
+<meta property="og:type" content="website" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="CAA WINDOWS | Aluminium Windows & Doors | South Australia">
-  <meta property="og:description" content="Measure & Quote · Supply & Install · Built for Australian Conditions · 2-year warranty (T&Cs apply)">
-  <meta property="og:image" content="/og-cover.jpg">
-  <meta property="og:type" content="website">
+<link rel="icon" href="/favicon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <style>
-    :root{
-      --bg:#111315; --card:#1C2026; --line:#2A3038;
-      --text:#F5F7FA; --muted:#B7BEC8; --accent:#F28C28;
-      --shadow:0 14px 40px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
-    a{color:inherit}
-    .wrap{max-width:1120px;margin:0 auto;padding:24px}
-    .header{
-      position:sticky;top:0;z-index:50;
-      background:rgba(17,19,21,.78);backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--accent);
-    }
-    .header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{font-weight:800;letter-spacing:.08em}
-    .nav{display:flex;gap:18px;align-items:center}
-    .nav a{opacity:.9;text-decoration:none;font-weight:600;font-size:14px}
-    .nav a:hover{opacity:1}
-    .actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
 
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:12px 16px;border-radius:12px;text-decoration:none;color:var(--text);
-      border:1px solid transparent;font-weight:700;font-size:14px;line-height:1;
-      white-space:nowrap;
-    }
-    .btn.primary{background:var(--accent);box-shadow:0 8px 24px rgba(242,140,40,.25)}
-    .btn.secondary{background:var(--card);border-color:var(--line)}
-    .btn.ghost{background:transparent;border-color:var(--line)}
-    .btn.small{padding:10px 12px;border-radius:10px;font-size:13px}
+<style>
+:root{
+--bg:#111315;
+--card:#1C2026;
+--line:#2A3038;
+--text:#F5F7FA;
+--sub:#B7BEC8;
+--accent:#F28C28;
+}
 
-    .hero{
-      border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-      background:
-        linear-gradient(90deg, rgba(17,19,21,.92) 0%, rgba(17,19,21,.65) 45%, rgba(17,19,21,.25) 100%),
-        url("hero-4panel-desktop.webp") center/cover no-repeat;
-      min-height:72vh;display:flex;align-items:center;
-    }
-    .hero-card{
-      max-width:720px;
-      background:rgba(28,32,38,.55);
-      border:1px solid rgba(42,48,56,.9);
-      border-radius:18px;padding:28px;
-      box-shadow:var(--shadow);
-    }
-    h1{margin:0 0 10px;font-size:56px;line-height:1.05}
-    .sub{color:var(--muted);margin:0 0 18px;font-size:16px}
-    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-    .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
-    .pill{
-      background:rgba(28,32,38,.72);
-      border:1px solid var(--line);
-      border-radius:14px;padding:12px;
-    }
-    .pill b{display:block;font-size:14px;margin-bottom:4px}
-    .pill span{color:var(--muted);font-size:12px}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+background:var(--bg);
+color:var(--text);
+font-family:'Inter','Noto Sans SC',sans-serif;
+}
 
-    .section{padding-top:72px}
-    .section-title{font-size:26px;margin:0 0 10px}
-    .section-sub{margin:0 0 18px;color:var(--muted)}
+.container{width:90%;max-width:1200px;margin:auto;}
 
-    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:20px;
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
-    }
+header{
+position:sticky;top:0;
+background:rgba(17,19,21,.85);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--accent);
+z-index:1000;
+}
 
-    /* Form */
-    .form{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-      margin-top:14px;
-    }
-    .input, select, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:#0f1113;
-      color:var(--text);
-      outline:none;
-      font-size:14px;
-    }
-    textarea{grid-column:1/-1;min-height:110px;resize:vertical}
-    select{appearance:auto}
-    .row{grid-column:1/-1;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 0;
+}
 
-    /* Custom file */
-    .file-wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    .file-input{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-    .file-name{color:var(--muted);font-size:13px}
-    .helper{color:var(--muted);font-size:12px;margin-top:10px}
+.nav a{
+color:var(--text);
+text-decoration:none;
+margin:0 12px;
+font-size:14px;
+}
 
-    .footer{
-      margin-top:56px;
-      border-top:1px solid var(--line);
-      padding:22px 0 40px;
-      color:var(--muted);
-      font-size:12px;
-    }
+.nav-right{
+display:flex;
+align-items:center;
+gap:12px;
+flex-wrap:wrap;
+}
 
-    /* Mobile */
-    @media (max-width:900px){
-      .header .wrap{flex-direction:column;align-items:flex-start}
-      .nav{gap:14px;flex-wrap:wrap}
-      .actions{width:100%;justify-content:flex-start}
-      .hero{
-        background:
-          linear-gradient(90deg, rgba(17,19,21,.92) 0%, rgba(17,19,21,.65) 45%, rgba(17,19,21,.25) 100%),
-          url("hero-4panel-mobile.webp") center/cover no-repeat;
-        min-height:64vh;
-      }
-      h1{font-size:34px}
-      .trust{grid-template-columns:repeat(2,1fr)}
-      .grid2{grid-template-columns:1fr}
-      .form{grid-template-columns:1fr}
-      .btn{width:auto}
-    }
-  </style>
+.btn{
+padding:10px 18px;
+border-radius:6px;
+font-weight:600;
+cursor:pointer;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn-primary{
+background:var(--accent);
+color:#fff;
+box-shadow:0 4px 12px rgba(242,140,40,.3);
+}
+
+.btn-dark{
+background:var(--card);
+color:#fff;
+border:1px solid var(--line);
+}
+
+.btn-outline{
+border:1px solid var(--accent);
+color:var(--accent);
+}
+
+.hero{
+padding:120px 0 80px;
+text-align:center;
+}
+
+.hero h1{
+font-size:56px;
+margin-bottom:20px;
+}
+
+.hero p{
+color:var(--sub);
+margin-bottom:30px;
+}
+
+.section{
+padding:80px 0;
+}
+
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.card{
+background:var(--card);
+padding:24px;
+border-radius:8px;
+border:1px solid var(--line);
+}
+
+.trust{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+text-align:center;
+gap:20px;
+}
+
+form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+}
+
+form input, form textarea{
+padding:12px;
+background:var(--card);
+border:1px solid var(--line);
+color:#fff;
+border-radius:6px;
+width:100%;
+}
+
+form textarea{
+grid-column:1/3;
+}
+
+.upload{
+grid-column:1/3;
+border:2px dashed var(--line);
+padding:20px;
+text-align:center;
+cursor:pointer;
+}
+
+.disclaimer{
+font-size:12px;
+color:var(--sub);
+margin-top:10px;
+}
+
+footer{
+background:#0c0d0f;
+padding:40px 0;
+text-align:center;
+color:var(--sub);
+font-size:13px;
+}
+
+.lang-switch{
+cursor:pointer;
+color:var(--accent);
+font-weight:600;
+}
+
+@media(max-width:768px){
+.hero h1{font-size:32px;}
+form{grid-template-columns:1fr;}
+form textarea,.upload{grid-column:1;}
+.nav{flex-direction:column;gap:12px;}
+}
+</style>
 </head>
 
 <body>
-  <!-- Header -->
-  <div class="header">
-    <div class="wrap">
-      <div class="brand">CAA WINDOWS</div>
 
-      <div class="nav">
-        <a href="#home" data-i="nav_home">Home</a>
-        <a href="#products" data-i="nav_products">Products</a>
-        <a href="#services" data-i="nav_services">Services</a>
-      </div>
+<header>
+<div class="container nav">
+<div><strong>CAA WINDOWS</strong></div>
+<div class="nav-right">
+<a href="#">Home</a>
+<a href="#products">Products</a>
+<a href="#services">Services</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+<span class="lang-switch" onclick="toggleLang()">中文</span>
+<a href="#contact" class="btn btn-primary">Book a Measure</a>
+<a href="tel:XX_PHONE" class="btn btn-dark">Call Now</a>
+</div>
+</div>
+</header>
 
-      <div class="actions">
-        <button class="btn ghost small" id="langBtn" type="button">EN / 中文</button>
-        <a class="btn secondary small" href="#contact" data-i="btn_book">Book a Measure</a>
-        <a class="btn ghost small" href="tel:XX_PHONE" data-i="btn_call">Call Now</a>
-      </div>
-    </div>
-  </div>
+<section class="hero">
+<div class="container">
+<h1 id="heroTitle">Premium Aluminium Windows & Doors</h1>
+<p id="heroSub">Serving Adelaide & Surrounds</p>
+<a href="#contact" class="btn btn-primary" id="btnQuote">Get a Free Quote</a>
+<a href="#contact" class="btn btn-dark" id="btnMeasure">Book a Measure</a>
+<a href="tel:XX_PHONE" class="btn btn-outline" id="btnCall">Call Now</a>
+</div>
+</section>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <div class="wrap">
-      <div class="hero-card">
-        <h1 data-i="hero_title">Aluminium Windows & Doors<br/>in South Australia</h1>
-        <p class="sub" data-i="hero_sub">
-          Measure & Quote • Supply & Install • Built for Australian Conditions<br/>
-          2-year warranty (T&Cs apply)
-        </p>
+<section class="section" id="products">
+<div class="container">
+<h2>Products</h2>
+<div class="card-grid">
+<div class="card"><h3>Windows</h3><p>Sliding · Awning · Double Hung · Fixed</p></div>
+<div class="card"><h3>Doors</h3><p>Sliding · Hinged · Stacker · Bi-fold</p></div>
+</div>
+</div>
+</section>
 
-        <div class="cta">
-          <a class="btn primary" href="#contact" data-i="cta_quote">Get a Free Quote</a>
-          <a class="btn secondary" href="#contact" data-i="cta_measure">Book a Measure</a>
-          <a class="btn ghost" href="tel:XX_PHONE" data-i="cta_call">Call Now</a>
-        </div>
+<section class="section" id="services">
+<div class="container">
+<h2>Services</h2>
+<div class="card-grid">
+<div class="card"><h3>Measure & Quote</h3></div>
+<div class="card"><h3>Supply Only</h3></div>
+<div class="card"><h3>Supply & Install</h3></div>
+</div>
+</div>
+</section>
 
-        <div class="trust">
-          <div class="pill"><b data-i="t1">Serving South Australia</b><span data-i="t1s">Adelaide & surrounds</span></div>
-          <div class="pill"><b data-i="t2">Measure & Installation</b><span data-i="t2s">On-site measure available</span></div>
-          <div class="pill"><b data-i="t3">Fast & Reliable Service</b><span data-i="t3s">Clear timelines & updates</span></div>
-          <div class="pill"><b data-i="t4">2-Year Warranty</b><span data-i="t4s">T&Cs apply</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="section" id="faq">
+<div class="container">
+<h2>FAQ</h2>
+<div class="card">2 year warranty (T&Cs apply).</div>
+</div>
+</section>
 
-  <!-- Products -->
-  <section class="wrap section" id="products">
-    <h2 class="section-title" data-i="p_title">Products</h2>
-    <p class="section-sub" data-i="p_sub">Mainstream aluminium windows & doors for Australian homes.</p>
+<section class="section" id="contact">
+<div class="container">
+<h2 id="contactTitle">Get a Quote / Book a Measure</h2>
 
-    <div class="grid2">
-      <div class="card">
-        <h3 style="margin:0 0 8px" data-i="p_w_title">Windows</h3>
-        <p style="margin:0;color:var(--muted)" data-i="p_w_desc">Sliding, awning, fixed, double-hung and more.</p>
-      </div>
+<form action="https://formspree.io/f/mkovoavz" method="POST" enctype="multipart/form-data">
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="tel" name="phone" placeholder="Phone" required>
+<input type="email" name="email" placeholder="Email">
+<input type="text" name="suburb" placeholder="Suburb">
+<textarea name="message" placeholder="Project Details"></textarea>
 
-      <div class="card">
-        <h3 style="margin:0 0 8px" data-i="p_d_title">Doors</h3>
-        <p style="margin:0;color:var(--muted)" data-i="p_d_desc">Sliding, hinged, stacking and entry solutions.</p>
-      </div>
-    </div>
-  </section>
+<label class="upload">
+Upload Plans / Photos
+<input type="file" name="file" hidden>
+</label>
 
-  <!-- Services -->
-  <section class="wrap section" id="services">
-    <h2 class="section-title" data-i="s_title">Services</h2>
-    <p class="section-sub" data-i="s_sub">Enterprise-grade process, clear communication, reliable outcomes.</p>
+<input type="hidden" name="_redirect" value="https://caawindows.com/?submitted=true">
 
-    <div class="grid2">
-      <div class="card">
-        <h3 style="margin:0 0 8px" data-i="s1">Measure & Quote</h3>
-        <p style="margin:0;color:var(--muted)" data-i="s1d">On-site measure available. We confirm sizes & requirements.</p>
-      </div>
-      <div class="card">
-        <h3 style="margin:0 0 8px" data-i="s2">Supply & Install</h3>
-        <p style="margin:0;color:var(--muted)" data-i="s2d">Supply only or complete installation across South Australia.</p>
-      </div>
-    </div>
-  </section>
+<button type="submit" class="btn btn-primary">Submit</button>
 
-  <!-- Contact -->
-  <section class="wrap section" id="contact">
-    <div class="card">
-      <h2 style="margin:0 0 8px" data-i="c_title">Get a Quote / Book a Measure</h2>
-      <p style="margin:0 0 16px;color:var(--muted)" data-i="c_sub">
-        South Australia · Measure & Quote · Supply & Install · 2-Year Warranty (T&Cs apply)
-      </p>
+</form>
 
-      <form id="enquiryForm"
-            action="https://formspree.io/f/mkovoavz"
-            method="POST"
-            enctype="multipart/form-data"
-            class="form">
+<p class="disclaimer">
+By submitting, you agree we may contact you regarding this enquiry. Warranty terms apply.
+</p>
 
-        <input class="input" name="name" required data-ph="name_ph" placeholder="Name">
-        <input class="input" name="phone" required data-ph="phone_ph" placeholder="Phone">
+<div id="thanksMsg" style="display:none;margin-top:20px;color:var(--accent);font-weight:600;">
+Thanks! Your enquiry has been submitted.
+</div>
 
-        <input class="input" name="email" type="email" required data-ph="email_ph" placeholder="Email">
-        <input class="input" name="suburb" required data-ph="suburb_ph" placeholder="Suburb (e.g., Adelaide)">
+</div>
+</section>
 
-        <select name="service" required class="input" id="serviceSel">
-          <option value="" data-i="svc_ph">Service Type</option>
-          <option data-i="svc1">Measure & Quote</option>
-          <option data-i="svc2">Supply Only</option>
-          <option data-i="svc3">Supply & Install</option>
-        </select>
+<footer>
+© 2026 CAA WINDOWS · South Australia · XX_PHONE · sales@caawindows.com.au
+</footer>
 
-        <select name="product" required class="input" id="productSel">
-          <option value="" data-i="prd_ph">Product Type</option>
-          <option data-i="prd1">Windows</option>
-          <option data-i="prd2">Doors</option>
-          <option data-i="prd3">Windows & Doors</option>
-        </select>
+<script>
+function toggleLang(){
+document.getElementById("heroTitle").innerText="高端铝合金门窗";
+document.getElementById("heroSub").innerText="服务阿德莱德及周边地区";
+document.getElementById("btnQuote").innerText="免费报价";
+document.getElementById("btnMeasure").innerText="预约上门测量";
+document.getElementById("btnCall").innerText="电话咨询";
+document.getElementById("contactTitle").innerText="获取报价 / 预约上门测量";
+}
 
-        <textarea name="message" class="input" rows="4" data-ph="msg_ph"
-                  placeholder="Tell us what you need (sizes, qty, timeframe)…"></textarea>
+if(window.location.search.includes("submitted=true")){
+document.getElementById("thanksMsg").style.display="block";
+}
+</script>
 
-        <!-- Custom File Upload -->
-        <div class="row">
-          <div class="file-wrap">
-            <input id="fileInput" class="file-input" type="file" name="attachment" accept="image/*,.pdf" multiple>
-            <button class="btn secondary" type="button" id="fileBtn" data-i="file_btn">Choose files</button>
-            <span class="file-name" id="fileName" data-i="file_none">No file chosen</span>
-            <span class="file-name" style="opacity:.8" data-i="file_hint">Attach photos/drawings (optional)</span>
-          </div>
-
-          <div style="flex:1"></div>
-
-          <button class="btn primary" type="submit" data-i="submit_btn">Submit</button>
-        </div>
-
-        <input type="hidden" name="_subject" value="New enquiry - CAA WINDOWS">
-      </form>
-
-      <p class="helper" id="formNote" data-i="consent">
-        By submitting, you agree we may contact you regarding this enquiry.
-      </p>
-
-      <p class="helper" style="margin-top:10px">
-        <span data-i="contact_line">Phone: XX_PHONE · Email: XX_EMAIL · Address: XX_ADDRESS</span>
-      </p>
-    </div>
-
-    <div class="footer">
-      <div data-i="footer_line">© CAA WINDOWS · South Australia · Terms apply.</div>
-    </div>
-  </section>
-
-  <script>
-    // ===== Language Pack =====
-    const I18N = {
-      en: {
-        nav_home:"Home", nav_products:"Products", nav_services:"Services",
-        btn_book:"Book a Measure", btn_call:"Call Now",
-        hero_title:"Aluminium Windows & Doors<br/>in South Australia",
-        hero_sub:"Measure & Quote • Supply & Install • Built for Australian Conditions<br/>2-year warranty (T&Cs apply)",
-        cta_quote:"Get a Free Quote", cta_measure:"Book a Measure", cta_call:"Call Now",
-        t1:"Serving South Australia", t1s:"Adelaide & surrounds",
-        t2:"Measure & Installation", t2s:"On-site measure available",
-        t3:"Fast & Reliable Service", t3s:"Clear timelines & updates",
-        t4:"2-Year Warranty", t4s:"T&Cs apply",
-        p_title:"Products", p_sub:"Mainstream aluminium windows & doors for Australian homes.",
-        p_w_title:"Windows", p_w_desc:"Sliding, awning, fixed, double-hung and more.",
-        p_d_title:"Doors", p_d_desc:"Sliding, hinged, stacking and entry solutions.",
-        s_title:"Services", s_sub:"Enterprise-grade process, clear communication, reliable outcomes.",
-        s1:"Measure & Quote", s1d:"On-site measure available. We confirm sizes & requirements.",
-        s2:"Supply & Install", s2d:"Supply only or complete installation across South Australia.",
-        c_title:"Get a Quote / Book a Measure",
-        c_sub:"South Australia · Measure & Quote · Supply & Install · 2-Year Warranty (T&Cs apply)",
-        svc_ph:"Service Type", svc1:"Measure & Quote", svc2:"Supply Only", svc3:"Supply & Install",
-        prd_ph:"Product Type", prd1:"Windows", prd2:"Doors", prd3:"Windows & Doors",
-        file_btn:"Choose files", file_none:"No file chosen", file_hint:"Attach photos/drawings (optional)",
-        submit_btn:"Submit",
-        consent:"By submitting, you agree we may contact you regarding this enquiry.",
-        contact_line:"Phone: XX_PHONE · Email: XX_EMAIL · Address: XX_ADDRESS",
-        footer_line:"© CAA WINDOWS · South Australia · Terms apply.",
-        ph: {
-          name_ph:"Name",
-          phone_ph:"Phone",
-          email_ph:"Email",
-          suburb_ph:"Suburb (e.g., Adelaide)",
-          msg_ph:"Tell us what you need (sizes, qty, timeframe)…"
-        }
-      },
-      zh: {
-        nav_home:"首页", nav_products:"产品", nav_services:"服务",
-        btn_book:"预约上门测量", btn_call:"电话咨询",
-        hero_title:"南澳铝合金门窗<br/>测量报价 · 供货安装",
-        hero_sub:"Measure & Quote • Supply & Install • 适配澳洲环境<br/>质保 2 年（条款适用）",
-        cta_quote:"免费报价", cta_measure:"预约上门测量", cta_call:"电话咨询",
-        t1:"服务南澳", t1s:"阿德莱德及周边",
-        t2:"测量与安装", t2s:"可上门测量",
-        t3:"快速可靠", t3s:"条理清晰，进度透明",
-        t4:"2 年质保", t4s:"条款适用",
-        p_title:"产品", p_sub:"澳洲主流铝合金门窗——可供货及安装。",
-        p_w_title:"窗", p_w_desc:"推拉窗、上悬窗、固定窗、上下窗等。",
-        p_d_title:"门", p_d_desc:"推拉门、平开门、叠门及入户门方案。",
-        s_title:"服务", s_sub:"企业级流程 · 沟通清晰 · 交付可靠。",
-        s1:"测量报价", s1d:"可上门测量，确认尺寸与需求。",
-        s2:"供货安装", s2d:"可供货或供货+安装，覆盖南澳。",
-        c_title:"免费报价 / 预约上门测量",
-        c_sub:"南澳 · 测量报价 · 供货安装 · 2 年质保（条款适用）",
-        svc_ph:"服务类型", svc1:"测量报价", svc2:"仅供货", svc3:"供货+安装",
-        prd_ph:"产品类型", prd1:"窗", prd2:"门", prd3:"窗+门",
-        file_btn:"选择文件", file_none:"未选择任何文件", file_hint:"可上传照片/图纸（可选）",
-        submit_btn:"提交",
-        consent:"提交即表示你同意我们可就本次咨询联系你。",
-        contact_line:"电话：XX_PHONE · 邮箱：XX_EMAIL · 地址：XX_ADDRESS",
-        footer_line:"© CAA WINDOWS · South Australia · 条款适用。",
-        ph: {
-          name_ph:"姓名",
-          phone_ph:"电话",
-          email_ph:"邮箱",
-          suburb_ph:"区域/邮编（例：Adelaide）",
-          msg_ph:"请描述需求（尺寸、数量、工期等）…"
-        }
-      }
-    };
-
-    // ===== Apply Language =====
-    function setLang(lang){
-      const dict = I18N[lang] || I18N.en;
-
-      // text nodes
-      document.querySelectorAll("[data-i]").forEach(el=>{
-        const k = el.getAttribute("data-i");
-        if(dict[k] !== undefined) el.innerHTML = dict[k];
-      });
-
-      // placeholders
-      document.querySelectorAll("[data-ph]").forEach(el=>{
-        const k = el.getAttribute("data-ph");
-        if(dict.ph && dict.ph[k] !== undefined) el.setAttribute("placeholder", dict.ph[k]);
-      });
-
-      // update file label if none chosen
-      const fileInput = document.getElementById("fileInput");
-      const fileName = document.getElementById("fileName");
-      if(!fileInput.files || fileInput.files.length===0){
-        fileName.innerText = dict.file_none;
-      }else{
-        fileName.innerText = (lang==="zh")
-          ? `已选择${fileInput.files.length}个文件`
-          : `${fileInput.files.length} file(s) selected`;
-      }
-
-      localStorage.setItem("CAA_LANG", lang);
-      document.documentElement.lang = (lang==="zh" ? "zh-CN" : "en");
-    }
-
-    // ===== Init =====
-    const saved = localStorage.getItem("CAA_LANG") || "en";
-    setLang(saved);
-
-    document.getElementById("langBtn").addEventListener("click", ()=>{
-      const current = localStorage.getItem("CAA_LANG") || "en";
-      setLang(current==="en" ? "zh" : "en");
-    });
-
-    // Custom file picker
-    const fileBtn = document.getElementById("fileBtn");
-    const fileInput = document.getElementById("fileInput");
-    const fileName = document.getElementById("fileName");
-
-    fileBtn.addEventListener("click", ()=> fileInput.click());
-    fileInput.addEventListener("change", ()=>{
-      const lang = localStorage.getItem("CAA_LANG") || "en";
-      if(fileInput.files.length===0){
-        fileName.textContent = I18N[lang].file_none;
-      }else{
-        fileName.textContent = (lang==="zh")
-          ? `已选择${fileInput.files.length}个文件`
-          : `${fileInput.files.length} file(s) selected`;
-      }
-    });
-  </script>
 </body>
 </html>
