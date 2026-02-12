@@ -6,134 +6,161 @@
   <title>CAA WINDOWS | Aluminium Windows & Doors | South Australia</title>
   <meta name="description" content="Aluminium windows & doors in South Australia. Measure & quote, supply & install. 2-year warranty (T&Cs apply)." />
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.png" />
+  <!-- Favicons / App Icons -->
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#111315">
 
-  <!-- Open Graph / Social share -->
-  <meta property="og:title" content="CAA WINDOWS | Aluminium Windows & Doors | South Australia" />
-  <meta property="og:description" content="Measure & quote, supply & install. Built for Australian conditions. 2-year warranty (T&Cs apply)." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="og-cover.jpg" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="CAA WINDOWS | Aluminium Windows & Doors | South Australia">
+  <meta property="og:description" content="Measure & Quote · Supply & Install · Built for Australian Conditions · 2-year warranty (T&Cs apply)">
+  <meta property="og:image" content="/og-cover.jpg">
+  <meta property="og:type" content="website">
 
   <style>
     :root{
       --bg:#111315; --card:#1C2026; --line:#2A3038;
       --text:#F5F7FA; --muted:#B7BEC8; --accent:#F28C28;
-      --glass: rgba(28,32,38,.55);
+      --shadow:0 14px 40px rgba(0,0,0,.35);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
     a{color:inherit}
     .wrap{max-width:1120px;margin:0 auto;padding:24px}
-    .topbar{
-      position:sticky;top:0;z-index:10;
-      background:rgba(17,19,21,.75);backdrop-filter:blur(10px);
+    .header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(17,19,21,.78);backdrop-filter:blur(10px);
       border-bottom:1px solid var(--accent);
     }
-    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{font-weight:800;letter-spacing:.10em}
-    .nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}
-    .nav a.link{
-      text-decoration:none;color:var(--muted);font-weight:700;font-size:14px;
-      padding:10px 10px;border-radius:10px;border:1px solid transparent;
-    }
-    .nav a.link:hover{color:var(--text);border-color:var(--line);background:rgba(28,32,38,.35)}
+    .header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{font-weight:800;letter-spacing:.08em}
+    .nav{display:flex;gap:18px;align-items:center}
+    .nav a{opacity:.9;text-decoration:none;font-weight:600;font-size:14px}
+    .nav a:hover{opacity:1}
+    .actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+
     .btn{
-      display:inline-block;padding:12px 16px;border-radius:10px;text-decoration:none;color:var(--text);
-      border:1px solid transparent;font-weight:800;cursor:pointer;font-size:14px;
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px 16px;border-radius:12px;text-decoration:none;color:var(--text);
+      border:1px solid transparent;font-weight:700;font-size:14px;line-height:1;
+      white-space:nowrap;
     }
     .btn.primary{background:var(--accent);box-shadow:0 8px 24px rgba(242,140,40,.25)}
     .btn.secondary{background:var(--card);border-color:var(--line)}
     .btn.ghost{background:transparent;border-color:var(--line)}
-    .btn:disabled{opacity:.6;cursor:not-allowed}
+    .btn.small{padding:10px 12px;border-radius:10px;font-size:13px}
 
     .hero{
       border-top:1px solid var(--line);border-bottom:1px solid var(--line);
       background:
         linear-gradient(90deg, rgba(17,19,21,.92) 0%, rgba(17,19,21,.65) 45%, rgba(17,19,21,.25) 100%),
         url("hero-4panel-desktop.webp") center/cover no-repeat;
-      min-height:72vh;display:flex;align-items:center
+      min-height:72vh;display:flex;align-items:center;
     }
     .hero-card{
-      max-width:720px;background:var(--glass);border:1px solid var(--line);
-      border-radius:18px;padding:28px
+      max-width:720px;
+      background:rgba(28,32,38,.55);
+      border:1px solid rgba(42,48,56,.9);
+      border-radius:18px;padding:28px;
+      box-shadow:var(--shadow);
     }
-    h1{margin:0 0 10px;font-size:54px;line-height:1.05}
+    h1{margin:0 0 10px;font-size:56px;line-height:1.05}
     .sub{color:var(--muted);margin:0 0 18px;font-size:16px}
-    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
-
-    .trust{
-      display:grid;grid-template-columns:repeat(4,1fr);
-      gap:12px;margin-top:18px
-    }
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
     .pill{
-      background:rgba(28,32,38,.70);border:1px solid var(--line);
-      border-radius:14px;padding:12px;display:flex;gap:10px;align-items:flex-start
+      background:rgba(28,32,38,.72);
+      border:1px solid var(--line);
+      border-radius:14px;padding:12px;
     }
-    .pill svg{flex:0 0 auto;margin-top:2px}
     .pill b{display:block;font-size:14px;margin-bottom:4px}
-    .pill span{color:var(--muted);font-size:12px;display:block}
+    .pill span{color:var(--muted);font-size:12px}
 
-    .section{padding-top:64px}
-    .section h2{margin:0 0 8px;font-size:28px}
-    .section p.lead{margin:0 0 18px;color:var(--muted)}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+    .section{padding-top:72px}
+    .section-title{font-size:26px;margin:0 0 10px}
+    .section-sub{margin:0 0 18px;color:var(--muted)}
+
     .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .mini{background:rgba(28,32,38,.55);border:1px solid var(--line);border-radius:14px;padding:16px}
-    .mini h3{margin:0 0 6px;font-size:16px}
-    .mini p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
-    .tag{display:inline-block;margin-top:10px;font-size:12px;color:var(--muted);
-      border:1px solid var(--line);border-radius:999px;padding:6px 10px;background:rgba(17,19,21,.35)}
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .step{border:1px solid var(--line);border-radius:14px;padding:16px;background:rgba(28,32,38,.35)}
-    .step b{display:block}
-    .step span{color:var(--muted);font-size:13px;display:block;margin-top:6px;line-height:1.5}
-    details{border:1px solid var(--line);border-radius:14px;padding:14px;background:rgba(28,32,38,.35)}
-    details summary{cursor:pointer;font-weight:800}
-    details p{color:var(--muted);margin:10px 0 0;line-height:1.6}
-    .faq{display:grid;gap:10px}
-
-    .field, select, textarea{
-      width:100%; padding:12px;border-radius:10px;border:1px solid var(--line);
-      background:#111315;color:var(--text); outline:none;
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
     }
-    textarea{resize:vertical}
-    .hint{color:var(--muted);font-size:12px}
 
-    .footer{border-top:1px solid var(--line);margin-top:64px}
-    .footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+    /* Form */
+    .form{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    .input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#0f1113;
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    textarea{grid-column:1/-1;min-height:110px;resize:vertical}
+    select{appearance:auto}
+    .row{grid-column:1/-1;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 
+    /* Custom file */
+    .file-wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .file-input{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+    .file-name{color:var(--muted);font-size:13px}
+    .helper{color:var(--muted);font-size:12px;margin-top:10px}
+
+    .footer{
+      margin-top:56px;
+      border-top:1px solid var(--line);
+      padding:22px 0 40px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* Mobile */
     @media (max-width:900px){
+      .header .wrap{flex-direction:column;align-items:flex-start}
+      .nav{gap:14px;flex-wrap:wrap}
+      .actions{width:100%;justify-content:flex-start}
       .hero{
         background:
           linear-gradient(90deg, rgba(17,19,21,.92) 0%, rgba(17,19,21,.65) 45%, rgba(17,19,21,.25) 100%),
           url("hero-4panel-mobile.webp") center/cover no-repeat;
-        min-height:64vh
+        min-height:64vh;
       }
       h1{font-size:34px}
       .trust{grid-template-columns:repeat(2,1fr)}
       .grid2{grid-template-columns:1fr}
-      .grid3{grid-template-columns:1fr}
-      .steps{grid-template-columns:1fr}
+      .form{grid-template-columns:1fr}
+      .btn{width:auto}
     }
   </style>
 </head>
 
 <body>
   <!-- Header -->
-  <div class="topbar">
+  <div class="header">
     <div class="wrap">
       <div class="brand">CAA WINDOWS</div>
-      <div class="nav">
-        <a class="link" href="#home" data-i18n="nav_home">Home</a>
-        <a class="link" href="#products" data-i18n="nav_products">Products</a>
-        <a class="link" href="#services" data-i18n="nav_services">Services</a>
 
-        <button class="btn ghost" id="langToggle" type="button">EN / 中文</button>
-        <a class="btn secondary" href="#contact" data-fill="measure" data-i18n="cta_measure">Book a Measure</a>
-        <a class="btn ghost" href="tel:XX_PHONE" data-i18n="cta_call">Call Now</a>
+      <div class="nav">
+        <a href="#home" data-i="nav_home">Home</a>
+        <a href="#products" data-i="nav_products">Products</a>
+        <a href="#services" data-i="nav_services">Services</a>
+      </div>
+
+      <div class="actions">
+        <button class="btn ghost small" id="langBtn" type="button">EN / 中文</button>
+        <a class="btn secondary small" href="#contact" data-i="btn_book">Book a Measure</a>
+        <a class="btn ghost small" href="tel:XX_PHONE" data-i="btn_call">Call Now</a>
       </div>
     </div>
   </div>
@@ -142,368 +169,258 @@
   <section class="hero" id="home">
     <div class="wrap">
       <div class="hero-card">
-        <h1 data-i18n="hero_title">Aluminium Windows & Doors<br/>in South Australia</h1>
-        <p class="sub" data-i18n="hero_sub">
+        <h1 data-i="hero_title">Aluminium Windows & Doors<br/>in South Australia</h1>
+        <p class="sub" data-i="hero_sub">
           Measure & Quote • Supply & Install • Built for Australian Conditions<br/>
           2-year warranty (T&Cs apply)
         </p>
 
         <div class="cta">
-          <a class="btn primary" href="#contact" data-fill="quote" data-i18n="cta_quote">Get a Free Quote</a>
-          <a class="btn secondary" href="#contact" data-fill="measure" data-i18n="cta_measure">Book a Measure</a>
-          <a class="btn ghost" href="tel:XX_PHONE" data-i18n="cta_call">Call Now</a>
+          <a class="btn primary" href="#contact" data-i="cta_quote">Get a Free Quote</a>
+          <a class="btn secondary" href="#contact" data-i="cta_measure">Book a Measure</a>
+          <a class="btn ghost" href="tel:XX_PHONE" data-i="cta_call">Call Now</a>
         </div>
 
-        <!-- Trust bar -->
         <div class="trust">
-          <div class="pill">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M12 22s8-4.5 8-11V6l-8-3-8 3v5c0 6.5 8 11 8 11Z" stroke="#F28C28" stroke-width="2"/>
-            </svg>
-            <div><b data-i18n="t1">Serving South Australia</b><span data-i18n="t1s">Adelaide & surrounds</span></div>
-          </div>
-          <div class="pill">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M4 20V6m16 14V6M7 6h10M7 20h10" stroke="#F28C28" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <div><b data-i18n="t2">Measure & Installation</b><span data-i18n="t2s">On-site measure available</span></div>
-          </div>
-          <div class="pill">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M12 6v6l4 2" stroke="#F28C28" stroke-width="2" stroke-linecap="round"/>
-              <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="#F28C28" stroke-width="2"/>
-            </svg>
-            <div><b data-i18n="t3">Fast & Reliable Service</b><span data-i18n="t3s">Clear timelines & updates</span></div>
-          </div>
-          <div class="pill">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4Z" stroke="#F28C28" stroke-width="2"/>
-              <path d="M9 12l2 2 4-4" stroke="#F28C28" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <div><b data-i18n="t4">2-Year Warranty</b><span data-i18n="t4s">T&Cs apply</span></div>
-          </div>
+          <div class="pill"><b data-i="t1">Serving South Australia</b><span data-i="t1s">Adelaide & surrounds</span></div>
+          <div class="pill"><b data-i="t2">Measure & Installation</b><span data-i="t2s">On-site measure available</span></div>
+          <div class="pill"><b data-i="t3">Fast & Reliable Service</b><span data-i="t3s">Clear timelines & updates</span></div>
+          <div class="pill"><b data-i="t4">2-Year Warranty</b><span data-i="t4s">T&Cs apply</span></div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- Products -->
-  <div class="wrap section" id="products">
-    <h2 data-i18n="p_title">Products</h2>
-    <p class="lead" data-i18n="p_sub">Australian mainstream aluminium windows & doors — supplied and installed.</p>
+  <section class="wrap section" id="products">
+    <h2 class="section-title" data-i="p_title">Products</h2>
+    <p class="section-sub" data-i="p_sub">Mainstream aluminium windows & doors for Australian homes.</p>
 
     <div class="grid2">
-      <div class="mini">
-        <h3 data-i18n="p1">Windows</h3>
-        <p data-i18n="p1s">Sliding, awning, casement, fixed panels and more. Made for Australian conditions.</p>
-        <span class="tag" data-i18n="p_tag">Explore</span>
+      <div class="card">
+        <h3 style="margin:0 0 8px" data-i="p_w_title">Windows</h3>
+        <p style="margin:0;color:var(--muted)" data-i="p_w_desc">Sliding, awning, fixed, double-hung and more.</p>
       </div>
-      <div class="mini">
-        <h3 data-i18n="p2">Doors</h3>
-        <p data-i18n="p2s">Sliding, hinged, stacker / multi-panel solutions. Clean lines, strong frames.</p>
-        <span class="tag" data-i18n="p_tag">Explore</span>
+
+      <div class="card">
+        <h3 style="margin:0 0 8px" data-i="p_d_title">Doors</h3>
+        <p style="margin:0;color:var(--muted)" data-i="p_d_desc">Sliding, hinged, stacking and entry solutions.</p>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- Services -->
-  <div class="wrap section" id="services">
-    <h2 data-i18n="s_title">Services</h2>
-    <p class="lead" data-i18n="s_sub">From on-site measure to full installation — clear scope, clear timeline.</p>
+  <section class="wrap section" id="services">
+    <h2 class="section-title" data-i="s_title">Services</h2>
+    <p class="section-sub" data-i="s_sub">Enterprise-grade process, clear communication, reliable outcomes.</p>
 
-    <div class="grid3">
-      <div class="mini">
-        <h3 data-i18n="s1">Measure & Quote</h3>
-        <p data-i18n="s1s">On-site measurement, requirement confirmation, and written quote.</p>
+    <div class="grid2">
+      <div class="card">
+        <h3 style="margin:0 0 8px" data-i="s1">Measure & Quote</h3>
+        <p style="margin:0;color:var(--muted)" data-i="s1d">On-site measure available. We confirm sizes & requirements.</p>
       </div>
-      <div class="mini">
-        <h3 data-i18n="s2">Supply Only</h3>
-        <p data-i18n="s2s">We supply doors & windows based on confirmed measurements and specs.</p>
-      </div>
-      <div class="mini">
-        <h3 data-i18n="s3">Supply & Install</h3>
-        <p data-i18n="s3s">Supply + installation with practical site coordination and progress updates.</p>
+      <div class="card">
+        <h3 style="margin:0 0 8px" data-i="s2">Supply & Install</h3>
+        <p style="margin:0;color:var(--muted)" data-i="s2d">Supply only or complete installation across South Australia.</p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Process -->
-  <div class="wrap section" id="process">
-    <h2 data-i18n="pr_title">Process</h2>
-    <p class="lead" data-i18n="pr_sub">A simple, enterprise-style flow — fast communication, documented steps.</p>
-
-    <div class="steps">
-      <div class="step"><b data-i18n="st1">1) Enquiry</b><span data-i18n="st1s">Send your needs, photos, drawings.</span></div>
-      <div class="step"><b data-i18n="st2">2) Measure</b><span data-i18n="st2s">On-site measure (Adelaide & surrounds).</span></div>
-      <div class="step"><b data-i18n="st3">3) Quote</b><span data-i18n="st3s">Clear scope, written quote, timeline.</span></div>
-      <div class="step"><b data-i18n="st4">4) Confirm</b><span data-i18n="st4s">Confirm specs, color, glass options.</span></div>
-      <div class="step"><b data-i18n="st5">5) Supply</b><span data-i18n="st5s">Order and supply to site / pickup.</span></div>
-      <div class="step"><b data-i18n="st6">6) Install</b><span data-i18n="st6s">Install, handover, warranty terms apply.</span></div>
-    </div>
-  </div>
-
-  <!-- FAQ -->
-  <div class="wrap section" id="faq">
-    <h2 data-i18n="f_title">FAQ</h2>
-    <p class="lead" data-i18n="f_sub">Common questions — keep it clear and compliant.</p>
-
-    <div class="faq">
-      <details>
-        <summary data-i18n="f1">What areas do you service?</summary>
-        <p data-i18n="f1s">South Australia — Adelaide & surrounding suburbs. Ask us if you are outside metro.</p>
-      </details>
-      <details>
-        <summary data-i18n="f2">Do you do measure & quote?</summary>
-        <p data-i18n="f2s">Yes. We can arrange on-site measure, then provide a written quote.</p>
-      </details>
-      <details>
-        <summary data-i18n="f3">What products do you supply?</summary>
-        <p data-i18n="f3s">Mainstream aluminium windows & doors in Australia (varies by project requirements).</p>
-      </details>
-      <details>
-        <summary data-i18n="f4">Warranty?</summary>
-        <p data-i18n="f4s">2-year warranty (terms and conditions apply). Details provided with your quote.</p>
-      </details>
-    </div>
-  </div>
-
-  <!-- Contact / Form -->
-  <div class="wrap section" id="contact">
+  <!-- Contact -->
+  <section class="wrap section" id="contact">
     <div class="card">
-      <h2 style="margin:0 0 8px" data-i18n="c_title">Get a Quote / Book a Measure</h2>
-      <p class="lead" data-i18n="c_sub">South Australia · Measure & Quote · Supply & Install · 2-Year Warranty (T&Cs apply)</p>
+      <h2 style="margin:0 0 8px" data-i="c_title">Get a Quote / Book a Measure</h2>
+      <p style="margin:0 0 16px;color:var(--muted)" data-i="c_sub">
+        South Australia · Measure & Quote · Supply & Install · 2-Year Warranty (T&Cs apply)
+      </p>
 
-      <form id="leadForm" action="https://formspree.io/f/mkovoavz" method="POST" enctype="multipart/form-data"
-            style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+      <form id="enquiryForm"
+            action="https://formspree.io/f/mkovoavz"
+            method="POST"
+            enctype="multipart/form-data"
+            class="form">
 
-        <input class="field" name="name" required placeholder="Name" data-ph="ph_name" />
-        <input class="field" name="phone" required placeholder="Phone" data-ph="ph_phone" />
+        <input class="input" name="name" required data-ph="name_ph" placeholder="Name">
+        <input class="input" name="phone" required data-ph="phone_ph" placeholder="Phone">
 
-        <input class="field" name="email" type="email" required placeholder="Email" data-ph="ph_email" />
-        <input class="field" name="suburb" required placeholder="Suburb (e.g., Adelaide)" data-ph="ph_suburb" />
+        <input class="input" name="email" type="email" required data-ph="email_ph" placeholder="Email">
+        <input class="input" name="suburb" required data-ph="suburb_ph" placeholder="Suburb (e.g., Adelaide)">
 
-        <select name="service" id="serviceSelect" required>
-          <option value="" data-i18n="svc0">Service Type</option>
-          <option value="Measure & Quote" data-i18n="svc1">Measure & Quote</option>
-          <option value="Supply Only" data-i18n="svc2">Supply Only</option>
-          <option value="Supply & Install" data-i18n="svc3">Supply & Install</option>
+        <select name="service" required class="input" id="serviceSel">
+          <option value="" data-i="svc_ph">Service Type</option>
+          <option data-i="svc1">Measure & Quote</option>
+          <option data-i="svc2">Supply Only</option>
+          <option data-i="svc3">Supply & Install</option>
         </select>
 
-        <select name="product" id="productSelect" required>
-          <option value="" data-i18n="prd0">Product Type</option>
-          <option value="Windows" data-i18n="prd1">Windows</option>
-          <option value="Doors" data-i18n="prd2">Doors</option>
-          <option value="Windows & Doors" data-i18n="prd3">Windows & Doors</option>
+        <select name="product" required class="input" id="productSel">
+          <option value="" data-i="prd_ph">Product Type</option>
+          <option data-i="prd1">Windows</option>
+          <option data-i="prd2">Doors</option>
+          <option data-i="prd3">Windows & Doors</option>
         </select>
 
-        <textarea name="message" rows="4" class="field" style="grid-column:1/-1"
-                  placeholder="Tell us what you need (sizes, qty, timeframe)…" data-ph="ph_msg"></textarea>
+        <textarea name="message" class="input" rows="4" data-ph="msg_ph"
+                  placeholder="Tell us what you need (sizes, qty, timeframe)…"></textarea>
 
-        <div style="grid-column:1/-1;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-          <input type="file" name="attachment" accept="image/*,.pdf" />
-          <button class="btn primary" type="submit" id="submitBtn" data-i18n="submit">Submit</button>
-          <span class="hint" data-i18n="attach">Attach photos/drawings (optional)</span>
+        <!-- Custom File Upload -->
+        <div class="row">
+          <div class="file-wrap">
+            <input id="fileInput" class="file-input" type="file" name="attachment" accept="image/*,.pdf" multiple>
+            <button class="btn secondary" type="button" id="fileBtn" data-i="file_btn">Choose files</button>
+            <span class="file-name" id="fileName" data-i="file_none">No file chosen</span>
+            <span class="file-name" style="opacity:.8" data-i="file_hint">Attach photos/drawings (optional)</span>
+          </div>
+
+          <div style="flex:1"></div>
+
+          <button class="btn primary" type="submit" data-i="submit_btn">Submit</button>
         </div>
 
-        <input type="hidden" name="_subject" value="New enquiry - CAA WINDOWS" />
+        <input type="hidden" name="_subject" value="New enquiry - CAA WINDOWS">
       </form>
 
-      <div id="formMsg" style="display:none;margin-top:12px;padding:12px;border-radius:12px;border:1px solid var(--line);background:rgba(28,32,38,.6)"></div>
-
-      <p style="margin:14px 0 0;color:var(--muted);font-size:12px" data-i18n="privacy">
+      <p class="helper" id="formNote" data-i="consent">
         By submitting, you agree we may contact you regarding this enquiry.
       </p>
 
-      <div style="margin-top:14px;color:var(--muted);font-size:12px">
-        <span>Phone: </span><span>XX_PHONE</span> ·
-        <span>Email: </span><span>XX_EMAIL</span> ·
-        <span>Address: </span><span>XX_ADDRESS</span>
-      </div>
+      <p class="helper" style="margin-top:10px">
+        <span data-i="contact_line">Phone: XX_PHONE · Email: XX_EMAIL · Address: XX_ADDRESS</span>
+      </p>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <div class="footer">
-    <div class="wrap">
-      <div>© <span id="year"></span> CAA WINDOWS</div>
-      <div data-i18n="foot">Warranty: 2 years (T&Cs apply) · ABN: XX_ABN</div>
+    <div class="footer">
+      <div data-i="footer_line">© CAA WINDOWS · South Australia · Terms apply.</div>
     </div>
-  </div>
+  </section>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Prefill CTA buttons
-  function prefill(type) {
-    const svc = document.getElementById('serviceSelect');
-    const prd = document.getElementById('productSelect');
-    if (!svc || !prd) return;
-
-    if (type === 'measure') {
-      svc.value = 'Measure & Quote';
-      if (!prd.value) prd.value = 'Windows & Doors';
-    } else if (type === 'quote') {
-      svc.value = 'Supply & Install';
-      if (!prd.value) prd.value = 'Windows & Doors';
-    }
-  }
-  document.querySelectorAll('[data-fill]').forEach(el => {
-    el.addEventListener('click', () => {
-      const type = el.getAttribute('data-fill');
-      setTimeout(() => prefill(type), 150);
-    });
-  });
-
-  // AJAX submit (stay on-site)
-  (function () {
-    const form = document.getElementById('leadForm');
-    const msg = document.getElementById('formMsg');
-    const btn = document.getElementById('submitBtn');
-    if (!form || !msg || !btn) return;
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const oldText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = (window.__lang === 'zh') ? '发送中…' : 'Sending…';
-
-      msg.style.display = 'none';
-
-      try {
-        const formData = new FormData(form);
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (res.ok) {
-          msg.style.display = 'block';
-          msg.innerHTML = (window.__lang === 'zh')
-            ? '<b>提交成功！</b><br/><span style="color:var(--muted)">我们已收到您的信息，会尽快联系您。</span>'
-            : '<b>Thanks — we received your enquiry.</b><br/><span style="color:var(--muted)">We’ll contact you shortly.</span>';
-          form.reset();
-          msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        } else {
-          msg.style.display = 'block';
-          msg.innerHTML = (window.__lang === 'zh')
-            ? '<b>提交失败。</b><br/><span style="color:var(--muted)">请稍后重试，或直接致电我们。</span>'
-            : '<b>Something went wrong.</b><br/><span style="color:var(--muted)">Please try again or call us.</span>';
+  <script>
+    // ===== Language Pack =====
+    const I18N = {
+      en: {
+        nav_home:"Home", nav_products:"Products", nav_services:"Services",
+        btn_book:"Book a Measure", btn_call:"Call Now",
+        hero_title:"Aluminium Windows & Doors<br/>in South Australia",
+        hero_sub:"Measure & Quote • Supply & Install • Built for Australian Conditions<br/>2-year warranty (T&Cs apply)",
+        cta_quote:"Get a Free Quote", cta_measure:"Book a Measure", cta_call:"Call Now",
+        t1:"Serving South Australia", t1s:"Adelaide & surrounds",
+        t2:"Measure & Installation", t2s:"On-site measure available",
+        t3:"Fast & Reliable Service", t3s:"Clear timelines & updates",
+        t4:"2-Year Warranty", t4s:"T&Cs apply",
+        p_title:"Products", p_sub:"Mainstream aluminium windows & doors for Australian homes.",
+        p_w_title:"Windows", p_w_desc:"Sliding, awning, fixed, double-hung and more.",
+        p_d_title:"Doors", p_d_desc:"Sliding, hinged, stacking and entry solutions.",
+        s_title:"Services", s_sub:"Enterprise-grade process, clear communication, reliable outcomes.",
+        s1:"Measure & Quote", s1d:"On-site measure available. We confirm sizes & requirements.",
+        s2:"Supply & Install", s2d:"Supply only or complete installation across South Australia.",
+        c_title:"Get a Quote / Book a Measure",
+        c_sub:"South Australia · Measure & Quote · Supply & Install · 2-Year Warranty (T&Cs apply)",
+        svc_ph:"Service Type", svc1:"Measure & Quote", svc2:"Supply Only", svc3:"Supply & Install",
+        prd_ph:"Product Type", prd1:"Windows", prd2:"Doors", prd3:"Windows & Doors",
+        file_btn:"Choose files", file_none:"No file chosen", file_hint:"Attach photos/drawings (optional)",
+        submit_btn:"Submit",
+        consent:"By submitting, you agree we may contact you regarding this enquiry.",
+        contact_line:"Phone: XX_PHONE · Email: XX_EMAIL · Address: XX_ADDRESS",
+        footer_line:"© CAA WINDOWS · South Australia · Terms apply.",
+        ph: {
+          name_ph:"Name",
+          phone_ph:"Phone",
+          email_ph:"Email",
+          suburb_ph:"Suburb (e.g., Adelaide)",
+          msg_ph:"Tell us what you need (sizes, qty, timeframe)…"
         }
-      } catch (err) {
-        msg.style.display = 'block';
-        msg.innerHTML = (window.__lang === 'zh')
-          ? '<b>网络异常。</b><br/><span style="color:var(--muted)">请稍后重试，或直接致电我们。</span>'
-          : '<b>Network error.</b><br/><span style="color:var(--muted)">Please try again or call us.</span>';
-      } finally {
-        btn.disabled = false;
-        btn.textContent = oldText;
+      },
+      zh: {
+        nav_home:"首页", nav_products:"产品", nav_services:"服务",
+        btn_book:"预约上门测量", btn_call:"电话咨询",
+        hero_title:"南澳铝合金门窗<br/>测量报价 · 供货安装",
+        hero_sub:"Measure & Quote • Supply & Install • 适配澳洲环境<br/>质保 2 年（条款适用）",
+        cta_quote:"免费报价", cta_measure:"预约上门测量", cta_call:"电话咨询",
+        t1:"服务南澳", t1s:"阿德莱德及周边",
+        t2:"测量与安装", t2s:"可上门测量",
+        t3:"快速可靠", t3s:"条理清晰，进度透明",
+        t4:"2 年质保", t4s:"条款适用",
+        p_title:"产品", p_sub:"澳洲主流铝合金门窗——可供货及安装。",
+        p_w_title:"窗", p_w_desc:"推拉窗、上悬窗、固定窗、上下窗等。",
+        p_d_title:"门", p_d_desc:"推拉门、平开门、叠门及入户门方案。",
+        s_title:"服务", s_sub:"企业级流程 · 沟通清晰 · 交付可靠。",
+        s1:"测量报价", s1d:"可上门测量，确认尺寸与需求。",
+        s2:"供货安装", s2d:"可供货或供货+安装，覆盖南澳。",
+        c_title:"免费报价 / 预约上门测量",
+        c_sub:"南澳 · 测量报价 · 供货安装 · 2 年质保（条款适用）",
+        svc_ph:"服务类型", svc1:"测量报价", svc2:"仅供货", svc3:"供货+安装",
+        prd_ph:"产品类型", prd1:"窗", prd2:"门", prd3:"窗+门",
+        file_btn:"选择文件", file_none:"未选择任何文件", file_hint:"可上传照片/图纸（可选）",
+        submit_btn:"提交",
+        consent:"提交即表示你同意我们可就本次咨询联系你。",
+        contact_line:"电话：XX_PHONE · 邮箱：XX_EMAIL · 地址：XX_ADDRESS",
+        footer_line:"© CAA WINDOWS · South Australia · 条款适用。",
+        ph: {
+          name_ph:"姓名",
+          phone_ph:"电话",
+          email_ph:"邮箱",
+          suburb_ph:"区域/邮编（例：Adelaide）",
+          msg_ph:"请描述需求（尺寸、数量、工期等）…"
+        }
+      }
+    };
+
+    // ===== Apply Language =====
+    function setLang(lang){
+      const dict = I18N[lang] || I18N.en;
+
+      // text nodes
+      document.querySelectorAll("[data-i]").forEach(el=>{
+        const k = el.getAttribute("data-i");
+        if(dict[k] !== undefined) el.innerHTML = dict[k];
+      });
+
+      // placeholders
+      document.querySelectorAll("[data-ph]").forEach(el=>{
+        const k = el.getAttribute("data-ph");
+        if(dict.ph && dict.ph[k] !== undefined) el.setAttribute("placeholder", dict.ph[k]);
+      });
+
+      // update file label if none chosen
+      const fileInput = document.getElementById("fileInput");
+      const fileName = document.getElementById("fileName");
+      if(!fileInput.files || fileInput.files.length===0){
+        fileName.innerText = dict.file_none;
+      }else{
+        fileName.innerText = (lang==="zh")
+          ? `已选择${fileInput.files.length}个文件`
+          : `${fileInput.files.length} file(s) selected`;
+      }
+
+      localStorage.setItem("CAA_LANG", lang);
+      document.documentElement.lang = (lang==="zh" ? "zh-CN" : "en");
+    }
+
+    // ===== Init =====
+    const saved = localStorage.getItem("CAA_LANG") || "en";
+    setLang(saved);
+
+    document.getElementById("langBtn").addEventListener("click", ()=>{
+      const current = localStorage.getItem("CAA_LANG") || "en";
+      setLang(current==="en" ? "zh" : "en");
+    });
+
+    // Custom file picker
+    const fileBtn = document.getElementById("fileBtn");
+    const fileInput = document.getElementById("fileInput");
+    const fileName = document.getElementById("fileName");
+
+    fileBtn.addEventListener("click", ()=> fileInput.click());
+    fileInput.addEventListener("change", ()=>{
+      const lang = localStorage.getItem("CAA_LANG") || "en";
+      if(fileInput.files.length===0){
+        fileName.textContent = I18N[lang].file_none;
+      }else{
+        fileName.textContent = (lang==="zh")
+          ? `已选择${fileInput.files.length}个文件`
+          : `${fileInput.files.length} file(s) selected`;
       }
     });
-  })();
-
-  // Bilingual toggle
-  window.__lang = 'en';
-  const dict = {
-    en: {
-      nav_home:"Home", nav_products:"Products", nav_services:"Services",
-      hero_title:"Aluminium Windows & Doors<br/>in South Australia",
-      hero_sub:"Measure & Quote • Supply & Install • Built for Australian Conditions<br/>2-year warranty (T&Cs apply)",
-      cta_quote:"Get a Free Quote", cta_measure:"Book a Measure", cta_call:"Call Now",
-      t1:"Serving South Australia", t1s:"Adelaide & surrounds",
-      t2:"Measure & Installation", t2s:"On-site measure available",
-      t3:"Fast & Reliable Service", t3s:"Clear timelines & updates",
-      t4:"2-Year Warranty", t4s:"T&Cs apply",
-      p_title:"Products", p_sub:"Australian mainstream aluminium windows & doors — supplied and installed.",
-      p1:"Windows", p1s:"Sliding, awning, casement, fixed panels and more. Made for Australian conditions.",
-      p2:"Doors", p2s:"Sliding, hinged, stacker / multi-panel solutions. Clean lines, strong frames.",
-      p_tag:"Explore",
-      s_title:"Services", s_sub:"From on-site measure to full installation — clear scope, clear timeline.",
-      s1:"Measure & Quote", s1s:"On-site measurement, requirement confirmation, and written quote.",
-      s2:"Supply Only", s2s:"We supply doors & windows based on confirmed measurements and specs.",
-      s3:"Supply & Install", s3s:"Supply + installation with practical site coordination and progress updates.",
-      pr_title:"Process", pr_sub:"A simple, enterprise-style flow — fast communication, documented steps.",
-      st1:"1) Enquiry", st1s:"Send your needs, photos, drawings.",
-      st2:"2) Measure", st2s:"On-site measure (Adelaide & surrounds).",
-      st3:"3) Quote", st3s:"Clear scope, written quote, timeline.",
-      st4:"4) Confirm", st4s:"Confirm specs, color, glass options.",
-      st5:"5) Supply", st5s:"Order and supply to site / pickup.",
-      st6:"6) Install", st6s:"Install, handover, warranty terms apply.",
-      f_title:"FAQ", f_sub:"Common questions — keep it clear and compliant.",
-      f1:"What areas do you service?", f1s:"South Australia — Adelaide & surrounding suburbs. Ask us if you are outside metro.",
-      f2:"Do you do measure & quote?", f2s:"Yes. We can arrange on-site measure, then provide a written quote.",
-      f3:"What products do you supply?", f3s:"Mainstream aluminium windows & doors in Australia (varies by project requirements).",
-      f4:"Warranty?", f4s:"2-year warranty (terms and conditions apply). Details provided with your quote.",
-      c_title:"Get a Quote / Book a Measure",
-      c_sub:"South Australia · Measure & Quote · Supply & Install · 2-Year Warranty (T&Cs apply)",
-      svc0:"Service Type", svc1:"Measure & Quote", svc2:"Supply Only", svc3:"Supply & Install",
-      prd0:"Product Type", prd1:"Windows", prd2:"Doors", prd3:"Windows & Doors",
-      submit:"Submit", attach:"Attach photos/drawings (optional)",
-      privacy:"By submitting, you agree we may contact you regarding this enquiry.",
-      foot:"Warranty: 2 years (T&Cs apply) · ABN: XX_ABN",
-      ph_name:"Name", ph_phone:"Phone", ph_email:"Email", ph_suburb:"Suburb (e.g., Adelaide)",
-      ph_msg:"Tell us what you need (sizes, qty, timeframe)…"
-    },
-    zh: {
-      nav_home:"首页", nav_products:"产品", nav_services:"服务",
-      hero_title:"南澳铝合金门窗<br/>测量报价 · 供货安装",
-      hero_sub:"Measure & Quote • Supply & Install • 适配澳洲环境<br/>质保 2 年（条款适用）",
-      cta_quote:"免费报价", cta_measure:"预约上门测量", cta_call:"电话咨询",
-      t1:"服务南澳", t1s:"阿德莱德及周边",
-      t2:"测量与安装", t2s:"可上门测量",
-      t3:"快速可靠", t3s:"流程透明、进度清晰",
-      t4:"2 年质保", t4s:"条款适用",
-      p_title:"产品", p_sub:"澳洲主流铝合金门窗——可供货及安装。",
-      p1:"窗", p1s:"推拉窗、上悬窗、平开窗、固定窗等，适配澳洲环境。",
-      p2:"门", p2s:"推拉门、平开门、叠门/多联门等，线条干净、结构可靠。",
-      p_tag:"查看",
-      s_title:"服务", s_sub:"从上门测量到安装交付——范围清晰、进度明确。",
-      s1:"测量与报价", s1s:"上门测量、需求确认、提供书面报价。",
-      s2:"仅供货", s2s:"根据确认后的尺寸与规格进行供货。",
-      s3:"供货 + 安装", s3s:"供货与安装一体化，现场协同与进度更新。",
-      pr_title:"流程", pr_sub:"企业级标准流程——沟通快、步骤可追踪。",
-      st1:"1）提交需求", st1s:"发送需求、照片、图纸。",
-      st2:"2）上门测量", st2s:"可安排上门测量（阿德莱德及周边）。",
-      st3:"3）提供报价", st3s:"范围清晰、书面报价、时间计划。",
-      st4:"4）确认规格", st4s:"确认配置、颜色、玻璃选项。",
-      st5:"5）供货到位", st5s:"下单生产/备货，送货到现场或自取。",
-      st6:"6）安装交付", st6s:"安装、验收、质保条款适用。",
-      f_title:"常见问题", f_sub:"常见问题统一口径，避免踩雷。",
-      f1:"服务范围？", f1s:"南澳为主——阿德莱德及周边区域，外区请先咨询。",
-      f2:"是否提供测量与报价？", f2s:"提供，可安排上门测量并给出书面报价。",
-      f3:"可做哪些产品？", f3s:"澳洲主流铝合金门窗（具体以项目需求为准）。",
-      f4:"质保多久？", f4s:"2 年质保（条款适用），细则随报价提供。",
-      c_title:"获取报价 / 预约测量",
-      c_sub:"南澳 · 测量报价 · 供货安装 · 2 年质保（条款适用）",
-      svc0:"服务类型", svc1:"测量与报价", svc2:"仅供货", svc3:"供货 + 安装",
-      prd0:"产品类型", prd1:"窗", prd2:"门", prd3:"门窗",
-      submit:"提交", attach:"可上传照片/图纸（可选）",
-      privacy:"提交即表示您同意我们就本次咨询与您联系。",
-      foot:"质保：2 年（条款适用）· ABN：XX_ABN",
-      ph_name:"姓名", ph_phone:"电话", ph_email:"邮箱", ph_suburb:"地区（例如 Adelaide）",
-      ph_msg:"请描述需求（尺寸、数量、工期等）…"
-    }
-  };
-
-  function applyLang(lang){
-    window.__lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(el=>{
-      const key = el.getAttribute('data-i18n');
-      if (dict[lang][key] !== undefined) el.innerHTML = dict[lang][key];
-    });
-    document.querySelectorAll('[data-ph]').forEach(el=>{
-      const key = el.getAttribute('data-ph');
-      if (dict[lang][key] !== undefined) el.setAttribute('placeholder', dict[lang][key]);
-    });
-    document.getElementById('submitBtn').textContent = dict[lang].submit;
-  }
-
-  document.getElementById('langToggle').addEventListener('click', ()=>{
-    applyLang(window.__lang === 'en' ? 'zh' : 'en');
-  });
-</script>
-
+  </script>
 </body>
 </html>
