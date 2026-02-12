@@ -33,7 +33,7 @@
     "@context":"https://schema.org",
     "@type":"LocalBusiness",
     "name":"CAA WINDOWS",
-    "url":"https://caawindows.com/",
+    "url":"https://www.caawindows.com/",
     "telephone":"XX_PHONE",
     "email":"sales@caawindows.com.au",
     "areaServed":"Adelaide & surrounds, South Australia",
@@ -87,7 +87,7 @@
     }
     .brand{
       display:flex;align-items:center;gap:10px;
-      font-weight:700;letter-spacing:.4px;
+      font-weight:800;letter-spacing:.4px;
       user-select:none;
     }
     .brand-dot{
@@ -109,7 +109,7 @@
     .lang{
       cursor:pointer;
       color:var(--accent);
-      font-weight:700;
+      font-weight:800;
       padding:8px 10px;
       border-radius:8px;
       border:1px solid rgba(242,140,40,.35);
@@ -120,7 +120,7 @@
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
       padding:10px 16px;border-radius:10px;
-      font-weight:700;font-size:14px;
+      font-weight:800;font-size:14px;
       text-decoration:none;cursor:pointer;
       border:1px solid transparent;
       transition:.15s ease;
@@ -154,7 +154,7 @@
       color:var(--text);
       padding:10px 12px;border-radius:10px;
       cursor:pointer;
-      font-weight:700;
+      font-weight:800;
     }
 
     /* Hero */
@@ -166,8 +166,8 @@
     .hero::before{
       content:"";
       position:absolute; inset:-200px -200px auto -200px;
-      height:480px;
-      background:radial-gradient(circle at 30% 30%, rgba(242,140,40,.20), transparent 55%);
+      height:520px;
+      background:radial-gradient(circle at 30% 30%, rgba(242,140,40,.22), transparent 55%);
       pointer-events:none;
     }
     .hero-wrap{
@@ -185,7 +185,7 @@
     .hero p{
       color:var(--sub);
       font-size:16px;
-      max-width:56ch;
+      max-width:62ch;
       margin-bottom:18px;
     }
     .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
@@ -194,6 +194,7 @@
       margin-top:16px;
       color:var(--sub);
       font-size:13px;
+      flex-wrap:wrap;
     }
     .pill{
       display:inline-flex;align-items:center;gap:8px;
@@ -208,7 +209,7 @@
       box-shadow: var(--shadow);
       padding:18px;
     }
-    .hero-card h3{font-size:14px;color:var(--sub);font-weight:700;margin-bottom:12px;}
+    .hero-card h3{font-size:14px;color:var(--sub);font-weight:800;margin-bottom:12px;}
     .trust{
       display:grid;
       grid-template-columns:repeat(2, minmax(0,1fr));
@@ -237,7 +238,7 @@
       letter-spacing:-.2px;
       margin-bottom:14px;
     }
-    .section .lead{color:var(--sub);max-width:70ch;margin-bottom:18px;}
+    .section .lead{color:var(--sub);max-width:72ch;margin-bottom:18px;}
     .grid{
       display:grid;
       grid-template-columns:repeat(3, minmax(0, 1fr));
@@ -269,10 +270,10 @@
       display:grid;place-items:center;
       background:rgba(242,140,40,.12);
       border:1px solid rgba(242,140,40,.28);
-      font-weight:800;color:var(--accent);
+      font-weight:900;color:var(--accent);
       margin-bottom:10px;
     }
-    .step b{font-size:13px;display:block;margin-bottom:6px;}
+    .step b{font-size:13px;display:block;margin-bottom:6px;font-weight:900;}
     .step span{color:var(--sub);font-size:12px;display:block;}
 
     /* FAQ */
@@ -290,7 +291,7 @@
     }
     .faq summary{
       cursor:pointer;
-      font-weight:800;
+      font-weight:900;
       list-style:none;
       display:flex;align-items:center;justify-content:space-between;
       gap:14px;
@@ -348,7 +349,7 @@
       padding:10px 12px;
       border-radius:12px;
       color:var(--text);
-      font-weight:800;
+      font-weight:900;
     }
 
     footer{
@@ -411,11 +412,12 @@
 </header>
 
 <main id="home">
+  <!-- HERO (Enterprise upgrade) -->
   <section class="hero">
     <div class="container hero-wrap">
       <div>
-        <h1 id="heroTitle">Premium Aluminium Windows & Doors</h1>
-        <p id="heroSub">Measure & Quote · Supply · Install — Serving Adelaide & Surrounds</p>
+        <h1 id="heroTitle">Aluminium Windows & Doors in Adelaide</h1>
+        <p id="heroSub">Measure & Quote · Supply · Install — Local SA service with clear scope and timing.</p>
 
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary" id="btnHeroQuote">Get a Free Quote</a>
@@ -424,48 +426,70 @@
         </div>
 
         <div class="hero-badge">
-          <span class="pill" id="pillArea">South Australia</span>
+          <span class="pill" id="pillArea">South Australia · Adelaide & Surrounds</span>
           <span class="pill" id="pillWarranty">2-year warranty (T&Cs apply)</span>
           <span class="pill" id="pillLang">EN / 中文</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="card" style="padding:14px 16px;">
+          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;">
+            <div style="min-width:240px;">
+              <div style="font-weight:900;" id="heroMiniTitle">Fast response, practical advice</div>
+              <div class="muted" style="font-size:13px;" id="heroMiniSub">
+                Send plans/photos — we’ll confirm types, sizes, and installation options.
+              </div>
+            </div>
+            <a href="#contact" class="btn btn-outline" id="btnHeroMini">Upload & Enquire</a>
+          </div>
         </div>
       </div>
 
       <aside class="hero-card" aria-label="Trust Bar">
-        <h3 id="trustTitle">Trusted local service</h3>
+        <h3 id="trustTitle">Why builders & homeowners choose us</h3>
         <div class="trust">
           <div class="trust-item">
             <div class="trust-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 4v6c0 5-3.8 9-9 10-5.2-1-9-5-9-10V7l9-4z" stroke="currentColor" stroke-width="2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3l9 4v6c0 5-3.8 9-9 10-5.2-1-9-5-9-10V7l9-4z" stroke="currentColor" stroke-width="2"/>
+              </svg>
             </div>
             <div>
-              <b id="trust1b">SA Focus</b>
+              <b id="trust1b">Local SA</b>
               <span id="trust1s">Adelaide & surrounds</span>
             </div>
           </div>
 
           <div class="trust-item">
             <div class="trust-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M7 17l5-12 5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M4 20h16M6 16l6-12 6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
             </div>
             <div>
-              <b id="trust2b">Measure</b>
-              <span id="trust2s">Accurate onsite check</span>
+              <b id="trust2b">Measure & Quote</b>
+              <span id="trust2s">Clear scope & options</span>
             </div>
           </div>
 
           <div class="trust-item">
             <div class="trust-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
             </div>
             <div>
-              <b id="trust3b">Install</b>
-              <span id="trust3s">Supply & install available</span>
+              <b id="trust3b">Supply & Install</b>
+              <span id="trust3s">Flexible project support</span>
             </div>
           </div>
 
           <div class="trust-item">
             <div class="trust-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6l-11 11-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6l-11 11-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
             </div>
             <div>
               <b id="trust4b">Warranty</b>
@@ -607,7 +631,8 @@
             <input id="fileInput" type="file" name="file" hidden />
           </label>
 
-          <input type="hidden" name="_redirect" value="https://caawindows.com/?submitted=true#contact">
+          <!-- Redirect to WWW canonical -->
+          <input type="hidden" name="_redirect" value="https://www.caawindows.com/?submitted=true#contact">
 
           <div class="form-actions">
             <button class="btn btn-primary" type="submit" id="btnSubmit">Submit</button>
@@ -678,31 +703,39 @@
     en: {
       langBtn: "中文",
       nav: {home:"Home",products:"Products",services:"Services",process:"Process",faq:"FAQ",contact:"Contact"},
-      heroTitle:"Premium Aluminium Windows & Doors",
-      heroSub:"Measure & Quote · Supply · Install — Serving Adelaide & Surrounds",
+
+      heroTitle:"Aluminium Windows & Doors in Adelaide",
+      heroSub:"Measure & Quote · Supply · Install — Local SA service with clear scope and timing.",
+      heroMiniTitle:"Fast response, practical advice",
+      heroMiniSub:"Send plans/photos — we’ll confirm types, sizes, and installation options.",
+      btnHeroMini:"Upload & Enquire",
+
       btnTopMeasure:"Book a Measure",
       btnTopCall:"Call Now",
       btnHeroQuote:"Get a Free Quote",
       btnHeroMeasure:"Book a Measure",
       btnHeroCall:"Call Now",
-      pillArea:"South Australia",
+      pillArea:"South Australia · Adelaide & Surrounds",
       pillWarranty:"2-year warranty (T&Cs apply)",
       pillLang:"EN / 中文",
-      trustTitle:"Trusted local service",
-      trust1b:"SA Focus", trust1s:"Adelaide & surrounds",
-      trust2b:"Measure", trust2s:"Accurate onsite check",
-      trust3b:"Install", trust3s:"Supply & install available",
+      trustTitle:"Why builders & homeowners choose us",
+      trust1b:"Local SA", trust1s:"Adelaide & surrounds",
+      trust2b:"Measure & Quote", trust2s:"Clear scope & options",
+      trust3b:"Supply & Install", trust3s:"Flexible project support",
       trust4b:"Warranty", trust4s:"2 years (T&Cs apply)",
+
       productsTitle:"Products",
       productsLead:"We cover mainstream aluminium windows & doors types in Australia.",
       prod1Title:"Windows", prod1Desc:"Sliding · Awning · Double Hung · Fixed · Custom",
       prod2Title:"Doors", prod2Desc:"Sliding · Hinged · Stacker · Bi-fold · Custom",
       prod3Title:"Hardware & Screens", prod3Desc:"Locks · Tracks · Flyscreens · Security options (where applicable)",
+
       servicesTitle:"Services",
       servicesLead:"Choose what fits your project stage and budget.",
       srv1Title:"Measure & Quote", srv1Desc:"Onsite measurement with a clear quote and scope.",
       srv2Title:"Supply Only", srv2Desc:"Manufacture + supply for your installer/builder.",
       srv3Title:"Supply & Install", srv3Desc:"End-to-end service: supply, install, and handover.",
+
       processTitle:"Process",
       processLead:"A simple 6-step workflow to keep your project moving.",
       st1b:"Enquiry", st1s:"Call or submit the form",
@@ -711,6 +744,7 @@
       st4b:"Confirm", st4s:"Approve details & timeline",
       st5b:"Supply / Install", st5s:"Production + delivery/installation",
       st6b:"Handover", st6s:"Final check & warranty info",
+
       faqTitle:"FAQ",
       faqLead:"Quick answers to common questions.",
       q1:"Do you service Adelaide only?", a1:"We service Adelaide & surrounds across South Australia.",
@@ -719,6 +753,7 @@
       q4:"How long is the warranty?", a4:"2 years warranty (T&Cs apply).",
       q5:"Can I upload drawings/photos?", a5:"Yes — upload plans, photos, or sketches in the enquiry form.",
       q6:"How do I get a quote?", a6:"Submit the form with your suburb and project details, or call us directly.",
+
       contactTitle:"Get a Quote / Book a Measure",
       contactLead:"We’ll respond as soon as possible. For urgent matters, please call.",
       placeholders:{name:"Full Name", phone:"Phone", email:"Email", suburb:"Suburb", message:"Project Details (size, type, timing)"},
@@ -735,31 +770,39 @@
     zh: {
       langBtn: "EN",
       nav: {home:"首页",products:"产品",services:"服务",process:"流程",faq:"常见问题",contact:"联系"},
-      heroTitle:"高端铝合金门窗",
-      heroSub:"测量&报价 · 供货 · 安装 — 服务阿德莱德及周边",
+
+      heroTitle:"阿德莱德铝合金门窗",
+      heroSub:"测量与报价 · 供货 · 安装 —— 南澳本地服务，范围清晰、工期明确。",
+      heroMiniTitle:"快速响应，建议务实",
+      heroMiniSub:"上传图纸/照片，我们会确认类型、尺寸与安装方案。",
+      btnHeroMini:"上传资料并咨询",
+
       btnTopMeasure:"预约上门测量",
       btnTopCall:"电话咨询",
       btnHeroQuote:"免费报价",
       btnHeroMeasure:"预约上门测量",
       btnHeroCall:"电话咨询",
-      pillArea:"南澳 South Australia",
+      pillArea:"南澳 · 阿德莱德及周边",
       pillWarranty:"2年质保（以条款为准）",
       pillLang:"EN / 中文",
-      trustTitle:"本地可靠服务",
-      trust1b:"南澳服务", trust1s:"阿德莱德及周边",
-      trust2b:"上门测量", trust2s:"精准现场核尺",
-      trust3b:"安装服务", trust3s:"可供货+安装",
+      trustTitle:"为什么客户选择我们",
+      trust1b:"南澳本地", trust1s:"阿德莱德及周边",
+      trust2b:"测量与报价", trust2s:"范围清晰、方案明确",
+      trust3b:"供货与安装", trust3s:"支持多种项目方式",
       trust4b:"质保", trust4s:"2年（以条款为准）",
+
       productsTitle:"产品",
       productsLead:"覆盖澳洲主流铝合金门窗品类，可按项目定制。",
       prod1Title:"窗", prod1Desc:"推拉窗 · 上悬窗 · 上下窗 · 固定窗 · 定制",
       prod2Title:"门", prod2Desc:"推拉门 · 平开门 · 叠门 · 折叠门 · 定制",
       prod3Title:"五金与纱网", prod3Desc:"锁具 · 轨道 · 防蚊纱 · 安防选项（如适用）",
+
       servicesTitle:"服务",
       servicesLead:"按预算与阶段选择更合适的方案。",
       srv1Title:"测量与报价", srv1Desc:"上门测量并给出清晰报价与范围。",
       srv2Title:"仅供货", srv2Desc:"制作+供货，适合自有安装团队/Builder。",
       srv3Title:"供货与安装", srv3Desc:"一站式交付：供货、安装、验收。",
+
       processTitle:"流程",
       processLead:"标准 6 步，让项目推进更顺畅。",
       st1b:"咨询", st1s:"电话或提交表单",
@@ -768,6 +811,7 @@
       st4b:"确认", st4s:"确认细节与工期",
       st5b:"供货/安装", st5s:"生产与交付/安装",
       st6b:"验收", st6s:"最终检查与质保说明",
+
       faqTitle:"常见问题",
       faqLead:"快速解答常见疑问。",
       q1:"只做阿德莱德吗？", a1:"服务阿德莱德及周边南澳区域。",
@@ -776,6 +820,7 @@
       q4:"质保多久？", a4:"2年质保（以条款为准）。",
       q5:"能上传图纸/照片吗？", a5:"可以，表单支持上传图纸、照片或草图。",
       q6:"如何获取报价？", a6:"提交表单（含 Suburb 与需求），或直接来电咨询。",
+
       contactTitle:"获取报价 / 预约上门测量",
       contactLead:"我们会尽快回复。如紧急请直接致电。",
       placeholders:{name:"姓名", phone:"电话", email:"邮箱", suburb:"区域/Suburb", message:"需求说明（尺寸/类型/时间等）"},
@@ -807,6 +852,11 @@
 
     document.getElementById('heroTitle').textContent = t.heroTitle;
     document.getElementById('heroSub').textContent = t.heroSub;
+
+    // New hero mini
+    document.getElementById('heroMiniTitle').textContent = t.heroMiniTitle;
+    document.getElementById('heroMiniSub').textContent = t.heroMiniSub;
+    document.getElementById('btnHeroMini').textContent = t.btnHeroMini;
 
     document.getElementById('btnTopMeasure').textContent = t.btnTopMeasure;
     document.getElementById('btnTopCall').textContent = t.btnTopCall;
