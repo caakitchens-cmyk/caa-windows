@@ -1,710 +1,947 @@
 <!DOCTYPE html>
-   <html lang="zh">
-   <head>
-     <meta charset="UTF-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>CAA WINDOWS · 南澳铝合金门窗系统</title>
-     <meta name="description" content="CAA WINDOWS 提供南澳地区企业级铝合金门窗系统，覆盖图纸报价、工厂制造、物流、安装与质保。"/>
-     <link rel="icon" href="/favicon.png" />
-     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-     <link rel="preconnect" href="https://fonts.googleapis.com" />
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet" />
-     <style>
-   :root{
-     --bg:#07080c;
-     --card:#10141e;
-     --light-card:rgba(255,255,255,0.04);
-     --border:rgba(255,255,255,0.12);
-     --text:#f8fafc;
-     --muted:#b7bec8;
-     --accent:#f59e3b;
-     --radius:20px;
-     --shadow:0 25px 60px rgba(0,0,0,.45);
-   }
-   *{box-sizing:border-box;margin:0;padding:0;}
-   body{
-     font-family:'Manrope','Noto Sans SC',system-ui,-apple-system,'Segoe UI',sans-serif;
-     background:linear-gradient(125deg,#07080c,#05060a 60%,#0f1116);
-     color:var(--text);
-     min-height:100vh;
-     line-height:1.7;
-   }
-   img{max-width:100%;display:block;}
-   a{color:inherit;text-decoration:none;}
-   .container{width:min(1200px,92%);margin:0 auto;}
-   header{
-     position:sticky;
-     top:0;
-     z-index:999;
-     background:rgba(7,8,12,0.85);
-     backdrop-filter:blur(16px);
-     border-bottom:1px solid rgba(255,255,255,0.07);
-   }
-   .navbar{
-     display:flex;
-     align-items:center;
-     justify-content:space-between;
-     padding:16px 0;
-     gap:14px;
-   }
-   .brand{
-     display:flex;
-     align-items:center;
-     gap:12px;
-     font-weight:700;
-     letter-spacing:1px;
-   }
-   .brand-dot{
-     width:16px;height:16px;
-     border-radius:50%;
-     background:var(--accent);
-     box-shadow:0 0 0 6px rgba(245,158,59,.25);
-   }
-   .nav-links{
-     display:flex;
-     gap:16px;
-     font-size:14px;
-   }
-   .nav-links a{
-     padding:8px 14px;
-     border-radius:12px;
-     color:rgba(248,250,252,0.7);
-     transition:0.2s ease;
-   }
-   .nav-links a.active,
-   .nav-links a:hover{
-     background:rgba(245,158,59,.15);
-     color:#fff;
-   }
-   .actions{
-     display:flex;
-     align-items:center;
-     gap:10px;
-     flex-wrap:wrap;
-   }
-   .btn{
-     border-radius:999px;
-     padding:10px 18px;
-     font-weight:600;
-     font-size:14px;
-     border:1px solid transparent;
-     cursor:pointer;
-     transition:0.2s ease;
-   }
-   .btn-primary{
-     background:linear-gradient(135deg,#f59e3b,#ffc15d);
-     color:#0b0b0f;
-     box-shadow:0 15px 35px rgba(245,158,59,.4);
-   }
-   .btn-primary:hover{transform:translateY(-1px);}
-   .btn-dark{
-     border-color:rgba(255,255,255,.2);
-     background:rgba(255,255,255,.02);
-   }
-   .lang-toggle{
-     border-color:rgba(255,255,255,.25);
-     background:rgba(255,255,255,.02);
-     color:var(--accent);
-     font-weight:600;
-   }
-   .mobile-menu{
-     display:none;
-     border:1px solid rgba(255,255,255,.2);
-     background:rgba(255,255,255,.02);
-     color:#fff;
-     padding:8px 12px;
-     border-radius:12px;
-   }
-   main{
-     padding:40px 0 80px;
-   }
-   .hero{
-     padding:80px 0 60px;
-     position:relative;
-     overflow:hidden;
-   }
-   .hero::after{
-     content:'';
-     position:absolute;
-     inset:0;
-     background:url('hero-4panel-desktop.webp') center/cover;
-     mix-blend-mode:screen;
-     opacity:.12;
-     pointer-events:none;
-   }
-   .hero-grid{
-     display:grid;
-     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-     gap:32px;
-     align-items:center;
-   }
-   .hero h1{
-     font-size:clamp(2.8rem,4vw,3.8rem);
-     line-height:1.2;
-     margin-bottom:18px;
-   }
-   .hero p{color:var(--muted);margin-bottom:18px;max-width:640px;}
-   .hero-cta{
-     display:flex;
-     gap:12px;
-     flex-wrap:wrap;
-     margin-bottom:20px;
-   }
-   .hero-badges{
-     display:flex;
-     flex-wrap:wrap;
-     gap:12px;
-     margin-top:10px;
-   }
-   .badge{
-     padding:8px 14px;
-     border-radius:999px;
-     border:1px solid rgba(255,255,255,.15);
-     background:rgba(255,255,255,.03);
-     font-size:13px;
-   }
-   .hero-card{
-     background:linear-gradient(180deg,rgba(16,20,28,.95),rgba(16,20,28,.65));
-     border:1px solid rgba(255,255,255,.08);
-     border-radius:24px;
-     padding:24px;
-     box-shadow:var(--shadow);
-   }
-   .hero-card h3{margin-bottom:12px;font-size:16px;}
-   .trust{
-     display:grid;
-     grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-     gap:14px;
-   }
-   .trust-item{
-     padding:14px;
-     border-radius:16px;
-     border:1px solid rgba(255,255,255,.08);
-     background:rgba(255,255,255,.02);
-     display:flex;
-     gap:12px;
-     align-items:flex-start;
-   }
-   .trust-icon{
-     width:40px;height:40px;
-     border-radius:14px;
-     border:1px solid rgba(245,158,59,.3);
-     background:rgba(245,158,59,.08);
-     display:grid;
-     place-items:center;
-   }
-   .section{
-     padding:70px 0;
-   }
-   .section h2{
-     font-size:2.2rem;
-     margin-bottom:10px;
-   }
-   .section .lead{
-     color:var(--muted);
-     max-width:720px;
-     margin-bottom:24px;
-   }
-   .grid{
-     display:grid;
-     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-     gap:20px;
-   }
-   .card{
-     background:var(--card);
-     border:1px solid var(--border);
-     border-radius:20px;
-     padding:26px;
-     box-shadow:0 15px 40px rgba(0,0,0,.45);
-     transition:0.3s ease;
-   }
-   .card h3{
-     margin-bottom:10px;
-     font-size:18px;
-   }
-   .card p{
-     color:var(--muted);
-     font-size:14px;
-   }
-   .card:hover{
-     transform:translateY(-4px);
-     border-color:rgba(245,158,59,.35);
-   }
-   .process{
-     overflow:auto;
-   }
-   .steps{
-     display:grid;
-     grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-     gap:16px;
-   }
-   .step{
-     background:rgba(255,255,255,.02);
-     border:1px solid rgba(255,255,255,.08);
-     border-radius:16px;
-     padding:18px;
-   }
-   .step .n{
-     width:34px;height:34px;
-     border-radius:12px;
-     display:grid;
-     place-items:center;
-     background:rgba(245,158,59,.12);
-     border:1px solid rgba(245,158,59,.35);
-     color:var(--accent);
-     font-weight:700;
-     margin-bottom:10px;
-   }
-   .step b{display:block;font-size:14px;margin-bottom:4px;}
-   .step span{font-size:13px;color:var(--muted);}
-   .faq details{
-     background:rgba(255,255,255,.02);
-     border-radius:16px;
-     border:1px solid rgba(255,255,255,.08);
-     padding:16px;
-     margin-bottom:10px;
-   }
-   .faq summary{
-     cursor:pointer;
-     display:flex;
-     justify-content:space-between;
-     align-items:center;
-     font-weight:600;
-   }
-   .faq .ans{
-     margin-top:10px;
-     color:var(--muted);
-     font-size:14px;
-   }
-   .contact-card{
-     background:linear-gradient(180deg,rgba(7,8,12,.95),rgba(7,8,12,.8));
-     border-radius:26px;
-     border:1px solid rgba(255,255,255,.1);
-     padding:32px;
-     box-shadow:var(--shadow);
-   }
-   .contact-grid{
-     display:grid;
-     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-     gap:20px;
-   }
-   .contact-card form{
-     display:grid;
-     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-     gap:14px;
-   }
-   input,textarea,select{
-     width:100%;
-     background:rgba(255,255,255,.05);
-     border-radius:14px;
-     border:1px solid rgba(255,255,255,.15);
-     padding:12px 14px;
-     color:var(--text);
-     font-family:inherit;
-   }
-   textarea{
-     grid-column:1/3;
-     min-height:150px;
-     resize:vertical;
-   }
-   .upload{
-     grid-column:1/3;
-     border:1px dashed rgba(255,255,255,.25);
-     border-radius:16px;
-     padding:14px;
-     display:flex;
-     justify-content:space-between;
-     align-items:center;
-     gap:12px;
-     background:rgba(255,255,255,.04);
-     cursor:pointer;
-   }
-   .form-actions{
-     grid-column:1/3;
-     display:flex;
-     flex-wrap:wrap;
-     gap:10px;
-     align-items:center;
-   }
-   .disclaimer{
-     color:var(--muted);
-     font-size:12px;
-     margin-top:12px;
-   }
-   .toast{
-     margin-top:16px;
-     display:none;
-     padding:12px 16px;
-     border-radius:14px;
-     background:rgba(245,158,59,.14);
-     border:1px solid rgba(245,158,59,.35);
-   }
-   footer{
-     padding:34px 0;
-     border-top:1px solid rgba(255,255,255,.08);
-   }
-   footer .foot{
-     display:flex;
-     justify-content:space-between;
-     flex-wrap:wrap;
-     gap:10px;
-     color:var(--muted);
-     font-size:13px;
-   }
-   @media (max-width:960px){
-     .nav-links{display:none;}
-     .mobile-menu{display:inline-flex;}
-     header.open nav{
-       display:flex;
-       flex-direction:column;
-       gap:8px;
-       padding-bottom:12px;
-     }
-   }
-   @media (max-width:640px){
-     .hero h1{font-size:32px;}
-     .hero-cta{flex-direction:column;}
-     .contact-card form{grid-template-columns:1fr;}
-     .upload,textarea,.form-actions{grid-column:1;}
-   }
-     </style>
-   </head>
-   <body>
-     <header id="header">
-       <div class="container navbar">
-         <div class="brand">
-           <span class="brand-dot"></span>
-           <span>CAA WINDOWS</span>
-         </div>
-         <button class="menu-btn" id="menuBtn" aria-label="开启菜单">Menu</button>
-         <nav id="navLinks" class="nav-links">
-           <a href="#home" class="active">Home</a>
-           <a href="#capabilities">Capability</a>
-           <a href="#solutions">Solutions</a>
-           <a href="#services">Services</a>
-           <a href="#projects">Projects</a>
-           <a href="#process">Process</a>
-           <a href="#faq">FAQ</a>
-           <a href="#contact">Contact</a>
-         </nav>
-         <div class="actions">
-           <button class="btn lang-toggle" id="langBtn">中文</button>
-           <a class="btn btn-dark" href="tel:+61871230000" id="headerPhone">+61 8 7123 0000</a>
-           <a class="btn btn-primary" href="#contact">上传图纸 / Get Quote</a>
-         </div>
-       </div>
-     </header>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAA WINDOWS | Aluminium Windows & Doors in South Australia</title>
 
-     <main id="home">
-       <section class="hero">
-         <div class="container hero-grid">
-           <div>
-             <p class="badge">Plan-first quoting</p>
-             <h1 id="heroTitle">南澳企业级铝合金门窗系统</h1>
-             <p id="heroSub">Plan-driven quotation, factory-to-site coordination, and installation-ready solutions for Adelaide’s residential & commercial builds.</p>
-             <div class="hero-cta">
-               <a class="btn btn-primary" href="#contact" id="heroPrimary">Upload Plans / 快速报价</a>
-               <a class="btn btn-dark" href="mailto:sales@caawindows.com.au" id="heroSecondary">Email Us</a>
-               <a class="btn" style="border-color:rgba(255,255,255,.2);" href="tel:+61871230000" id="heroCall">Call Now</a>
-             </div>
-             <div class="hero-badges">
-               <span class="badge">South Australia · Adelaide & surrounds</span>
-               <span class="badge">Factory + Installation</span>
-               <span class="badge">ISO-aligned Process</span>
-             </div>
-           </div>
-           <aside class="hero-card">
-             <h3>Why builders trust us</h3>
-             <div class="trust">
-               <div class="trust-item">
-                 <div class="trust-icon" aria-hidden="true"><span>²⁰+</span></div>
-                 <div><b>Experience</b><span>Over 20 years delivering windows & doors.</span></div>
-               </div>
-               <div class="trust-item">
-                 <div class="trust-icon" aria-hidden="true"><span>500+</span></div>
-                 <div><b>Projects</b><span>Residential, commercial and public works.</span></div>
-               </div>
-               <div class="trust-item">
-                 <div class="trust-icon" aria-hidden="true"><span>48h</span></div>
-                 <div><b>Response</b><span>Proposal within 48 hours after plans.</span></div>
-               </div>
-               <div class="trust-item">
-                 <div class="trust-icon" aria-hidden="true"><span>3k</span></div>
-                 <div><b>Capacity</b><span>3,000 sqm factory, CNC + QC trace.</span></div>
-               </div>
-             </div>
-           </aside>
-         </div>
-       </section>
+  <!-- SEO -->
+  <meta name="description" content="CAA WINDOWS provides aluminium windows and doors in South Australia. Measure & Quote, Supply Only, Supply & Install. Adelaide & Surrounds." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.caawindows.com/" />
 
-       <section class="section" id="capabilities">
-         <div class="container">
-           <div class="section-header">
-             <h2>Enterprise-grade capability</h2>
-             <p class="lead">Design review, fabrication, logistics and installation execution under one roof.</p>
-           </div>
-           <div class="grid">
-             <div class="card">
-               <h3>Design & engineering</h3>
-               <p>We analyze drawings, identify energy/safety requirements and model schedules before quoting.</p>
-             </div>
-             <div class="card">
-               <h3>Factory control</h3>
-               <p>In-house CNC, automatic powder coat, leak and air infiltration testing.</p>
-             </div>
-             <div class="card">
-               <h3>Logistics & install</h3>
-               <p>Tracking, bonded warehousing, and coordinated PM teams keep site handover smooth.</p>
-             </div>
-             <div class="card">
-               <h3>Project managers</h3>
-               <p>A dedicated PM leads every project, reducing change orders and timeline risk.</p>
-             </div>
-           </div>
-         </div>
-       </section>
+  <!-- Open Graph -->
+  <meta property="og:title" content="CAA WINDOWS | Aluminium Windows & Doors SA" />
+  <meta property="og:description" content="Measure & Quote · Supply · Install. Serving Adelaide & Surrounds." />
+  <meta property="og:image" content="https://www.caawindows.com/og-cover.jpg" />
+  <meta property="og:url" content="https://www.caawindows.com/" />
+  <meta property="og:type" content="website" />
 
-       <section class="section" id="solutions">
-         <div class="container">
-           <h2>Solutions</h2>
-           <p class="lead">We treat every tender as a long-term partnership—transparent, auditable and repeatable.</p>
-           <div class="grid">
-             <div class="card">
-               <h3>Project planning</h3>
-               <p>Budget models, risk summaries, and optionals built from your drawings.</p>
-             </div>
-             <div class="card">
-               <h3>Materials & systems</h3>
-               <p>European-certified aluminium, structural fittings, thermal & acoustic configurations.</p>
-             </div>
-             <div class="card">
-               <h3>Fabrication & QA</h3>
-               <p>CNC cuts, test assemblies, and traceable QC before packing.</p>
-             </div>
-             <div class="card">
-               <h3>Supply chain</h3>
-               <p>Warehousing, delivery, on-site coordination plus upgrade kits.</p>
-             </div>
-           </div>
-         </div>
-       </section>
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-       <section class="section" id="services">
-         <div class="container">
-           <h2>Services</h2>
-           <p class="lead">Flexible bundles for new builds, renovations, commercial refurbs.</p>
-           <div class="grid">
-             <div class="card"><h3>Plan-based quoting</h3><p>PDF/BIM/DXF accepted, we return clear scope & delivery.</p></div>
-             <div class="card"><h3>Supply only</h3><p>Fabrication + delivery with packaging and install instructions for subcontractors.</p></div>
-             <div class="card"><h3>Supply & install</h3><p>In-house installers or vetted partners with final inspection.</p></div>
-             <div class="card"><h3>Aftercare</h3><p>Maintenance tips, spare parts and warranty tracking.</p></div>
-           </div>
-         </div>
-       </section>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
 
-       <section class="section" id="projects">
-         <div class="container">
-           <h2>Project types</h2>
-           <p class="lead">Different needs, one consistent delivery model.</p>
-           <div class="grid">
-             <div class="card">
-               <h3>New build / Builder</h3>
-               <p>Quote from drawings—PDF plans and window schedules preferred.</p>
-             </div>
-             <div class="card">
-               <h3>Renovation / Replacement</h3>
-               <p>Photos, notes and optional onsite check to confirm openings.</p>
-             </div>
-             <div class="card">
-               <h3>Commercial Facades</h3>
-               <p>Bespoke curtain walls, curtain track systems, and structural anchors.</p>
-             </div>
-           </div>
-           <div class="card" style="margin-top:24px;">
-             <h3>Upload guide</h3>
-             <div class="grid" style="margin-top:12px;">
-               <div class="card" style="box-shadow:none;"><p>Plans, elevations, window schedules, sections.</p></div>
-               <div class="card" style="box-shadow:none;"><p>Photos, site constraints, preferred timeline.</p></div>
-             </div>
-           </div>
-         </div>
-       </section>
+  <!-- LocalBusiness Schema (placeholders you can replace later) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"CAA WINDOWS",
+    "url":"https://www.caawindows.com/",
+    "telephone":"XX_PHONE",
+    "email":"sales@caawindows.com.au",
+    "areaServed":"Adelaide & surrounds, South Australia",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"XX_ADDRESS",
+      "addressLocality":"Adelaide",
+      "addressRegion":"SA",
+      "addressCountry":"AU"
+    }
+  }
+  </script>
 
-       <section class="section" id="process">
-         <div class="container">
-           <h2>Process</h2>
-           <p class="lead">ISO-inspired workflow from plans to handover.</p>
-           <div class="steps">
-             <div class="step"><div class="n">01</div><b>Send plans</b><span>PDF, window schedule, photos</span></div>
-             <div class="step"><div class="n">02</div><b>Takeoff</b><span>Material/system confirmation</span></div>
-             <div class="step"><div class="n">03</div><b>Quote</b><span>Clear scope, lead time</span></div>
-             <div class="step"><div class="n">04</div><b>Shop drawing</b><span>Sign-off before production</span></div>
-             <div class="step"><div class="n">05</div><b>Manufacture</b><span>CNC + QC + packaging</span></div>
-             <div class="step"><div class="n">06</div><b>Install & handover</b><span>Site supervision + report</span></div>
-           </div>
-         </div>
-       </section>
+  <style>
+    :root{
+      --bg:#111315;
+      --card:#1C2026;
+      --line:#2A3038;
+      --text:#F5F7FA;
+      --sub:#B7BEC8;
+      --accent:#F28C28;
 
-       <section class="section" id="faq">
-         <div class="container">
-           <h2>FAQ</h2>
-           <p class="lead">Common questions answered quickly.</p>
-           <div class="faq">
-             <details><summary>Do you service Adelaide only? <span>+</span></summary><div class="ans">Adelaide & surrounds, South Australia.</div></details>
-             <details><summary>Can you quote from plans? <span>+</span></summary><div class="ans">Yes, PDF plans & schedules—renovations may need an onsite check.</div></details>
-             <details><summary>Do you offer installation? <span>+</span></summary><div class="ans">Yes. Supply only or supply & install depending on project.</div></details>
-             <details><summary>What is the warranty? <span>+</span></summary><div class="ans">2 years (T&Cs apply).</div></details>
-             <details><summary>What files can I upload? <span>+</span></summary><div class="ans">PDF, JPG, PNG, sketches encouraged.</div></details>
-             <details><summary>How do I get a quote? <span>+</span></summary><div class="ans">Upload plans/photos with Suburb & timeline, or call us.</div></details>
-           </div>
-         </div>
-       </section>
+      --radius:10px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
 
-       <section class="section" id="contact">
-         <div class="container">
-           <h2>Get a quote / Upload plans</h2>
-           <p class="lead">The more detail you share, the faster we can respond.</p>
-           <div class="contact-card">
-             <div class="contact-grid">
-               <form action="https://formspree.io/f/mkovoavz" method="POST" enctype="multipart/form-data">
-                 <input name="name" placeholder="Full name" required />
-                 <input name="phone" placeholder="Phone" required />
-                 <input type="email" name="email" placeholder="Email" />
-                 <input name="suburb" placeholder="Project suburb" />
-                 <select name="project_type">
-                   <option value="" selected>Project type</option>
-                   <option value="New Build">New Build / Builder</option>
-                   <option value="Renovation">Renovation / Replacement</option>
-                 </select>
-                 <select name="scope">
-                   <option value="" selected>Scope</option>
-                   <option value="Whole house">Whole house</option>
-                   <option value="Selected">Selected windows/doors</option>
-                   <option value="Not sure">Not sure</option>
-                 </select>
-                 <select name="timeline">
-                   <option value="" selected>Timeline</option>
-                   <option value="ASAP">ASAP</option>
-                   <option value="2-4 weeks">2–4 weeks</option>
-                   <option value="1-3 months">1–3 months</option>
-                   <option value="3+ months">3+ months</option>
-                 </select>
-                 <textarea name="message" placeholder="Project details (sizes, colours, notes)"></textarea>
-                 <label class="upload">
-                   <div>
-                     <strong>Upload plans / photos</strong>
-                     <small>PDF/JPG/PNG supported · Selected: <span id="fileName">None</span></small>
-                   </div>
-                   <span class="btn btn-outline">Choose file</span>
-                   <input id="fileInput" type="file" name="file" hidden />
-                 </label>
-                 <input type="hidden" name="_subject" value="CAA WINDOWS Enquiry (Website)" />
-                 <input type="hidden" name="_redirect" value="https://www.caawindows.com/?submitted=true#contact" />
-                 <div class="form-actions">
-                   <button class="btn btn-primary" type="submit">Submit</button>
-                   <a class="btn btn-dark" href="mailto:sales@caawindows.com.au">Email Us</a>
-                 </div>
-               </form>
-             </div>
-             <div class="toast" id="toast">Thanks! Your enquiry has been submitted.</div>
-           </div>
-         </div>
-       </section>
-     </main>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Inter','Noto Sans SC',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.6;
+    }
 
-     <footer>
-       <div class="container foot">
-         <div>© 2026 CAA WINDOWS · South Australia</div>
-         <div>Phone: +61 8 7123 0000 · Email: sales@caawindows.com.au</div>
-       </div>
-     </footer>
+    .container{width:min(1120px, 92%);margin:auto;}
+    .muted{color:var(--sub);}
+    .divider{height:1px;background:var(--line);opacity:.75;margin:18px 0;}
 
-     <script>
-   const menuBtn = document.getElementById('menuBtn');
-   const header = document.getElementById('header');
-   menuBtn.addEventListener('click', () => header.classList.toggle('open'));
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(17,19,21,.86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(242,140,40,.55);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:800;letter-spacing:.4px;
+      user-select:none;
+    }
+    .brand-dot{
+      width:10px;height:10px;border-radius:999px;background:var(--accent);
+      box-shadow:0 0 0 4px rgba(242,140,40,.12);
+    }
+    nav a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:8px;
+      opacity:.9;
+    }
+    nav a.active{background:rgba(242,140,40,.12); color:var(--text); opacity:1;}
+    nav a:hover{background:rgba(255,255,255,.06);}
 
-   const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
-   const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-   const setActive = () => {
-     const y = window.scrollY + 140;
-     let current = sections[0];
-     sections.forEach(sec => {
-       if (sec.offsetTop <= y) current = sec;
-     });
-     navLinks.forEach(link => link.classList.remove('active'));
-     const activeLink = navLinks.find(link => link.getAttribute('href') === `#${current.id}`);
-     if (activeLink) activeLink.classList.add('active');
-   };
-   window.addEventListener('scroll', setActive);
-   setActive();
+    .nav-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+    .lang{
+      cursor:pointer;
+      color:var(--accent);
+      font-weight:800;
+      padding:8px 10px;
+      border-radius:8px;
+      border:1px solid rgba(242,140,40,.35);
+      background:rgba(242,140,40,.06);
+    }
+    .lang:hover{background:rgba(242,140,40,.12);}
 
-   const fileInput = document.getElementById('fileInput');
-   const fileNameEl = document.getElementById('fileName');
-   const uploadBtn = document.querySelector('.upload .btn');
-   uploadBtn.addEventListener('click', () => fileInput.click());
-   fileInput.addEventListener('change', () => {
-     const file = fileInput.files[0];
-     fileNameEl.textContent = file ? `${file.name} (${Math.round(file.size/1024)} KB)` : 'None';
-   });
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 16px;border-radius:10px;
+      font-weight:800;font-size:14px;
+      text-decoration:none;cursor:pointer;
+      border:1px solid transparent;
+      transition:.15s ease;
+      user-select:none;
+      gap:8px;
+      white-space:nowrap;
+    }
+    .btn-primary{
+      background:var(--accent);
+      color:#111;
+      box-shadow: 0 10px 24px rgba(242,140,40,.22);
+    }
+    .btn-primary:hover{transform:translateY(-1px); filter:saturate(1.05);}
+    .btn-dark{
+      background:var(--card);
+      color:var(--text);
+      border:1px solid var(--line);
+    }
+    .btn-dark:hover{background:#20252d;}
+    .btn-outline{
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(242,140,40,.65);
+    }
+    .btn-outline:hover{background:rgba(242,140,40,.10);}
 
-   const toast = document.getElementById('toast');
-   if (window.location.search.includes('submitted=true')) {
-     toast.style.display = 'block';
-   }
+    .menu-btn{
+      display:none;
+      border:1px solid var(--line);
+      background:var(--card);
+      color:var(--text);
+      padding:10px 12px;border-radius:10px;
+      cursor:pointer;
+      font-weight:800;
+    }
 
-   const translations = {
-     en: {
-       nav:["Home","Capability","Solutions","Services","Projects","Process","FAQ","Contact"],
-       heroTitle:"Aluminium windows & doors for Adelaide enterprise builds",
-       heroSub:"Plan-first quoting, factory control and installation support calibrated for large residential and commercial projects.",
-       heroPrimary:"Upload plans / Quote",
-       heroSecondary:"Email us",
-       heroCall:"Call now",
-       badge1:"South Australia · Adelaide & surrounds",
-       badge2:"Factory + Installation",
-       badge3:"ISO-aligned delivery",
-       contactTitle:"Get a quote / Upload plans",
-       contactLead:"Share your files plus suburb and timeline – we reply in 48h."
-     },
-     zh: {
-       nav:["首页","实力","解决方案","服务","项目","流程","常见问题","联系"],
-       heroTitle:"南澳企业级铝合金门窗系统",
-       heroSub:"以图纸为核心的报价流程，覆盖工厂制造、物流与安装交付。",
-       heroPrimary:"上传图纸 / 快速报价",
-       heroSecondary:"发送邮件",
-       heroCall:"立即致电",
-       badge1:"南澳 · 阿德莱德及周边",
-       badge2:"工厂 + 安装",
-       badge3:"ISO 流程",
-       contactTitle:"获取报价 / 上传图纸",
-       contactLead:"把图纸、项目位置信息与时间节点发来，我们 48h 内回复。"
-     }
-   };
-   let currentLang = localStorage.getItem('CAA_LANG') || 'zh';
-   const langBtn = document.getElementById('langBtn');
+    /* Hero */
+    .hero{
+      padding:82px 0 54px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-200px -200px auto -200px;
+      height:520px;
+      background:radial-gradient(circle at 30% 30%, rgba(242,140,40,.22), transparent 55%);
+      pointer-events:none;
+    }
+    .hero-wrap{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:26px;
+      align-items:center;
+    }
+    .hero h1{
+      font-size:56px;
+      line-height:1.06;
+      letter-spacing:-.6px;
+      margin-bottom:14px;
+    }
+    .hero p{
+      color:var(--sub);
+      font-size:16px;
+      max-width:62ch;
+      margin-bottom:18px;
+    }
+    .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
+    .hero-badge{
+      display:flex;gap:10px;align-items:center;
+      margin-top:16px;
+      color:var(--sub);
+      font-size:13px;
+      flex-wrap:wrap;
+    }
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+    }
+    .hero-card{
+      background:linear-gradient(180deg, rgba(28,32,38,.95), rgba(28,32,38,.75));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .hero-card h3{font-size:14px;color:var(--sub);font-weight:800;margin-bottom:12px;}
+    .trust{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:12px;
+    }
+    .trust-item{
+      display:flex;gap:10px;align-items:flex-start;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      padding:12px;border-radius:12px;
+    }
+    .trust-icon{
+      width:34px;height:34px;border-radius:10px;
+      display:grid;place-items:center;
+      background:rgba(242,140,40,.10);
+      border:1px solid rgba(242,140,40,.22);
+      flex:0 0 auto;
+    }
+    .trust-item b{display:block;font-size:13px;}
+    .trust-item span{display:block;color:var(--sub);font-size:12px;margin-top:2px;}
 
-   const applyLang = (lang) => {
-     currentLang = lang;
-     localStorage.setItem('CAA_LANG', lang);
-     const data = translations[lang];
-     navLinks.forEach((link, index) => link.textContent = data.nav[index]);
-     document.getElementById('heroTitle').textContent = data.heroTitle;
-     document.getElementById('heroSub').textContent = data.heroSub;
-     document.getElementById('heroPrimary').textContent = data.heroPrimary;
-     document.getElementById('heroSecondary').textContent = data.heroSecondary;
-     document.getElementById('heroCall').textContent = data.heroCall;
-     document.querySelectorAll('.hero-badges .badge')[0].textContent = data.badge1;
-     document.querySelectorAll('.hero-badges .badge')[1].textContent = data.badge2;
-     document.querySelectorAll('.hero-badges .badge')[2].textContent = data.badge3;
-     document.querySelector('.section#contact h2').textContent = data.contactTitle;
-     document.querySelector('.section#contact .lead').textContent = data.contactLead;
-     langBtn.textContent = lang === 'zh' ? 'EN' : '中文';
-   };
-   langBtn.addEventListener('click', () => applyLang(currentLang === 'zh' ? 'en' : 'zh'));
-   applyLang(currentLang);
-     </script>
-   </body>
-   </html>
+    /* Sections */
+    .section{padding:58px 0;}
+    .section h2{
+      font-size:26px;
+      letter-spacing:-.2px;
+      margin-bottom:14px;
+    }
+    .section .lead{color:var(--sub);max-width:72ch;margin-bottom:18px;}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:16px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.18);
+    }
+    .card h3{font-size:16px;margin-bottom:8px;}
+    .card p{color:var(--sub);font-size:14px;}
+
+    /* Process */
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(6, minmax(0,1fr));
+      gap:10px;
+    }
+    .step{
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      padding:12px;border-radius:12px;
+    }
+    .step .n{
+      width:30px;height:30px;border-radius:10px;
+      display:grid;place-items:center;
+      background:rgba(242,140,40,.12);
+      border:1px solid rgba(242,140,40,.28);
+      font-weight:900;color:var(--accent);
+      margin-bottom:10px;
+    }
+    .step b{font-size:13px;display:block;margin-bottom:6px;font-weight:900;}
+    .step span{color:var(--sub);font-size:12px;display:block;}
+
+    /* FAQ */
+    .faq{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+    .faq details{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:12px;
+      padding:12px 14px;
+    }
+    .faq summary{
+      cursor:pointer;
+      font-weight:900;
+      list-style:none;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:14px;
+    }
+    .faq summary::-webkit-details-marker{display:none;}
+    .faq .ans{color:var(--sub);font-size:14px;margin-top:10px;}
+
+    /* Contact */
+    form{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    label.sr{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(28,32,38,.9);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus, textarea:focus{border-color: rgba(242,140,40,.65); box-shadow: 0 0 0 4px rgba(242,140,40,.12);}
+    textarea{grid-column:1/3; min-height:110px; resize:vertical;}
+    .upload{
+      grid-column:1/3;
+      border:2px dashed rgba(255,255,255,.12);
+      background:rgba(255,255,255,.02);
+      padding:14px;
+      border-radius:12px;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:10px;
+      cursor:pointer;
+    }
+    .upload small{color:var(--sub);}
+    .form-actions{
+      grid-column:1/3;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .disclaimer{
+      color:var(--sub);
+      font-size:12px;
+      margin-top:10px;
+      max-width:90ch;
+    }
+    .toast{
+      margin-top:14px;
+      display:none;
+      border:1px solid rgba(242,140,40,.28);
+      background:rgba(242,140,40,.10);
+      padding:10px 12px;
+      border-radius:12px;
+      color:var(--text);
+      font-weight:900;
+    }
+
+    footer{
+      padding:34px 0;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--sub);
+      font-size:13px;
+    }
+    footer .foot{
+      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    }
+
+    /* Mobile */
+    @media (max-width: 960px){
+      .hero-wrap{grid-template-columns:1fr;}
+      .steps{grid-template-columns:repeat(3, minmax(0,1fr));}
+      .grid{grid-template-columns:1fr;}
+    }
+    @media (max-width: 820px){
+      .menu-btn{display:inline-flex;}
+      nav{display:none;}
+      header.open nav{display:flex; flex-direction:column; align-items:flex-start; padding-bottom:14px; gap:6px;}
+      header.open .nav{align-items:flex-start;}
+      .nav-right{gap:8px;}
+      .hero h1{font-size:34px;}
+      form{grid-template-columns:1fr;}
+      textarea,.upload,.form-actions{grid-column:1;}
+      .trust{grid-template-columns:1fr;}
+      .steps{grid-template-columns:repeat(2, minmax(0,1fr));}
+      footer .foot{flex-direction:column;align-items:flex-start;}
+    }
+  </style>
+</head>
+
+<body>
+<header id="header">
+  <div class="container nav">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span id="brandText">CAA WINDOWS</span>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">Menu</button>
+
+    <nav id="navLinks" aria-label="Primary">
+      <a href="#home" data-link="home">Home</a>
+      <a href="#products" data-link="products">Products</a>
+      <a href="#services" data-link="services">Services</a>
+      <a href="#process" data-link="process">Process</a>
+      <a href="#faq" data-link="faq">FAQ</a>
+      <a href="#contact" data-link="contact">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <button class="lang" id="langBtn" type="button">中文</button>
+      <a href="#contact" class="btn btn-primary" id="btnTopMeasure">Book a Measure</a>
+      <a href="tel:XX_PHONE" class="btn btn-dark" id="btnTopCall">Call Now</a>
+    </div>
+  </div>
+</header>
+
+<main id="home">
+  <!-- HERO (Enterprise upgrade) -->
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <h1 id="heroTitle">Aluminium Windows & Doors in Adelaide</h1>
+        <p id="heroSub">Measure & Quote · Supply · Install — Local SA service with clear scope and timing.</p>
+
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary" id="btnHeroQuote">Get a Free Quote</a>
+          <a href="#contact" class="btn btn-dark" id="btnHeroMeasure">Book a Measure</a>
+          <a href="tel:XX_PHONE" class="btn btn-outline" id="btnHeroCall">Call Now</a>
+        </div>
+
+        <div class="hero-badge">
+          <span class="pill" id="pillArea">South Australia · Adelaide & Surrounds</span>
+          <span class="pill" id="pillWarranty">2-year warranty (T&Cs apply)</span>
+          <span class="pill" id="pillLang">EN / 中文</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="card" style="padding:14px 16px;">
+          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;">
+            <div style="min-width:240px;">
+              <div style="font-weight:900;" id="heroMiniTitle">Fast response, practical advice</div>
+              <div class="muted" style="font-size:13px;" id="heroMiniSub">
+                Send plans/photos — we’ll confirm types, sizes, and installation options.
+              </div>
+            </div>
+            <a href="#contact" class="btn btn-outline" id="btnHeroMini">Upload & Enquire</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Trust Bar">
+        <h3 id="trustTitle">Why builders & homeowners choose us</h3>
+        <div class="trust">
+          <div class="trust-item">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3l9 4v6c0 5-3.8 9-9 10-5.2-1-9-5-9-10V7l9-4z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <b id="trust1b">Local SA</b>
+              <span id="trust1s">Adelaide & surrounds</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M4 20h16M6 16l6-12 6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <b id="trust2b">Measure & Quote</b>
+              <span id="trust2s">Clear scope & options</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <b id="trust3b">Supply & Install</b>
+              <span id="trust3s">Flexible project support</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6l-11 11-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <b id="trust4b">Warranty</b>
+              <span id="trust4s">2 years (T&Cs apply)</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="products">
+    <div class="container">
+      <h2 id="productsTitle">Products</h2>
+      <p class="lead" id="productsLead">We cover mainstream aluminium windows & doors types in Australia.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3 id="prod1Title">Windows</h3>
+          <p id="prod1Desc">Sliding · Awning · Double Hung · Fixed · Custom</p>
+        </div>
+        <div class="card">
+          <h3 id="prod2Title">Doors</h3>
+          <p id="prod2Desc">Sliding · Hinged · Stacker · Bi-fold · Custom</p>
+        </div>
+        <div class="card">
+          <h3 id="prod3Title">Hardware & Screens</h3>
+          <p id="prod3Desc">Locks · Tracks · Flyscreens · Security options (where applicable)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="section" id="services">
+  <div class="container">
+    <h2 id="servicesTitle">Services</h2>
+    <p class="lead" id="servicesLead">
+      Most new builds are quoted from plans. Onsite measure is typically for renovations.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3 id="srv1Title">Plans / Takeoff & Quote</h3>
+        <p id="srv1Desc">Send plans (PDF) or drawings. We do takeoff and provide a clear scope and quote.</p>
+      </div>
+      <div class="card">
+        <h3 id="srv2Title">Supply Only</h3>
+        <p id="srv2Desc">Manufacture + supply for builders or your installer. Pick-up / delivery options.</p>
+      </div>
+      <div class="card">
+        <h3 id="srv3Title">Supply & Install</h3>
+        <p id="srv3Desc">For renovations and selected projects: supply, install, and handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+ <section class="section" id="process">
+  <div class="container">
+    <h2 id="processTitle">Process</h2>
+    <p class="lead" id="processLead">
+      Plan-first workflow for fast quoting — measure is usually for renovations only.
+    </p>
+
+    <div class="steps">
+      <div class="step"><div class="n">1</div><b id="st1b">Send Plans</b><span id="st1s">PDF drawings / window schedule / photos</span></div>
+      <div class="step"><div class="n">2</div><b id="st2b">Takeoff</b><span id="st2s">Confirm types, sizes, openings</span></div>
+      <div class="step"><div class="n">3</div><b id="st3b">Quote</b><span id="st3s">Clear scope, options, and lead time</span></div>
+      <div class="step"><div class="n">4</div><b id="st4b">Confirm</b><span id="st4s">Approve details and order</span></div>
+      <div class="step"><div class="n">5</div><b id="st5b">Supply / Install</b><span id="st5s">Manufacture + delivery / install</span></div>
+      <div class="step"><div class="n">6</div><b id="st6b">Handover</b><span id="st6s">Final check and warranty info</span></div>
+    </div>
+  </div>
+</section>
+
+
+  <section class="section" id="faq">
+    <div class="container">
+      <h2 id="faqTitle">FAQ</h2>
+      <p class="lead" id="faqLead">Quick answers to common questions.</p>
+
+      <div class="faq">
+        <details>
+          <summary><span id="q1">Do you service Adelaide only?</span><span>+</span></summary>
+          <div class="ans" id="a1">We service Adelaide & surrounds across South Australia.</div>
+        </details>
+
+        <details>
+          <summary><span id="q2">What products do you provide?</span><span>+</span></summary>
+          <div class="ans" id="a2">Mainstream aluminium windows and doors: sliding, awning, hinged, stacker, bi-fold and more.</div>
+        </details>
+
+        <details>
+          <summary><span id="q3">Do you offer installation?</span><span>+</span></summary>
+          <div class="ans" id="a3">Yes — we support supply-only or supply & install depending on project needs.</div>
+        </details>
+
+        <details>
+          <summary><span id="q4">How long is the warranty?</span><span>+</span></summary>
+          <div class="ans" id="a4">2 years warranty (T&Cs apply).</div>
+        </details>
+
+        <details>
+          <summary><span id="q5">Can I upload drawings/photos?</span><span>+</span></summary>
+          <div class="ans" id="a5">Yes — upload plans, photos, or sketches in the enquiry form.</div>
+        </details>
+
+        <details>
+          <summary><span id="q6">How do I get a quote?</span><span>+</span></summary>
+          <div class="ans" id="a6">Submit the form with your suburb and project details, or call us directly.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 id="contactTitle">Get a Quote / Book a Measure</h2>
+      <p class="lead" id="contactLead">We’ll respond as soon as possible. For urgent matters, please call.</p>
+
+      <div class="card">
+        <form action="https://formspree.io/f/mkovoavz" method="POST" enctype="multipart/form-data">
+          <label class="sr" for="name" id="labName">Full Name</label>
+          <input id="name" name="name" placeholder="Full Name" required />
+
+          <label class="sr" for="phone" id="labPhone">Phone</label>
+          <input id="phone" name="phone" placeholder="Phone" required />
+
+          <label class="sr" for="email" id="labEmail">Email</label>
+          <input id="email" type="email" name="email" placeholder="Email" />
+
+          <label class="sr" for="suburb" id="labSuburb">Suburb</label>
+          <input id="suburb" name="suburb" placeholder="Suburb" />
+
+          <label class="sr" for="message" id="labMsg">Project Details</label>
+          <textarea id="message" name="message" placeholder="Project Details (size, type, timing)"></textarea>
+
+          <label class="upload" id="uploadBox">
+            <div>
+              <b id="uploadTitle">Upload Plans / Photos</b><br />
+              <small id="uploadHint">PDF/JPG/PNG supported (best effort). Selected: <span id="fileName">None</span></small>
+            </div>
+            <span class="btn btn-outline" id="uploadBtn" type="button">Choose File</span>
+            <input id="fileInput" type="file" name="file" hidden />
+          </label>
+
+          <!-- Redirect to WWW canonical -->
+          <input type="hidden" name="_redirect" value="https://www.caawindows.com/?submitted=true#contact">
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit" id="btnSubmit">Submit</button>
+            <a class="btn btn-dark" href="mailto:sales@caawindows.com.au" id="btnEmail">Email Us</a>
+          </div>
+        </form>
+
+        <p class="disclaimer" id="disclaimer">
+          By submitting, you agree we may contact you regarding this enquiry. Warranty terms apply.
+        </p>
+
+        <div class="toast" id="toast">Thanks! Your enquiry has been submitted.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>© <span id="year"></span> CAA WINDOWS · South Australia</div>
+      <div>
+        <span id="footPhone">Phone: XX_PHONE</span> ·
+        <span id="footEmail">Email: sales@caawindows.com.au</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  // Mobile menu
+  const header = document.getElementById('header');
+  const menuBtn = document.getElementById('menuBtn');
+  menuBtn.addEventListener('click', () => header.classList.toggle('open'));
+
+  // Active nav highlight on scroll
+  const navLinks = Array.from(document.querySelectorAll('nav a'));
+  const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const setActive = () => {
+    const y = window.scrollY + 120;
+    let idx = 0;
+    for (let i = 0; i < sections.length; i++){
+      if (sections[i].offsetTop <= y) idx = i;
+    }
+    navLinks.forEach(a => a.classList.remove('active'));
+    if (navLinks[idx]) navLinks[idx].classList.add('active');
+  };
+  window.addEventListener('scroll', setActive);
+  setActive();
+
+  // File upload UI
+  const fileInput = document.getElementById('fileInput');
+  const uploadBox = document.getElementById('uploadBox');
+  const fileNameEl = document.getElementById('fileName');
+  uploadBox.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => {
+    const f = fileInput.files && fileInput.files[0];
+    fileNameEl.textContent = f ? (f.name + (f.size ? ` (${Math.round(f.size/1024)} KB)` : "")) : "None";
+  });
+
+  // Toast on success redirect
+  const toast = document.getElementById('toast');
+  if (window.location.search.includes('submitted=true')) {
+    toast.style.display = 'block';
+  }
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // i18n
+  const dict = {
+    en: {
+      langBtn: "中文",
+      nav: {home:"Home",products:"Products",services:"Services",process:"Process",faq:"FAQ",contact:"Contact"},
+
+      heroTitle:"Aluminium Windows & Doors in Adelaide",
+      heroSub:"Measure & Quote · Supply · Install — Local SA service with clear scope and timing.",
+      heroMiniTitle:"Fast response, practical advice",
+      heroMiniSub:"Send plans/photos — we’ll confirm types, sizes, and installation options.",
+      btnHeroMini:"Upload & Enquire",
+
+      btnTopMeasure:"Book a Measure",
+      btnTopCall:"Call Now",
+      btnHeroQuote:"Get a Free Quote",
+      btnHeroMeasure:"Book a Measure",
+      btnHeroCall:"Call Now",
+      pillArea:"South Australia · Adelaide & Surrounds",
+      pillWarranty:"2-year warranty (T&Cs apply)",
+      pillLang:"EN / 中文",
+      trustTitle:"Why builders & homeowners choose us",
+      trust1b:"Local SA", trust1s:"Adelaide & surrounds",
+      trust2b:"Measure & Quote", trust2s:"Clear scope & options",
+      trust3b:"Supply & Install", trust3s:"Flexible project support",
+      trust4b:"Warranty", trust4s:"2 years (T&Cs apply)",
+
+      productsTitle:"Products",
+      productsLead:"We cover mainstream aluminium windows & doors types in Australia.",
+      prod1Title:"Windows", prod1Desc:"Sliding · Awning · Double Hung · Fixed · Custom",
+      prod2Title:"Doors", prod2Desc:"Sliding · Hinged · Stacker · Bi-fold · Custom",
+      prod3Title:"Hardware & Screens", prod3Desc:"Locks · Tracks · Flyscreens · Security options (where applicable)",
+
+      servicesTitle:"Services",
+      servicesLead:"Choose what fits your project stage and budget.",
+      srv1Title:"Measure & Quote", srv1Desc:"Onsite measurement with a clear quote and scope.",
+      srv2Title:"Supply Only", srv2Desc:"Manufacture + supply for your installer/builder.",
+      srv3Title:"Supply & Install", srv3Desc:"End-to-end service: supply, install, and handover.",
+
+      processTitle:"Process",
+      processLead:"A simple 6-step workflow to keep your project moving.",
+      st1b:"Enquiry", st1s:"Call or submit the form",
+      st2b:"Measure", st2s:"Onsite measurement (if needed)",
+      st3b:"Quote", st3s:"Clear scope & pricing",
+      st4b:"Confirm", st4s:"Approve details & timeline",
+      st5b:"Supply / Install", st5s:"Production + delivery/installation",
+      st6b:"Handover", st6s:"Final check & warranty info",
+
+      faqTitle:"FAQ",
+      faqLead:"Quick answers to common questions.",
+      q1:"Do you service Adelaide only?", a1:"We service Adelaide & surrounds across South Australia.",
+      q2:"What products do you provide?", a2:"Mainstream aluminium windows and doors: sliding, awning, hinged, stacker, bi-fold and more.",
+      q3:"Do you offer installation?", a3:"Yes — we support supply-only or supply & install depending on project needs.",
+      q4:"How long is the warranty?", a4:"2 years warranty (T&Cs apply).",
+      q5:"Can I upload drawings/photos?", a5:"Yes — upload plans, photos, or sketches in the enquiry form.",
+      q6:"How do I get a quote?", a6:"Submit the form with your suburb and project details, or call us directly.",
+
+      contactTitle:"Get a Quote / Book a Measure",
+      contactLead:"We’ll respond as soon as possible. For urgent matters, please call.",
+      placeholders:{name:"Full Name", phone:"Phone", email:"Email", suburb:"Suburb", message:"Project Details (size, type, timing)"},
+      uploadTitle:"Upload Plans / Photos",
+      uploadHint:"PDF/JPG/PNG supported (best effort). Selected: ",
+      uploadBtn:"Choose File",
+      btnSubmit:"Submit",
+      btnEmail:"Email Us",
+      disclaimer:"By submitting, you agree we may contact you regarding this enquiry. Warranty terms apply.",
+      toast:"Thanks! Your enquiry has been submitted.",
+      footPhone:"Phone: XX_PHONE",
+      footEmail:"Email: sales@caawindows.com.au"
+    },
+    zh: {
+      langBtn: "EN",
+      nav: {home:"首页",products:"产品",services:"服务",process:"流程",faq:"常见问题",contact:"联系"},
+
+      heroTitle:"阿德莱德铝合金门窗",
+      heroSub:"测量与报价 · 供货 · 安装 —— 南澳本地服务，范围清晰、工期明确。",
+      heroMiniTitle:"快速响应，建议务实",
+      heroMiniSub:"上传图纸/照片，我们会确认类型、尺寸与安装方案。",
+      btnHeroMini:"上传资料并咨询",
+
+      btnTopMeasure:"预约上门测量",
+      btnTopCall:"电话咨询",
+      btnHeroQuote:"免费报价",
+      btnHeroMeasure:"预约上门测量",
+      btnHeroCall:"电话咨询",
+      pillArea:"南澳 · 阿德莱德及周边",
+      pillWarranty:"2年质保（以条款为准）",
+      pillLang:"EN / 中文",
+      trustTitle:"为什么客户选择我们",
+      trust1b:"南澳本地", trust1s:"阿德莱德及周边",
+      trust2b:"测量与报价", trust2s:"范围清晰、方案明确",
+      trust3b:"供货与安装", trust3s:"支持多种项目方式",
+      trust4b:"质保", trust4s:"2年（以条款为准）",
+
+      productsTitle:"产品",
+      productsLead:"覆盖澳洲主流铝合金门窗品类，可按项目定制。",
+      prod1Title:"窗", prod1Desc:"推拉窗 · 上悬窗 · 上下窗 · 固定窗 · 定制",
+      prod2Title:"门", prod2Desc:"推拉门 · 平开门 · 叠门 · 折叠门 · 定制",
+      prod3Title:"五金与纱网", prod3Desc:"锁具 · 轨道 · 防蚊纱 · 安防选项（如适用）",
+
+      servicesTitle:"服务",
+      servicesLead:"按预算与阶段选择更合适的方案。",
+      srv1Title:"测量与报价", srv1Desc:"上门测量并给出清晰报价与范围。",
+      srv2Title:"仅供货", srv2Desc:"制作+供货，适合自有安装团队/Builder。",
+      srv3Title:"供货与安装", srv3Desc:"一站式交付：供货、安装、验收。",
+
+      processTitle:"流程",
+      processLead:"标准 6 步，让项目推进更顺畅。",
+      st1b:"咨询", st1s:"电话或提交表单",
+      st2b:"测量", st2s:"需要时安排上门核尺",
+      st3b:"报价", st3s:"明确范围与价格",
+      st4b:"确认", st4s:"确认细节与工期",
+      st5b:"供货/安装", st5s:"生产与交付/安装",
+      st6b:"验收", st6s:"最终检查与质保说明",
+
+      faqTitle:"常见问题",
+      faqLead:"快速解答常见疑问。",
+      q1:"只做阿德莱德吗？", a1:"服务阿德莱德及周边南澳区域。",
+      q2:"能做哪些门窗？", a2:"澳洲主流铝合金门窗：推拉/上悬/平开/叠门/折叠等，支持定制。",
+      q3:"提供安装吗？", a3:"提供：可仅供货，也可供货+安装，按项目需求定。",
+      q4:"质保多久？", a4:"2年质保（以条款为准）。",
+      q5:"能上传图纸/照片吗？", a5:"可以，表单支持上传图纸、照片或草图。",
+      q6:"如何获取报价？", a6:"提交表单（含 Suburb 与需求），或直接来电咨询。",
+
+      contactTitle:"获取报价 / 预约上门测量",
+      contactLead:"我们会尽快回复。如紧急请直接致电。",
+      placeholders:{name:"姓名", phone:"电话", email:"邮箱", suburb:"区域/Suburb", message:"需求说明（尺寸/类型/时间等）"},
+      uploadTitle:"上传图纸 / 照片",
+      uploadHint:"支持 PDF/JPG/PNG（尽力兼容）。已选择：",
+      uploadBtn:"选择文件",
+      btnSubmit:"提交",
+      btnEmail:"邮件联系",
+      disclaimer:"提交即表示你同意我们就本次咨询与您联系。质保条款适用。",
+      toast:"已提交！我们已收到你的咨询。",
+      footPhone:"电话：XX_PHONE",
+      footEmail:"邮箱：sales@caawindows.com.au"
+    }
+  };
+
+  let lang = localStorage.getItem('CAA_LANG') || 'en';
+
+  function applyLang(l){
+    lang = l;
+    localStorage.setItem('CAA_LANG', l);
+    const t = dict[l];
+
+    document.getElementById('langBtn').textContent = t.langBtn;
+
+    navLinks.forEach(a=>{
+      const key = a.dataset.link;
+      if (t.nav[key]) a.textContent = t.nav[key];
+    });
+
+    document.getElementById('heroTitle').textContent = t.heroTitle;
+    document.getElementById('heroSub').textContent = t.heroSub;
+
+    // New hero mini
+    document.getElementById('heroMiniTitle').textContent = t.heroMiniTitle;
+    document.getElementById('heroMiniSub').textContent = t.heroMiniSub;
+    document.getElementById('btnHeroMini').textContent = t.btnHeroMini;
+
+    document.getElementById('btnTopMeasure').textContent = t.btnTopMeasure;
+    document.getElementById('btnTopCall').textContent = t.btnTopCall;
+
+    document.getElementById('btnHeroQuote').textContent = t.btnHeroQuote;
+    document.getElementById('btnHeroMeasure').textContent = t.btnHeroMeasure;
+    document.getElementById('btnHeroCall').textContent = t.btnHeroCall;
+
+    document.getElementById('pillArea').textContent = t.pillArea;
+    document.getElementById('pillWarranty').textContent = t.pillWarranty;
+    document.getElementById('pillLang').textContent = t.pillLang;
+
+    document.getElementById('trustTitle').textContent = t.trustTitle;
+    ['1','2','3','4'].forEach(i=>{
+      document.getElementById('trust'+i+'b').textContent = t['trust'+i+'b'];
+      document.getElementById('trust'+i+'s').textContent = t['trust'+i+'s'];
+    });
+
+    document.getElementById('productsTitle').textContent = t.productsTitle;
+    document.getElementById('productsLead').textContent = t.productsLead;
+
+    document.getElementById('prod1Title').textContent = t.prod1Title;
+    document.getElementById('prod1Desc').textContent = t.prod1Desc;
+    document.getElementById('prod2Title').textContent = t.prod2Title;
+    document.getElementById('prod2Desc').textContent = t.prod2Desc;
+    document.getElementById('prod3Title').textContent = t.prod3Title;
+    document.getElementById('prod3Desc').textContent = t.prod3Desc;
+
+    document.getElementById('servicesTitle').textContent = t.servicesTitle;
+    document.getElementById('servicesLead').textContent = t.servicesLead;
+
+    document.getElementById('srv1Title').textContent = t.srv1Title;
+    document.getElementById('srv1Desc').textContent = t.srv1Desc;
+    document.getElementById('srv2Title').textContent = t.srv2Title;
+    document.getElementById('srv2Desc').textContent = t.srv2Desc;
+    document.getElementById('srv3Title').textContent = t.srv3Title;
+    document.getElementById('srv3Desc').textContent = t.srv3Desc;
+
+    document.getElementById('processTitle').textContent = t.processTitle;
+    document.getElementById('processLead').textContent = t.processLead;
+    ['1','2','3','4','5','6'].forEach(i=>{
+      document.getElementById('st'+i+'b').textContent = t['st'+i+'b'];
+      document.getElementById('st'+i+'s').textContent = t['st'+i+'s'];
+    });
+
+    document.getElementById('faqTitle').textContent = t.faqTitle;
+    document.getElementById('faqLead').textContent = t.faqLead;
+    ['1','2','3','4','5','6'].forEach(i=>{
+      document.getElementById('q'+i).textContent = t['q'+i];
+      document.getElementById('a'+i).textContent = t['a'+i];
+    });
+
+    document.getElementById('contactTitle').textContent = t.contactTitle;
+    document.getElementById('contactLead').textContent = t.contactLead;
+
+    document.getElementById('name').placeholder = t.placeholders.name;
+    document.getElementById('phone').placeholder = t.placeholders.phone;
+    document.getElementById('email').placeholder = t.placeholders.email;
+    document.getElementById('suburb').placeholder = t.placeholders.suburb;
+    document.getElementById('message').placeholder = t.placeholders.message;
+
+    document.getElementById('uploadTitle').textContent = t.uploadTitle;
+    document.getElementById('uploadHint').childNodes[0].textContent = t.uploadHint + " ";
+    document.getElementById('uploadBtn').textContent = t.uploadBtn;
+
+    document.getElementById('btnSubmit').textContent = t.btnSubmit;
+    document.getElementById('btnEmail').textContent = t.btnEmail;
+    document.getElementById('disclaimer').textContent = t.disclaimer;
+    document.getElementById('toast').textContent = t.toast;
+
+    document.getElementById('footPhone').textContent = t.footPhone;
+    document.getElementById('footEmail').textContent = t.footEmail;
+  }
+
+  document.getElementById('langBtn').addEventListener('click', ()=>{
+    applyLang(lang === 'en' ? 'zh' : 'en');
+  });
+
+  applyLang(lang);
+</script>
+</body>
+</html>
