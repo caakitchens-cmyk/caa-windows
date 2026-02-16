@@ -6,13 +6,13 @@
   <title>CAA WINDOWS | Aluminium Windows & Doors in South Australia</title>
 
   <!-- SEO -->
-  <meta name="description" content="CAA WINDOWS provides aluminium windows and doors in South Australia. Plan-first quote, supply only, or supply & install. Adelaide & surrounds." />
+  <meta name="description" content="CAA WINDOWS provides aluminium windows and doors in South Australia. Plan quote first (drawings/PDF). Measure is typically for renovations. Adelaide & surrounds." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.caawindows.com/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="CAA WINDOWS | Aluminium Windows & Doors SA" />
-  <meta property="og:description" content="Plan quote first · Supply · Install. Serving Adelaide & surrounds." />
+  <meta property="og:description" content="Plan quote first (drawings/PDF). Measure is typically for renovations. Supply-only or supply & install." />
   <meta property="og:image" content="https://www.caawindows.com/og-cover.jpg" />
   <meta property="og:url" content="https://www.caawindows.com/" />
   <meta property="og:type" content="website" />
@@ -27,6 +27,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- LocalBusiness Schema (keep placeholders / phone as-is if needed) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"CAA WINDOWS",
+    "url":"https://www.caawindows.com/",
+    "telephone":"0410830222 ",
+    "email":"sales@caawindows.com.au",
+    "areaServed":"Adelaide & surrounds, South Australia",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"XX_ADDRESS",
+      "addressLocality":"Adelaide",
+      "addressRegion":"SA",
+      "addressCountry":"AU"
+    }
+  }
+  </script>
+
   <style>
     :root{
       --bg:#111315;
@@ -36,57 +56,51 @@
       --sub:#B7BEC8;
       --accent:#F28C28;
 
-      --radius:12px;
-      --shadow: 0 16px 40px rgba(0,0,0,.30);
+      --radius:14px;
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --shadow2: 0 10px 28px rgba(0,0,0,.25);
 
-      /* sticky header height for anchor offset */
       --headerH: 72px;
-
-      /* background tuning */
-      --bgBright: 1.18;      /* 提亮 */
-      --bgContrast: 1.06;    /* 轻微对比 */
-      --bgSaturate: 1.05;    /* 轻微饱和 */
-      --overlayA: 0.40;      /* 全站遮罩强度（越小越亮） */
-      --overlayB: 0.58;      /* 底部遮罩（保证可读） */
     }
 
     *{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{
-      background:var(--bg);
-      color:var(--text);
+      background: var(--bg);
+      color: var(--text);
       font-family:'Inter','Noto Sans SC',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       line-height:1.6;
       -webkit-text-size-adjust: 100%;
       min-height:100vh;
-      position:relative;
       overflow-x:hidden;
     }
 
-    /* ✅ 全站固定背景（内容在上面滚动） */
+    /* ===== FULL-PAGE FIXED BACKGROUND (PC) ===== */
     body::before{
       content:"";
-      position:fixed; inset:0;
-      background-image:url("hero-bg.jpg");
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background-image:
+        /* lighter film so the site is brighter */
+        linear-gradient(180deg, rgba(17,19,21,.22) 0%, rgba(17,19,21,.30) 45%, rgba(17,19,21,.48) 100%),
+        url("hero-bg.jpg");
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
-      filter: brightness(var(--bgBright)) contrast(var(--bgContrast)) saturate(var(--bgSaturate));
       transform: translateZ(0);
-      z-index:-2;
+      will-change: transform;
     }
 
-    /* ✅ 全站柔和遮罩（避免字看不清，但不把图压黑） */
+    /* subtle global vignette (very light, no orange glow) */
     body::after{
       content:"";
-      position:fixed; inset:0;
-      background:
-        linear-gradient(180deg,
-          rgba(17,19,21,var(--overlayA)) 0%,
-          rgba(17,19,21,0.35) 35%,
-          rgba(17,19,21,var(--overlayB)) 100%
-        );
+      position:fixed;
+      inset:0;
       z-index:-1;
+      background:
+        radial-gradient(1200px 700px at 50% 0%, rgba(255,255,255,.06), transparent 60%),
+        radial-gradient(1200px 700px at 50% 100%, rgba(0,0,0,.22), transparent 60%);
       pointer-events:none;
     }
 
@@ -97,45 +111,65 @@
     .muted{color:var(--sub);}
     .divider{height:1px;background:rgba(255,255,255,.10);margin:18px 0;}
 
-    /* Header */
+    /* ===== HEADER ===== */
     header{
-      position:sticky;top:0;z-index:1000;
-      background:rgba(17,19,21,.78);
+      position:sticky; top:0; z-index:1000;
+      min-height: var(--headerH);
+      padding-top: env(safe-area-inset-top);
+      background: rgba(17,19,21,.62);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(242,140,40,.35);
-      padding-top: env(safe-area-inset-top);
     }
 
     .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:14px 0;
-      gap:12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 12px 0;
+      gap: 12px;
       min-height: var(--headerH);
     }
 
     .brand{
-      display:flex;align-items:center;gap:10px;
+      display:flex; align-items:center; gap:10px;
       user-select:none;
-      min-width:200px;
+      min-width: 220px;
     }
-    .brand-dot{
-      width:10px;height:10px;border-radius:999px;background:var(--accent);
-      box-shadow:0 0 0 4px rgba(242,140,40,.10);
+    .brand-badge{
+      width:34px;height:34px;border-radius:12px;
+      display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      box-shadow: var(--shadow2);
       flex:0 0 auto;
     }
-    .brand-title{
+    .brand-dot{
+      width:9px;height:9px;border-radius:999px;
+      background: var(--accent);
+      box-shadow:0 0 0 4px rgba(242,140,40,.18);
+    }
+    .brand-text{
       display:flex;flex-direction:column;line-height:1.1;
     }
-    .brand-title b{font-weight:900;letter-spacing:.3px;}
-    .brand-title small{color:rgba(245,247,250,.70);font-size:12px;margin-top:2px;}
+    .brand-text b{
+      font-weight:900; letter-spacing:.3px;
+      font-size:14px;
+    }
+    .brand-text span{
+      font-size:12px; color: rgba(245,247,250,.70);
+      margin-top:3px;
+      white-space:nowrap;
+    }
 
     nav{
-      display:flex;gap:6px;align-items:center;
-      flex-wrap:wrap;
+      display:flex;
+      align-items:center;
+      gap:4px;
+      flex: 1 1 auto;
       justify-content:center;
     }
     nav a{
-      color:var(--text);
+      color: var(--text);
       text-decoration:none;
       font-size:14px;
       padding:8px 10px;
@@ -143,33 +177,29 @@
       opacity:.92;
       display:inline-flex;
     }
-    nav a.active{background:rgba(242,140,40,.12);opacity:1;}
-    nav a:hover{background:rgba(255,255,255,.06);}
+    nav a.active{
+      background: rgba(242,140,40,.14);
+      border:1px solid rgba(242,140,40,.30);
+      opacity:1;
+    }
+    nav a:hover{background: rgba(255,255,255,.06);}
 
     .nav-right{
-      display:flex;align-items:center;gap:10px;
+      display:flex;
+      align-items:center;
       justify-content:flex-end;
-      min-width:260px;
+      gap:10px;
+      flex: 0 0 auto;
     }
-
-    .lang{
-      cursor:pointer;
-      color:var(--accent);
-      font-weight:900;
-      padding:8px 10px;
-      border-radius:10px;
-      border:1px solid rgba(242,140,40,.35);
-      background:rgba(242,140,40,.08);
-      user-select:none;
-      white-space:nowrap;
-    }
-    .lang:hover{background:rgba(242,140,40,.12);}
 
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 16px;border-radius:12px;
-      font-weight:900;font-size:14px;
-      text-decoration:none;cursor:pointer;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 16px;
+      border-radius:12px;
+      font-weight:900;
+      font-size:14px;
+      text-decoration:none;
+      cursor:pointer;
       border:1px solid transparent;
       transition:.15s ease;
       user-select:none;
@@ -177,437 +207,440 @@
       white-space:nowrap;
     }
     .btn-primary{
-      background:var(--accent);
-      color:#111;
-      box-shadow: 0 14px 30px rgba(242,140,40,.22);
+      background: var(--accent);
+      color: #111;
+      box-shadow: 0 12px 26px rgba(242,140,40,.22);
     }
-    .btn-primary:hover{transform:translateY(-1px); filter:saturate(1.05);}
+    .btn-primary:hover{transform:translateY(-1px); filter:saturate(1.03);}
     .btn-dark{
-      background:rgba(28,32,38,.88);
-      color:var(--text);
-      border:1px solid rgba(255,255,255,.12);
+      background: rgba(28,32,38,.72);
+      color: var(--text);
+      border:1px solid rgba(255,255,255,.14);
     }
-    .btn-dark:hover{background:rgba(32,37,45,.92);}
+    .btn-dark:hover{background: rgba(28,32,38,.88);}
     .btn-outline{
-      background:transparent;
-      color:var(--accent);
-      border:1px solid rgba(242,140,40,.65);
+      background: rgba(17,19,21,.18);
+      color: var(--accent);
+      border:1px solid rgba(242,140,40,.70);
     }
-    .btn-outline:hover{background:rgba(242,140,40,.10);}
+    .btn-outline:hover{background: rgba(242,140,40,.10);}
+    .lang{
+      cursor:pointer;
+      color: var(--text);
+      font-weight:900;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+    }
+    .lang:hover{background: rgba(255,255,255,.10);}
 
     .menu-btn{
       display:none;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(28,32,38,.82);
-      color:var(--text);
-      padding:10px 12px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding:10px 12px;
+      border-radius:12px;
       cursor:pointer;
       font-weight:900;
-      white-space:nowrap;
     }
+    .menu-btn:hover{background: rgba(255,255,255,.10);}
 
-    /* Mobile drawer area */
-    .mobile-drawer{
+    /* Mobile Drawer (nav + CTAs) */
+    .drawer{
       display:none;
-      padding:0 0 14px 0;
+      padding: 0 0 14px 0;
+    }
+    .drawer-inner{
+      border-top: 1px solid rgba(255,255,255,.10);
+      padding-top: 12px;
+      display:flex;
+      flex-direction:column;
       gap:10px;
     }
-    .mobile-cta{
-      display:none;
-      width:100%;
-      gap:10px;
-      flex-wrap:wrap;
-      padding-top:10px;
-      border-top:1px solid rgba(255,255,255,.10);
+    .drawer a{
+      justify-content:flex-start;
     }
-    .mobile-cta a{flex:1 1 160px;}
+    .drawer-ctas{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:6px;
+    }
+    .drawer-ctas a{width:100%;}
+    .drawer-ctas a:last-child{grid-column: 1 / 3;}
 
-    header.open .mobile-drawer{display:flex;flex-direction:column;}
-    header.open nav{display:flex;flex-direction:column;align-items:flex-start;gap:6px;}
-    header.open .mobile-cta{display:flex;}
-
-    /* HERO */
+    /* ===== HERO ===== */
     .hero{
-      padding:82px 0 34px;
+      padding: 78px 0 34px;
     }
     .hero-wrap{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:22px;
-      align-items:center;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 22px;
+      align-items: start;
     }
+
+    /* brighter, clearer hero panels */
+    .panel{
+      background: rgba(28,32,38,.58);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      padding-top: 12px;
+    }
+
     .hero h1{
-      font-size: clamp(36px, 5.2vw, 60px);
-      line-height:1.04;
-      letter-spacing:-.7px;
-      margin-bottom:14px;
-      text-shadow: 0 6px 22px rgba(0,0,0,.35);
+      font-size: clamp(34px, 5vw, 56px);
+      line-height:1.06;
+      letter-spacing:-.6px;
+      margin-bottom: 12px;
+      text-shadow: 0 10px 22px rgba(0,0,0,.22);
     }
     .hero p{
-      color:rgba(245,247,250,.82);
+      color: rgba(245,247,250,.85);
       font-size:16px;
-      max-width:68ch;
-      margin-bottom:16px;
-      text-shadow: 0 6px 18px rgba(0,0,0,.28);
+      max-width:62ch;
+      margin-bottom: 14px;
+      text-shadow: 0 10px 22px rgba(0,0,0,.18);
     }
 
-    .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
-    .hero-cta .btn{min-width:160px;}
+    .hero-cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 12px;
+    }
 
-    .hero-chip{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:8px 12px;border-radius:999px;
+    .hero-tags{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:10px;
+      margin-top: 14px;
+    }
+    .tag{
       border:1px solid rgba(255,255,255,.14);
-      background:rgba(17,19,21,.28);
-      color:rgba(245,247,250,.86);
-      font-weight:800;
-      letter-spacing:.8px;
-      text-transform:uppercase;
-      font-size:12px;
-      margin-bottom:12px;
-      width:fit-content;
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.05);
+      border-radius: 12px;
+      padding: 12px;
     }
-    .hero-chip i{
-      width:8px;height:8px;border-radius:999px;background:var(--accent);
-      display:inline-block;
-      box-shadow:0 0 0 4px rgba(242,140,40,.12);
-    }
+    .tag b{display:block;font-size:13px;font-weight:900;margin-bottom:4px;}
+    .tag span{display:block;font-size:12px;color: rgba(245,247,250,.75);}
 
-    .hero-mini{
-      margin-top:16px;
-      background:rgba(28,32,38,.86);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:16px;
-      backdrop-filter: blur(10px);
+    .trust-title{
+      font-size: 14px;
+      color: rgba(245,247,250,.86);
+      font-weight: 900;
+      margin-bottom: 10px;
     }
-    .hero-mini-row{
-      display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
-    }
-
-    .hero-card{
-      background:rgba(28,32,38,.86);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:18px;
-      backdrop-filter: blur(10px);
-    }
-    .hero-card h3{font-size:14px;color:rgba(245,247,250,.86);font-weight:900;margin-bottom:10px;}
     .trust{
       display:grid;
-      grid-template-columns:1fr;
-      gap:10px;
+      grid-template-columns: 1fr;
+      gap: 10px;
     }
     .trust-item{
-      display:flex;gap:10px;align-items:flex-start;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      padding:12px;border-radius:12px;
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      padding: 12px;
+      border-radius: 12px;
     }
     .trust-icon{
-      width:34px;height:34px;border-radius:10px;
+      width:34px;height:34px;border-radius:12px;
       display:grid;place-items:center;
-      background:rgba(242,140,40,.10);
-      border:1px solid rgba(242,140,40,.22);
-      flex:0 0 auto;
+      background: rgba(242,140,40,.12);
+      border:1px solid rgba(242,140,40,.28);
+      flex: 0 0 auto;
+      color: var(--accent);
     }
-    .trust-item b{display:block;font-size:13px;font-weight:900;}
-    .trust-item span{display:block;color:rgba(245,247,250,.70);font-size:12px;margin-top:2px;}
+    .trust-item b{
+      display:block;
+      font-size:13px;
+      font-weight: 900;
+    }
+    .trust-item span{
+      display:block;
+      color: rgba(245,247,250,.74);
+      font-size: 12px;
+      margin-top: 2px;
+    }
 
-    /* Sections */
-    .section{padding:56px 0;}
-    .section h2{
-      font-size:28px;
-      letter-spacing:-.2px;
-      margin-bottom:12px;
-      text-shadow: 0 10px 24px rgba(0,0,0,.22);
+    .mini{
+      margin-top: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
     }
-    .section .lead{color:rgba(245,247,250,.78);max-width:76ch;margin-bottom:16px;}
+    .mini b{font-weight:900;}
+    .mini .muted{font-size:13px;color: rgba(245,247,250,.72);}
+
+    /* ===== SECTIONS ===== */
+    .section{padding: 56px 0;}
+    .section h2{
+      font-size: 26px;
+      letter-spacing:-.2px;
+      margin-bottom: 12px;
+      text-shadow: 0 10px 22px rgba(0,0,0,.18);
+    }
+    .section .lead{
+      color: rgba(245,247,250,.82);
+      max-width: 78ch;
+      margin-bottom: 16px;
+      text-shadow: 0 10px 22px rgba(0,0,0,.14);
+    }
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
-      gap:16px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
     }
     .card{
-      background:rgba(28,32,38,.86);
-      border:1px solid rgba(255,255,255,.10);
+      background: rgba(28,32,38,.58);
+      border: 1px solid rgba(255,255,255,.14);
       border-radius: var(--radius);
-      padding:18px;
-      box-shadow: 0 10px 26px rgba(0,0,0,.18);
-      backdrop-filter: blur(10px);
+      padding: 18px;
+      box-shadow: var(--shadow2);
     }
     .card h3{font-size:16px;margin-bottom:8px;font-weight:900;}
-    .card p{color:rgba(245,247,250,.74);font-size:14px;}
+    .card p{color: rgba(245,247,250,.74);font-size:14px;}
 
     /* Process */
     .steps{
       display:grid;
-      grid-template-columns:repeat(6, minmax(0,1fr));
-      gap:10px;
+      grid-template-columns: repeat(6, minmax(0,1fr));
+      gap: 10px;
     }
     .step{
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      padding:12px;border-radius:12px;
-      backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      padding: 12px;
+      border-radius: 12px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.12);
     }
     .step .n{
-      width:30px;height:30px;border-radius:10px;
+      width:30px;height:30px;border-radius:12px;
       display:grid;place-items:center;
-      background:rgba(242,140,40,.12);
-      border:1px solid rgba(242,140,40,.28);
-      font-weight:900;color:var(--accent);
-      margin-bottom:10px;
+      background: rgba(242,140,40,.14);
+      border:1px solid rgba(242,140,40,.30);
+      font-weight:900;
+      color: var(--accent);
+      margin-bottom: 10px;
     }
-    .step b{font-size:13px;display:block;margin-bottom:6px;font-weight:900;}
-    .step span{color:rgba(245,247,250,.70);font-size:12px;display:block;}
+    .step b{display:block;font-size:13px;font-weight:900;margin-bottom:6px;}
+    .step span{display:block;color: rgba(245,247,250,.74);font-size:12px;}
 
-    /* Gallery */
-    .gallery-wrap{
-      background:rgba(28,32,38,.86);
-      border:1px solid rgba(255,255,255,.10);
+    /* Gallery (horizontal scroll + snap) */
+    .gallery-shell{
+      background: rgba(28,32,38,.58);
+      border: 1px solid rgba(255,255,255,.14);
       border-radius: var(--radius);
-      padding:14px;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+      padding: 14px;
+      overflow:hidden;
     }
     .gallery-row{
       display:flex;
-      gap:14px;
+      gap: 14px;
       overflow-x:auto;
-      padding:10px 4px 14px;
-      scroll-snap-type:x mandatory;
+      padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
     }
     .gallery-row::-webkit-scrollbar{height:10px;}
-    .gallery-row::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:999px;}
-    .shot{
-      flex:0 0 auto;
-      width:min(360px, 78vw);
-      height:220px;
-      border-radius:16px;
+    .gallery-row::-webkit-scrollbar-thumb{background: rgba(255,255,255,.18); border-radius:999px;}
+    .g-item{
+      flex: 0 0 clamp(240px, 38vw, 360px);
+      scroll-snap-align: start;
+      border-radius: 16px;
       overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
       position:relative;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      scroll-snap-align:start;
-      cursor:pointer;
+      box-shadow: 0 12px 26px rgba(0,0,0,.22);
     }
-    .shot img{
-      width:100%;height:100%;
-      object-fit:cover;
-      display:block;
-      transform:scale(1.02);
-    }
-    .shot .cap{
-      position:absolute;left:10px;right:10px;bottom:10px;
-      background:rgba(17,19,21,.62);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:12px;
-      padding:10px 10px;
-      color:rgba(245,247,250,.92);
-      font-weight:800;
-      font-size:13px;
-      backdrop-filter: blur(10px);
-    }
-
-    /* Lightbox */
-    .lightbox{
-      position:fixed;inset:0;z-index:2000;
-      display:none;
-      align-items:center;justify-content:center;
-      background:rgba(0,0,0,.72);
-      padding:22px;
-    }
-    .lightbox.open{display:flex;}
-    .lightbox-inner{
-      width:min(1100px, 96vw);
-      height:min(78vh, 760px);
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(17,19,21,.82);
-      position:relative;
-    }
-    .lightbox-inner img{
-      width:100%;height:100%;
-      object-fit:contain;
-      background:#0c0e10;
+    .g-item img{
+      width:100%;
+      height: 220px;
+      object-fit: cover;
       display:block;
     }
-    .lightbox-close{
-      position:absolute;top:10px;right:10px;
-      width:42px;height:42px;border-radius:14px;
-      border:1px solid rgba(255,255,255,.20);
-      background:rgba(17,19,21,.55);
-      color:var(--text);
-      font-weight:900;
-      cursor:pointer;
-      display:grid;place-items:center;
-      backdrop-filter: blur(10px);
+    .g-cap{
+      position:absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(17,19,21,.50);
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(8px);
+      color: rgba(245,247,250,.92);
+      font-size: 13px;
+      font-weight: 800;
     }
 
     /* FAQ */
     .faq{
       display:grid;
       grid-template-columns: 1fr;
-      gap:10px;
-      margin-top:12px;
+      gap: 10px;
+      margin-top: 12px;
     }
     .faq details{
-      background:rgba(28,32,38,.86);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:12px;
-      padding:12px 14px;
-      box-shadow: 0 10px 22px rgba(0,0,0,.14);
-      backdrop-filter: blur(10px);
+      background: rgba(28,32,38,.58);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.12);
     }
     .faq summary{
       cursor:pointer;
-      font-weight:900;
+      font-weight: 900;
       list-style:none;
-      display:flex;align-items:center;justify-content:space-between;
-      gap:14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
     }
     .faq summary::-webkit-details-marker{display:none;}
-    .faq .ans{color:rgba(245,247,250,.74);font-size:14px;margin-top:10px;}
+    .faq .ans{
+      color: rgba(245,247,250,.78);
+      font-size: 14px;
+      margin-top: 10px;
+    }
 
-    /* Contact */
+    /* Contact form */
     form{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-      margin-top:14px;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
     }
     label.sr{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     input, textarea{
       width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(17,19,21,.40);
-      color:var(--text);
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(17,19,21,.30);
+      color: var(--text);
       outline:none;
-      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 22px rgba(0,0,0,.10);
     }
-    input:focus, textarea:focus{border-color: rgba(242,140,40,.65); box-shadow: 0 0 0 4px rgba(242,140,40,.12);}
-    textarea{grid-column:1/3; min-height:110px; resize:vertical;}
+    input::placeholder, textarea::placeholder{color: rgba(245,247,250,.55);}
+    input:focus, textarea:focus{
+      border-color: rgba(242,140,40,.70);
+      box-shadow: 0 0 0 4px rgba(242,140,40,.16);
+      background: rgba(17,19,21,.38);
+    }
+    textarea{grid-column: 1 / 3; min-height: 120px; resize: vertical;}
 
-    /* upload UI (方案2：仅用于显示文件名，不上传到 Formspree) */
+    /* Upload: label-for reliable */
     .file-input{
-      position:absolute;
-      left:-9999px;
-      width:1px;height:1px;
-      overflow:hidden;
+      position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;
     }
     .upload{
-      grid-column:1/3;
-      border:2px dashed rgba(255,255,255,.14);
-      background:rgba(17,19,21,.30);
-      padding:14px;
-      border-radius:14px;
-      display:flex;align-items:center;justify-content:space-between;
-      gap:10px;
+      grid-column: 1 / 3;
+      border: 1px dashed rgba(255,255,255,.22);
+      background: rgba(255,255,255,.05);
+      padding: 14px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
       cursor:pointer;
       user-select:none;
-      backdrop-filter: blur(10px);
     }
-    .upload small{color:rgba(245,247,250,.72);display:block;margin-top:2px;}
     .upload .left{min-width:0;}
     .upload .left b{display:block;font-weight:900;}
+    .upload .left small{display:block;color: rgba(245,247,250,.74); margin-top:2px;}
     .upload .right{flex:0 0 auto;}
 
-    .file-note{
-      grid-column:1/3;
-      color:rgba(245,247,250,.72);
-      font-size:13px;
-      margin-top:-4px;
-    }
-    .file-note a{color:var(--accent);font-weight:900;text-decoration:none;}
-    .file-note a:hover{text-decoration:underline;}
-
     .form-actions{
-      grid-column:1/3;
-      display:flex;align-items:center;justify-content:space-between;
-      gap:12px;
+      grid-column: 1 / 3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
       flex-wrap:wrap;
+      margin-top: 4px;
     }
-    .disclaimer{
-      color:rgba(245,247,250,.70);
-      font-size:12px;
-      margin-top:10px;
-      max-width:90ch;
-    }
+
     .toast{
-      margin-top:14px;
+      margin-top: 14px;
       display:none;
-      border:1px solid rgba(242,140,40,.28);
-      background:rgba(242,140,40,.10);
-      padding:10px 12px;
-      border-radius:12px;
-      color:var(--text);
-      font-weight:900;
+      border: 1px solid rgba(242,140,40,.32);
+      background: rgba(242,140,40,.12);
+      padding: 12px 14px;
+      border-radius: 14px;
+      color: var(--text);
+      font-weight: 900;
+      box-shadow: 0 12px 26px rgba(0,0,0,.18);
     }
 
     footer{
-      padding:34px 0 calc(34px + env(safe-area-inset-bottom));
-      border-top:1px solid rgba(255,255,255,.10);
-      color:rgba(245,247,250,.72);
-      font-size:13px;
-      background:rgba(17,19,21,.22);
+      padding: 34px 0 calc(34px + env(safe-area-inset-bottom));
+      border-top: 1px solid rgba(255,255,255,.12);
+      color: rgba(245,247,250,.75);
+      font-size: 13px;
+      background: rgba(17,19,21,.30);
       backdrop-filter: blur(10px);
     }
     footer .foot{
-      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap:wrap;
     }
-    footer a{color:inherit;text-decoration:underline;}
+    footer a{color:inherit;}
 
-    /* Responsive */
-    @media (max-width: 960px){
-      .hero-wrap{grid-template-columns:1fr;}
-      .steps{grid-template-columns:repeat(3, minmax(0,1fr));}
-      .grid{grid-template-columns:1fr;}
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1020px){
+      .hero-wrap{grid-template-columns: 1fr;}
+      .steps{grid-template-columns: repeat(3, minmax(0,1fr));}
+      .grid{grid-template-columns: 1fr;}
+      .hero-tags{grid-template-columns: 1fr;}
     }
 
     @media (max-width: 820px){
-      :root{
-        --headerH: 68px;
-        --bgBright: 1.12;   /* 手机端更自然 */
-        --overlayA: 0.25;   /* 手机遮罩更轻，避免“啥也看不见” */
-        --overlayB: 0.52;
+      :root{ --headerH: 68px; }
+
+      /* Mobile: use portrait background first (if exists), fallback to hero-bg.jpg */
+      body::before{
+        background-image:
+          linear-gradient(180deg, rgba(17,19,21,.18) 0%, rgba(17,19,21,.26) 45%, rgba(17,19,21,.44) 100%),
+          url("A4背景图.png"),
+          url("hero-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        /* iOS fixed background is janky, keep stable */
       }
 
-      /* ✅ 手机端：很多浏览器 fixed 异常，直接降级 */
-      body::before{ background-attachment: scroll; background-position: 55% 55%; }
-
-      .menu-btn{display:inline-flex;}
       nav{display:none;}
+      .menu-btn{display:inline-flex;}
+      .nav-right .btn{display:none;} /* move CTAs into drawer on mobile */
 
-      /* ✅ 手机顶栏：只留 Menu + 语言；CTA 放到展开区 */
-      .nav-right .btn{display:none;}
+      header.open .drawer{display:block;}
 
-      .hero{padding:44px 0 26px;}
-      .hero-cta .btn{flex:1 1 100%;}
-      .hero-cta{gap:10px;}
-      .hero p{font-size:15px;}
+      .hero{padding: 44px 0 22px;}
+      .hero-cta{flex-direction:column;}
+      .hero-cta .btn{width:100%;}
 
-      form{grid-template-columns:1fr;}
-      textarea,.upload,.file-note,.form-actions{grid-column:1;}
-      .steps{grid-template-columns:repeat(2, minmax(0,1fr));}
-
+      form{grid-template-columns: 1fr;}
+      textarea, .upload, .form-actions{grid-column: 1;}
+      .steps{grid-template-columns: repeat(2, minmax(0,1fr));}
       footer .foot{flex-direction:column;align-items:flex-start;}
-    }
-
-    @media (max-width: 420px){
-      .container{width:94%;}
-      .upload{flex-direction:column;align-items:stretch;}
-      .upload .right{width:100%;}
-      .upload .right .btn{width:100%;}
-      .brand{min-width:unset;}
     }
   </style>
 </head>
@@ -615,15 +648,13 @@
 <body>
 <header id="header">
   <div class="container nav">
-    <div class="brand">
-      <span class="brand-dot"></span>
-      <span class="brand-title">
+    <div class="brand" aria-label="CAA WINDOWS">
+      <div class="brand-badge" aria-hidden="true"><span class="brand-dot"></span></div>
+      <div class="brand-text">
         <b id="brandText">CAA WINDOWS</b>
-        <small id="brandSub">Aluminium Windows & Doors · SA</small>
-      </span>
+        <span id="brandSub">Aluminium Windows & Doors · SA</span>
+      </div>
     </div>
-
-    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">Menu</button>
 
     <nav id="navLinks" aria-label="Primary">
       <a href="#home" data-link="home">Home</a>
@@ -636,27 +667,34 @@
     </nav>
 
     <div class="nav-right">
-      <button class="lang" id="langBtn" type="button">中文</button>
+      <button class="lang" id="langBtn" type="button" aria-label="Switch language">中文</button>
+
+      <!-- Desktop CTAs -->
       <a href="#contact" class="btn btn-primary" id="btnTopMeasure">Book a Measure</a>
-      <a href="tel:XX_PHONE" class="btn btn-dark" id="btnTopCall">Call Now</a>
+      <a href="tel:0410830222 " class="btn btn-dark" id="btnTopCall">Call Now</a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="drawer">Menu</button>
     </div>
   </div>
 
-  <!-- Mobile drawer -->
-  <div class="container mobile-drawer" id="mobileDrawer">
-    <nav aria-label="Primary Mobile">
-      <a href="#home" data-link="home">Home</a>
-      <a href="#products" data-link="products">Products</a>
-      <a href="#services" data-link="services">Services</a>
-      <a href="#process" data-link="process">Process</a>
-      <a href="#gallery" data-link="gallery">Gallery</a>
-      <a href="#faq" data-link="faq">FAQ</a>
-      <a href="#contact" data-link="contact">Contact</a>
-    </nav>
+  <!-- Mobile Drawer -->
+  <div class="container drawer" id="drawer" aria-label="Mobile menu">
+    <div class="drawer-inner">
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-dark" href="#home" data-m="home">Home</a>
+        <a class="btn btn-dark" href="#products" data-m="products">Products</a>
+        <a class="btn btn-dark" href="#services" data-m="services">Services</a>
+        <a class="btn btn-dark" href="#process" data-m="process">Process</a>
+        <a class="btn btn-dark" href="#gallery" data-m="gallery">Gallery</a>
+        <a class="btn btn-dark" href="#faq" data-m="faq">FAQ</a>
+        <a class="btn btn-dark" href="#contact" data-m="contact">Contact</a>
+      </div>
 
-    <div class="mobile-cta">
-      <a href="#contact" class="btn btn-primary" id="btnTopMeasureM">Book a Measure</a>
-      <a href="tel:XX_PHONE" class="btn btn-dark" id="btnTopCallM">Call Now</a>
+      <div class="drawer-ctas">
+        <a href="#contact" class="btn btn-primary" id="btnTopMeasureM">Book a Measure</a>
+        <a href="tel:0410830222 " class="btn btn-dark" id="btnTopCallM">Call Now</a>
+        <a href="#contact" class="btn btn-outline" id="btnTopQuoteM">Get a Free Quote</a>
+      </div>
     </div>
   </div>
 </header>
@@ -665,35 +703,47 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container hero-wrap">
-      <div>
-        <div class="hero-chip"><i></i><span id="heroChip">Adelaide & surrounds · South Australia</span></div>
+      <div class="panel">
+        <h1 id="heroTitle">Aluminium Windows & Doors.</h1>
+        <p id="heroSub">
+          Send drawings (PDF) for a fast, clear quote. Onsite measure is typically for renovations.
+          Supply-only or supply & install—depending on your project.
+        </p>
 
-        <h1 id="heroTitle">Plan Quote First.<br>Aluminium Windows & Doors.</h1>
-        <p id="heroSub">Send drawings (PDF) for a fast, clear quote. Onsite measure is typically for renovations. Supply-only or supply & install—depending on your project.</p>
+        <div class="hero-tags" aria-label="Key points">
+          <div class="tag">
+            <b id="tag1b">Plan Quote First</b>
+            <span id="tag1s">Drawings/PDF takeoff & scope</span>
+          </div>
+          <div class="tag">
+            <b id="tag2b">Measure (Renovations)</b>
+            <span id="tag2s">Onsite measure when needed</span>
+          </div>
+          <div class="tag">
+            <b id="tag3b">Supply / Install</b>
+            <span id="tag3s">Flexible options by project</span>
+          </div>
+        </div>
 
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary" id="btnHeroQuote">Get a Free Quote</a>
           <a href="#contact" class="btn btn-dark" id="btnHeroMeasure">Book a Measure</a>
-          <a href="tel:XX_PHONE" class="btn btn-outline" id="btnHeroCall">Call Now</a>
+          <a href="tel:0410830222 " class="btn btn-outline" id="btnHeroCall">Call Now</a>
         </div>
 
         <div class="divider"></div>
 
-        <div class="hero-mini">
-          <div class="hero-mini-row">
-            <div style="min-width:240px;">
-              <div style="font-weight:900;" id="heroMiniTitle">Fast response, practical advice</div>
-              <div class="muted" style="font-size:13px;" id="heroMiniSub">
-                Upload plans/photos — we’ll confirm types, sizes, and install options.
-              </div>
-            </div>
-            <a href="#contact" class="btn btn-outline" id="btnHeroMini">Upload & Enquire</a>
+        <div class="mini">
+          <div style="min-width:240px;">
+            <div style="font-weight:900;" id="heroMiniTitle">Fast response, practical advice</div>
+            <div class="muted" id="heroMiniSub">Upload plans/photos — we’ll confirm types, sizes, and install options.</div>
           </div>
+          <a href="#contact" class="btn btn-outline" id="btnHeroMini">Upload & Enquire</a>
         </div>
       </div>
 
-      <aside class="hero-card" aria-label="Trust Bar">
-        <h3 id="trustTitle">Why builders & homeowners choose us</h3>
+      <aside class="panel" aria-label="Trust Bar">
+        <div class="trust-title" id="trustTitle">Why builders & homeowners choose us</div>
         <div class="trust">
           <div class="trust-item">
             <div class="trust-icon" aria-hidden="true">
@@ -726,8 +776,20 @@
               </svg>
             </div>
             <div>
-              <b id="trust3b">Supply / Install</b>
+              <b id="trust3b">Supply & Install</b>
               <span id="trust3s">Flexible project support</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6l-11 11-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <b id="trust4b">Reliable Process</b>
+              <span id="trust4s">Clear scope & timing</span>
             </div>
           </div>
         </div>
@@ -735,6 +797,7 @@
     </div>
   </section>
 
+  <!-- PRODUCTS -->
   <section class="section" id="products">
     <div class="container">
       <h2 id="productsTitle">Products</h2>
@@ -757,6 +820,7 @@
     </div>
   </section>
 
+  <!-- SERVICES -->
   <section class="section" id="services">
     <div class="container">
       <h2 id="servicesTitle">Services</h2>
@@ -779,6 +843,7 @@
     </div>
   </section>
 
+  <!-- PROCESS -->
   <section class="section" id="process">
     <div class="container">
       <h2 id="processTitle">Process</h2>
@@ -795,48 +860,33 @@
     </div>
   </section>
 
-  <!-- ✅ GALLERY（已补回） -->
+  <!-- GALLERY -->
   <section class="section" id="gallery">
     <div class="container">
       <h2 id="galleryTitle">Gallery</h2>
-      <p class="lead" id="galleryLead">Scroll to view recent work. (You can replace these images anytime.)</p>
+      <p class="lead" id="galleryLead">Scroll to view recent work.</p>
 
-      <div class="gallery-wrap">
-        <div class="gallery-row" id="galleryRow">
-          <!-- 占位图：你可替换成自己的现场照片（直接改 src 链接即可） -->
-          <div class="shot" data-full="https://images.unsplash.com/photo-1505691723518-36a5ac3b2f7c?auto=format&fit=crop&w=2400&q=70">
-            <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2f7c?auto=format&fit=crop&w=1200&q=70" alt="Project photo 1">
-            <div class="cap" id="g1cap">Sliding door / modern finish</div>
-          </div>
-
-          <div class="shot" data-full="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=2400&q=70">
-            <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1200&q=70" alt="Project photo 2">
-            <div class="cap" id="g2cap">Window line / clean sightlines</div>
-          </div>
-
-          <div class="shot" data-full="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=2400&q=70">
-            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=70" alt="Project photo 3">
-            <div class="cap" id="g3cap">Awning windows / ventilation</div>
-          </div>
-
-          <div class="shot" data-full="https://images.unsplash.com/photo-1503177119275-0aa32c1a9368?auto=format&fit=crop&w=2400&q=70">
-            <img src="https://images.unsplash.com/photo-1503177119275-0aa32c1a9368?auto=format&fit=crop&w=1200&q=70" alt="Project photo 4">
-            <div class="cap" id="g4cap">Door hardware / detail</div>
-          </div>
-
-          <div class="shot" data-full="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=2400&q=70">
-            <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1200&q=70" alt="Project photo 5">
-            <div class="cap" id="g5cap">Large panels / daylight</div>
-          </div>
-        </div>
-
-        <div class="muted" style="font-size:13px;padding:0 4px 4px;" id="galleryTip">
-          Tip: replace the gallery images with your real job photos for best trust.
+      <div class="gallery-shell">
+        <div class="gallery-row" aria-label="Project photos">
+          <!-- Default loads from root: 1.jpg, 2.jpg ... -->
+          <div class="g-item"><img src="1.jpg" alt="Project photo 1"><div class="g-cap" id="g1">Project photo 1</div></div>
+          <div class="g-item"><img src="2.jpg" alt="Project photo 2"><div class="g-cap" id="g2">Project photo 2</div></div>
+          <div class="g-item"><img src="3.jpg" alt="Project photo 3"><div class="g-cap" id="g3">Project photo 3</div></div>
+          <div class="g-item"><img src="4.jpg" alt="Project photo 4"><div class="g-cap" id="g4">Project photo 4</div></div>
+          <div class="g-item"><img src="5.jpg" alt="Project photo 5"><div class="g-cap" id="g5">Project photo 5</div></div>
+          <div class="g-item"><img src="6.jpg" alt="Project photo 6"><div class="g-cap" id="g6">Project photo 6</div></div>
+          <div class="g-item"><img src="7.jpg" alt="Project photo 7"><div class="g-cap" id="g7">Project photo 7</div></div>
+          <div class="g-item"><img src="8.jpg" alt="Project photo 8"><div class="g-cap" id="g8">Project photo 8</div></div>
+          <div class="g-item"><img src="9.jpg" alt="Project photo 9"><div class="g-cap" id="g9">Project photo 9</div></div>
+          <div class="g-item"><img src="10.jpg" alt="Project photo 10"><div class="g-cap" id="g10">Project photo 10</div></div>
+          <div class="g-item"><img src="11.jpg" alt="Project photo 11"><div class="g-cap" id="g11">Project photo 11</div></div>
+          <div class="g-item"><img src="12.jpg" alt="Project photo 12"><div class="g-cap" id="g12">Project photo 12</div></div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FAQ -->
   <section class="section" id="faq">
     <div class="container">
       <h2 id="faqTitle">FAQ</h2>
@@ -849,41 +899,41 @@
         </details>
 
         <details>
-          <summary><span id="q2">What products do you provide?</span><span>+</span></summary>
-          <div class="ans" id="a2">Mainstream aluminium windows and doors: sliding, awning, hinged, stacker, bi-fold and more.</div>
+          <summary><span id="q2">Can you quote from plans?</span><span>+</span></summary>
+          <div class="ans" id="a2">Yes. Most new builds are quoted from drawings/PDF. Renovations may require an onsite measure.</div>
         </details>
 
         <details>
           <summary><span id="q3">Do you offer installation?</span><span>+</span></summary>
-          <div class="ans" id="a3">Yes — we support supply-only or supply & install depending on project needs.</div>
+          <div class="ans" id="a3">Yes — supply-only or supply & install depending on project needs.</div>
         </details>
 
         <details>
-          <summary><span id="q4">Can I upload drawings/photos?</span><span>+</span></summary>
-          <div class="ans" id="a4">Yes — use the enquiry form to send details. For attachments, please email us (方案2).</div>
+          <summary><span id="q4">What products do you provide?</span><span>+</span></summary>
+          <div class="ans" id="a4">Mainstream aluminium windows and doors: sliding, awning, hinged, stacker, bi-fold and more.</div>
         </details>
 
         <details>
-          <summary><span id="q5">How do I get a quote?</span><span>+</span></summary>
-          <div class="ans" id="a5">Submit the form with your suburb and project details, or call us directly.</div>
+          <summary><span id="q5">Can I upload drawings/photos?</span><span>+</span></summary>
+          <div class="ans" id="a5">Yes — choose a file in the enquiry form. If attachments don’t come through, we’ll reply with the best way to send files.</div>
         </details>
 
         <details>
-          <summary><span id="q6">Do you quote from plans?</span><span>+</span></summary>
-          <div class="ans" id="a6">Yes. Most new builds are quoted from plans; onsite measure is usually for renovations.</div>
+          <summary><span id="q6">How do I get a quote?</span><span>+</span></summary>
+          <div class="ans" id="a6">Submit the form with your suburb and project details, or call us directly.</div>
         </details>
       </div>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="container">
       <h2 id="contactTitle">Get a Quote / Book a Measure</h2>
       <p class="lead" id="contactLead">We’ll respond as soon as possible. For urgent matters, please call.</p>
 
       <div class="card">
-        <!-- ✅ Formspree：只收信息（方案2：附件走邮箱） -->
-        <form action="https://formspree.io/f/mkovoavz" method="POST">
+        <form action="https://formspree.io/f/mkovoavz" method="POST" enctype="multipart/form-data">
           <label class="sr" for="name" id="labName">Full Name</label>
           <input id="name" name="name" placeholder="Full Name" required />
 
@@ -899,14 +949,13 @@
           <label class="sr" for="message" id="labMsg">Project Details</label>
           <textarea id="message" name="message" placeholder="Project Details (size, type, timing)"></textarea>
 
-          <!-- ✅ 方案2：文件选择器可用（显示文件名），但不上传到 Formspree -->
-          <input id="fileInput" class="file-input" type="file" />
+          <!-- Upload -->
+          <input id="fileInput" class="file-input" type="file" name="file" />
           <label class="upload" for="fileInput" id="uploadBox">
             <div class="left">
               <b id="uploadTitle">Upload Plans / Photos</b>
               <small>
-                <span id="uploadHintText">Select to show filename (attachments via email).</span>
-                <span id="fileName"> None</span>
+                <span id="fileName">No file selected</span>
               </small>
             </div>
             <div class="right">
@@ -914,14 +963,7 @@
             </div>
           </label>
 
-          <div class="file-note" id="fileNote">
-            Attachments are sent via email (方案2). After submitting, please email your plans/photos to
-            <a href="mailto:sales@caawindows.com.au?subject=CAA%20WINDOWS%20-%20Plans%20%2F%20Photos&body=Hi%20CAA%20WINDOWS%2C%0A%0AI%20have%20submitted%20an%20enquiry%20on%20the%20website.%20Please%20find%20my%20plans%2Fphotos%20attached.%0A%0AName%3A%20%0APhone%3A%20%0ASuburb%3A%20%0A%0AThanks">
-              sales@caawindows.com.au
-            </a>.
-          </div>
-
-          <!-- Redirect back with toast -->
+          <!-- Redirect back + toast trigger -->
           <input type="hidden" name="_redirect" value="https://www.caawindows.com/?submitted=true#contact">
 
           <div class="form-actions">
@@ -929,10 +971,6 @@
             <a class="btn btn-dark" href="mailto:sales@caawindows.com.au" id="btnEmail">Email Us</a>
           </div>
         </form>
-
-        <p class="disclaimer" id="disclaimer">
-          By submitting, you agree we may contact you regarding this enquiry.
-        </p>
 
         <div class="toast" id="toast">Thanks! Your enquiry has been submitted.</div>
       </div>
@@ -943,57 +981,50 @@
     <div class="container foot">
       <div>© <span id="year"></span> CAA WINDOWS · South Australia</div>
       <div>
-        <span id="footPhone">Phone: <a href="tel:XX_PHONE">XX_PHONE</a></span>
-        <span id="footEmail">Email: <a href="mailto:sales@caawindows.com.au">sales@caawindows.com.au</a></span>
+        <span id="footPhone">
+          Phone: <a href="tel:0410830222 " style="text-decoration:underline;">0410830222 </a>
+        </span>
+        &nbsp;·&nbsp;
+        <span id="footEmail">Email: <a href="mailto:sales@caawindows.com.au" style="text-decoration:underline;">sales@caawindows.com.au</a></span>
       </div>
     </div>
   </footer>
 </main>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Image preview">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
-    <img id="lightboxImg" alt="Preview">
-  </div>
-</div>
-
 <script>
-  // Elements
+  // ===== MENU (mobile) =====
   const header = document.getElementById('header');
   const menuBtn = document.getElementById('menuBtn');
+  const drawer = document.getElementById('drawer');
+  const nav = document.getElementById('navLinks');
 
-  // Mobile menu toggle
   function setMenu(open){
     header.classList.toggle('open', open);
     menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
+
   menuBtn.addEventListener('click', () => setMenu(!header.classList.contains('open')));
 
-  // Close menu when clicking any link in header
-  header.addEventListener('click', (e) => {
+  // close drawer when clicking links inside it
+  drawer.addEventListener('click', (e) => {
     const a = e.target.closest('a');
     if (!a) return;
-    if (a.getAttribute('href') && a.getAttribute('href').startsWith('#')) {
-      setMenu(false);
-    }
+    setMenu(false);
   });
 
-  // Close menu when clicking outside
+  // close menu if click outside header
   document.addEventListener('click', (e) => {
     if (!header.classList.contains('open')) return;
     const within = e.target.closest('#header');
     if (!within) setMenu(false);
   });
 
-  // Active nav highlight on scroll
-  const navLinks = Array.from(document.querySelectorAll('header nav a'));
-  const sections = navLinks
-    .map(a => document.querySelector(a.getAttribute('href')))
-    .filter(Boolean);
+  // ===== ACTIVE NAV HIGHLIGHT =====
+  const navLinks = Array.from(document.querySelectorAll('nav a'));
+  const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
 
-  const setActive = () => {
-    const headerH = (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--headerH')) || 72);
+  function setActive(){
+    const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--headerH')) || 72;
     const y = window.scrollY + headerH + 24;
     let idx = 0;
     for (let i = 0; i < sections.length; i++){
@@ -1001,93 +1032,76 @@
     }
     navLinks.forEach(a => a.classList.remove('active'));
     if (navLinks[idx]) navLinks[idx].classList.add('active');
-  };
-  window.addEventListener('scroll', setActive, { passive: true });
+  }
+
+  window.addEventListener('scroll', setActive, { passive:true });
   window.addEventListener('resize', setActive);
   setActive();
 
-  // File selection UI (方案2：仅显示文件名/大小)
+  // ===== FILE UI =====
   const fileInput = document.getElementById('fileInput');
   const fileNameEl = document.getElementById('fileName');
   fileInput.addEventListener('change', () => {
     const f = fileInput.files && fileInput.files[0];
     if (!f){
-      fileNameEl.textContent = " None";
+      fileNameEl.textContent = (lang === 'zh') ? '未选择文件' : 'No file selected';
       return;
     }
     const kb = f.size ? Math.round(f.size/1024) : null;
-    fileNameEl.textContent = " " + f.name + (kb ? ` (${kb} KB)` : "");
+    fileNameEl.textContent = f.name + (kb ? ` (${kb} KB)` : '');
   });
 
-  // Toast on success redirect (B: 5 seconds)
+  // ===== TOAST (Option B: auto hide after 5 seconds) =====
   const toast = document.getElementById('toast');
   if (window.location.search.includes('submitted=true')) {
     toast.style.display = 'block';
-    setTimeout(()=>{ toast.style.display = 'none'; }, 5000);
-
-    // optional: clean URL
-    const url = new URL(window.location.href);
-    url.searchParams.delete('submitted');
-    window.history.replaceState({}, "", url.toString());
+    setTimeout(() => { toast.style.display = 'none'; }, 5000);
   }
-
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Gallery lightbox
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lightboxImg');
-  const lbClose = document.getElementById('lightboxClose');
-
-  document.getElementById('galleryRow').addEventListener('click', (e)=>{
-    const shot = e.target.closest('.shot');
-    if (!shot) return;
-    const full = shot.getAttribute('data-full');
-    const img = shot.querySelector('img');
-    lbImg.src = full || (img ? img.src : "");
-    lb.classList.add('open');
-    lb.setAttribute('aria-hidden','false');
-  });
-
-  function closeLightbox(){
-    lb.classList.remove('open');
-    lb.setAttribute('aria-hidden','true');
-    lbImg.src = "";
-  }
-  lbClose.addEventListener('click', closeLightbox);
-  lb.addEventListener('click', (e)=>{ if (e.target === lb) closeLightbox(); });
-  document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeLightbox(); });
-
-  // i18n
+  // ===== i18n =====
   const dict = {
     en: {
-      langBtn: "中文",
-      brandSub: "Aluminium Windows & Doors · SA",
-      nav: {home:"Home",products:"Products",services:"Services",process:"Process",gallery:"Gallery",faq:"FAQ",contact:"Contact"},
-      heroChip:"Adelaide & surrounds · South Australia",
-      heroTitle:"Plan Quote First.\nAluminium Windows & Doors.",
+      langBtn:"中文",
+      brandSub:"Aluminium Windows & Doors · SA",
+      nav:{home:"Home",products:"Products",services:"Services",process:"Process",gallery:"Gallery",faq:"FAQ",contact:"Contact"},
+
+      heroTitle:"Aluminium Windows & Doors.",
       heroSub:"Send drawings (PDF) for a fast, clear quote. Onsite measure is typically for renovations. Supply-only or supply & install—depending on your project.",
-      btnTopMeasure:"Book a Measure",
-      btnTopCall:"Call Now",
+      tag1b:"Plan Quote First", tag1s:"Drawings/PDF takeoff & scope",
+      tag2b:"Measure (Renovations)", tag2s:"Onsite measure when needed",
+      tag3b:"Supply / Install", tag3s:"Flexible options by project",
       btnHeroQuote:"Get a Free Quote",
       btnHeroMeasure:"Book a Measure",
       btnHeroCall:"Call Now",
       heroMiniTitle:"Fast response, practical advice",
       heroMiniSub:"Upload plans/photos — we’ll confirm types, sizes, and install options.",
       btnHeroMini:"Upload & Enquire",
+
+      btnTopMeasure:"Book a Measure",
+      btnTopCall:"Call Now",
+      btnTopMeasureM:"Book a Measure",
+      btnTopCallM:"Call Now",
+      btnTopQuoteM:"Get a Free Quote",
+
       trustTitle:"Why builders & homeowners choose us",
       trust1b:"Local SA", trust1s:"Adelaide & surrounds",
       trust2b:"Drawings or Measure", trust2s:"Plan quote first · Measure if renovation",
-      trust3b:"Supply / Install", trust3s:"Flexible project support",
+      trust3b:"Supply & Install", trust3s:"Flexible project support",
+      trust4b:"Reliable Process", trust4s:"Clear scope & timing",
+
       productsTitle:"Products",
       productsLead:"Mainstream aluminium window & door types for Australian projects. Custom configurations available.",
       prod1Title:"Windows", prod1Desc:"Sliding · Awning · Double Hung · Fixed · Custom",
       prod2Title:"Doors", prod2Desc:"Sliding · Hinged · Stacker · Bi-fold · Custom",
       prod3Title:"Hardware & Screens", prod3Desc:"Locks · Tracks · Flyscreens · Security options (where applicable)",
+
       servicesTitle:"Services",
       servicesLead:"Most new builds are quoted from plans. Onsite measure is typically for renovations.",
       srv1Title:"Plans / Takeoff & Quote", srv1Desc:"Send plans (PDF) or drawings. We do takeoff and provide a clear scope and quote.",
       srv2Title:"Supply Only", srv2Desc:"Manufacture + supply for builders or your installer. Pick-up / delivery options.",
       srv3Title:"Supply & Install", srv3Desc:"For renovations and selected projects: supply, install, and handover.",
+
       processTitle:"Process",
       processLead:"Plan-first workflow for fast quoting — measure is usually for renovations only.",
       st1b:"Send Plans", st1s:"PDF drawings / window schedule / photos",
@@ -1096,101 +1110,106 @@
       st4b:"Confirm", st4s:"Approve details and order",
       st5b:"Supply / Install", st5s:"Manufacture + delivery / install",
       st6b:"Handover", st6s:"Final check and next steps",
+
       galleryTitle:"Gallery",
-      galleryLead:"Scroll to view recent work. (You can replace these images anytime.)",
-      g1cap:"Sliding door / modern finish",
-      g2cap:"Window line / clean sightlines",
-      g3cap:"Awning windows / ventilation",
-      g4cap:"Door hardware / detail",
-      g5cap:"Large panels / daylight",
-      galleryTip:"Tip: replace the gallery images with your real job photos for best trust.",
+      galleryLead:"Scroll to view recent work.",
+      g:"Project photo ",
+
       faqTitle:"FAQ",
       faqLead:"Quick answers to common questions.",
       q1:"Do you service Adelaide only?", a1:"We service Adelaide & surrounds across South Australia.",
-      q2:"What products do you provide?", a2:"Mainstream aluminium windows and doors: sliding, awning, hinged, stacker, bi-fold and more.",
-      q3:"Do you offer installation?", a3:"Yes — we support supply-only or supply & install depending on project needs.",
-      q4:"Can I upload drawings/photos?", a4:"Yes — use the enquiry form to send details. For attachments, please email us (方案2).",
-      q5:"How do I get a quote?", a5:"Submit the form with your suburb and project details, or call us directly.",
-      q6:"Do you quote from plans?", a6:"Yes. Most new builds are quoted from plans; onsite measure is usually for renovations.",
+      q2:"Can you quote from plans?", a2:"Yes. Most new builds are quoted from drawings/PDF. Renovations may require an onsite measure.",
+      q3:"Do you offer installation?", a3:"Yes — supply-only or supply & install depending on project needs.",
+      q4:"What products do you provide?", a4:"Mainstream aluminium windows and doors: sliding, awning, hinged, stacker, bi-fold and more.",
+      q5:"Can I upload drawings/photos?", a5:"Yes — choose a file in the enquiry form. If attachments don’t come through, we’ll reply with the best way to send files.",
+      q6:"How do I get a quote?", a6:"Submit the form with your suburb and project details, or call us directly.",
+
       contactTitle:"Get a Quote / Book a Measure",
       contactLead:"We’ll respond as soon as possible. For urgent matters, please call.",
       placeholders:{name:"Full Name", phone:"Phone", email:"Email", suburb:"Suburb", message:"Project Details (size, type, timing)"},
       uploadTitle:"Upload Plans / Photos",
-      uploadHint:"Select to show filename (attachments via email).",
       uploadBtn:"Choose File",
-      fileNoteHTML:`Attachments are sent via email (方案2). After submitting, please email your plans/photos to <a href="mailto:sales@caawindows.com.au?subject=CAA%20WINDOWS%20-%20Plans%20%2F%20Photos&body=Hi%20CAA%20WINDOWS%2C%0A%0AI%20have%20submitted%20an%20enquiry%20on%20the%20website.%20Please%20find%20my%20plans%2Fphotos%20attached.%0A%0AName%3A%20%0APhone%3A%20%0ASuburb%3A%20%0A%0AThanks">sales@caawindows.com.au</a>.`,
+      noFile:"No file selected",
       btnSubmit:"Submit",
       btnEmail:"Email Us",
-      disclaimer:"By submitting, you agree we may contact you regarding this enquiry.",
       toast:"Thanks! Your enquiry has been submitted.",
-      footPhone:"Phone: XX_PHONE",
+      footPhone:"Phone: 0410830222 ",
       footEmail:"Email: sales@caawindows.com.au"
     },
+
     zh: {
-      langBtn: "EN",
-      brandSub: "铝合金门窗 · 南澳",
-      nav: {home:"首页",products:"产品",services:"服务",process:"流程",gallery:"现场照片",faq:"常见问题",contact:"联系"},
-      heroChip:"阿德莱德及周边 · 南澳",
-      heroTitle:"优先按图纸报价。\n铝合金门窗。",
-      heroSub:"发送图纸（PDF）可快速获得清晰报价。上门测量通常用于翻新项目。可仅供货或供货+安装——按你的项目需求选择。",
-      btnTopMeasure:"预约上门测量",
-      btnTopCall:"电话咨询",
+      langBtn:"EN",
+      brandSub:"铝合金门窗 · 南澳 SA",
+      nav:{home:"首页",products:"产品",services:"服务",process:"流程",gallery:"现场照片",faq:"常见问题",contact:"联系"},
+
+      heroTitle:"阿德莱德铝合金门窗。",
+      heroSub:"发送图纸（PDF）可快速获得清晰报价。上门测量通常用于翻新项目。可仅供货或供货+安装，按项目需求确定。",
+      tag1b:"图纸优先报价", tag1s:"图纸/PDF 统计清单与范围",
+      tag2b:"上门测量（翻新）", tag2s:"需要时安排上门核尺",
+      tag3b:"供货 / 安装", tag3s:"按项目灵活选择",
       btnHeroQuote:"免费报价",
       btnHeroMeasure:"预约上门测量",
       btnHeroCall:"电话咨询",
       heroMiniTitle:"快速响应，建议务实",
-      heroMiniSub:"可上传图纸/照片，我们会确认类型、尺寸与安装方案。",
+      heroMiniSub:"上传图纸/照片，我们会确认类型、尺寸与安装方案。",
       btnHeroMini:"上传资料并咨询",
+
+      btnTopMeasure:"预约上门测量",
+      btnTopCall:"电话咨询",
+      btnTopMeasureM:"预约上门测量",
+      btnTopCallM:"电话咨询",
+      btnTopQuoteM:"免费报价",
+
       trustTitle:"为什么客户选择我们",
       trust1b:"南澳本地", trust1s:"阿德莱德及周边",
       trust2b:"图纸或测量", trust2s:"先按图纸报价 · 翻新再测量",
-      trust3b:"供货 / 安装", trust3s:"支持多种项目方式",
+      trust3b:"供货与安装", trust3s:"支持多种项目方式",
+      trust4b:"流程可靠", trust4s:"范围清晰、工期明确",
+
       productsTitle:"产品",
-      productsLead:"覆盖澳洲主流铝合金门窗品类，支持定制配置。",
+      productsLead:"覆盖澳洲主流铝合金门窗品类，支持定制。",
       prod1Title:"窗", prod1Desc:"推拉窗 · 上悬窗 · 上下窗 · 固定窗 · 定制",
       prod2Title:"门", prod2Desc:"推拉门 · 平开门 · 叠门 · 折叠门 · 定制",
       prod3Title:"五金与纱网", prod3Desc:"锁具 · 轨道 · 防蚊纱 · 安防选项（如适用）",
+
       servicesTitle:"服务",
       servicesLead:"多数新房可直接根据图纸报价；翻新项目通常需要上门核尺。",
       srv1Title:"图纸报价 / 统计清单", srv1Desc:"发送图纸（PDF）或尺寸表，我们做统计并给出清晰范围与报价。",
       srv2Title:"仅供货", srv2Desc:"制作+供货，适合自有安装团队/Builder，可自取或配送。",
       srv3Title:"供货与安装", srv3Desc:"翻新及部分项目可提供供货+安装+验收交付。",
+
       processTitle:"流程",
-      processLead:"以图纸为先，快速报价；上门测量多用于翻新项目。",
+      processLead:"以图纸为先，快速报价；上门核尺多用于翻新项目。",
       st1b:"发送图纸", st1s:"PDF 图纸 / 门窗表 / 现场照片",
       st2b:"统计确认", st2s:"确认类型、尺寸、开启方式",
       st3b:"报价", st3s:"清晰范围、方案与交期",
       st4b:"确认下单", st4s:"确认细节与生产安排",
       st5b:"供货/安装", st5s:"生产与交付/安装",
-      st6b:"验收交付", st6s:"最终检查与后续安排",
+      st6b:"验收交付", st6s:"最终检查与下一步安排",
+
       galleryTitle:"现场照片",
-      galleryLead:"左右滑动查看（你可以随时替换为真实项目照片）。",
-      g1cap:"推拉门 / 现代风格",
-      g2cap:"窗线条 / 视野通透",
-      g3cap:"上悬窗 / 通风",
-      g4cap:"门窗五金 / 细节",
-      g5cap:"大面板 / 采光",
-      galleryTip:"提示：把这些占位图替换成你的真实现场照片，可信度会显著提升。",
+      galleryLead:"左右滑动查看近期案例。",
+      g:"现场照片 ",
+
       faqTitle:"常见问题",
       faqLead:"快速解答常见疑问。",
       q1:"只做阿德莱德吗？", a1:"服务阿德莱德及周边南澳区域。",
-      q2:"能做哪些门窗？", a2:"澳洲主流铝合金门窗：推拉/上悬/平开/叠门/折叠等，支持定制。",
+      q2:"可以按图纸报价吗？", a2:"可以。多数新房按图纸/PDF 报价；翻新项目可能需要上门测量。",
       q3:"提供安装吗？", a3:"提供：可仅供货，也可供货+安装，按项目需求定。",
-      q4:"能上传图纸/照片吗？", a4:"可以提交咨询信息；附件请按方案2通过邮箱发送。",
-      q5:"如何获取报价？", a5:"提交表单（含 Suburb 与需求），或直接来电咨询。",
-      q6:"可以按图纸报价吗？", a6:"可以。多数新房按图纸报价；翻新项目通常需要上门测量。",
+      q4:"能做哪些门窗？", a4:"澳洲主流铝合金门窗：推拉/上悬/平开/叠门/折叠等，支持定制。",
+      q5:"能上传图纸/照片吗？", a5:"可以，表单可选择文件。如附件未成功传送，我们会回复最稳妥的发送方式。",
+      q6:"如何获取报价？", a6:"提交表单（含 Suburb 与需求），或直接来电咨询。",
+
       contactTitle:"获取报价 / 预约上门测量",
       contactLead:"我们会尽快回复。如紧急请直接致电。",
       placeholders:{name:"姓名", phone:"电话", email:"邮箱", suburb:"区域/Suburb", message:"需求说明（尺寸/类型/时间等）"},
-      uploadTitle:"选择图纸 / 照片",
-      uploadHint:"仅显示文件名（附件通过邮箱发送）。已选择：",
+      uploadTitle:"上传图纸 / 照片",
       uploadBtn:"选择文件",
-      fileNoteHTML:`附件使用“邮箱方案”（方案2）。提交后请把图纸/照片邮件发送至 <a href="mailto:sales@caawindows.com.au?subject=CAA%20WINDOWS%20-%20图纸%20%2F%20照片&body=您好%2C%0A%0A我已在网站提交咨询%2C%20现发送图纸%2F照片附件供报价/确认。%0A%0A姓名%3A%20%0A电话%3A%20%0A区域%3A%20%0A%0A谢谢">sales@caawindows.com.au</a>。`,
+      noFile:"未选择文件",
       btnSubmit:"提交",
       btnEmail:"邮件联系",
-      disclaimer:"提交即表示你同意我们就本次咨询与您联系。",
       toast:"已提交！我们已收到你的咨询。",
-      footPhone:"电话：XX_PHONE",
+      footPhone:"电话：0410830222 ",
       footEmail:"邮箱：sales@caawindows.com.au"
     }
   };
@@ -1205,20 +1224,28 @@
     document.getElementById('langBtn').textContent = t.langBtn;
     document.getElementById('brandSub').textContent = t.brandSub;
 
-    // nav links (header + mobile)
-    document.querySelectorAll('header a[data-link]').forEach(a=>{
+    // desktop nav
+    navLinks.forEach(a=>{
       const key = a.dataset.link;
       if (t.nav[key]) a.textContent = t.nav[key];
     });
 
-    document.getElementById('heroChip').textContent = t.heroChip;
-    document.getElementById('heroTitle').innerHTML = t.heroTitle.replaceAll("\n","<br>");
+    // mobile drawer links
+    document.querySelectorAll('[data-m]').forEach(a=>{
+      const key = a.getAttribute('data-m');
+      if (t.nav[key]) a.textContent = t.nav[key];
+    });
+
+    // hero
+    document.getElementById('heroTitle').innerHTML = t.heroTitle;
     document.getElementById('heroSub').textContent = t.heroSub;
 
-    document.getElementById('btnTopMeasure').textContent = t.btnTopMeasure;
-    document.getElementById('btnTopCall').textContent = t.btnTopCall;
-    document.getElementById('btnTopMeasureM').textContent = t.btnTopMeasure;
-    document.getElementById('btnTopCallM').textContent = t.btnTopCall;
+    document.getElementById('tag1b').textContent = t.tag1b;
+    document.getElementById('tag1s').textContent = t.tag1s;
+    document.getElementById('tag2b').textContent = t.tag2b;
+    document.getElementById('tag2s').textContent = t.tag2s;
+    document.getElementById('tag3b').textContent = t.tag3b;
+    document.getElementById('tag3s').textContent = t.tag3s;
 
     document.getElementById('btnHeroQuote').textContent = t.btnHeroQuote;
     document.getElementById('btnHeroMeasure').textContent = t.btnHeroMeasure;
@@ -1228,14 +1255,21 @@
     document.getElementById('heroMiniSub').textContent = t.heroMiniSub;
     document.getElementById('btnHeroMini').textContent = t.btnHeroMini;
 
-    document.getElementById('trustTitle').textContent = t.trustTitle;
-    document.getElementById('trust1b').textContent = t.trust1b;
-    document.getElementById('trust1s').textContent = t.trust1s;
-    document.getElementById('trust2b').textContent = t.trust2b;
-    document.getElementById('trust2s').textContent = t.trust2s;
-    document.getElementById('trust3b').textContent = t.trust3b;
-    document.getElementById('trust3s').textContent = t.trust3s;
+    // header CTAs
+    document.getElementById('btnTopMeasure').textContent = t.btnTopMeasure;
+    document.getElementById('btnTopCall').textContent = t.btnTopCall;
+    document.getElementById('btnTopMeasureM').textContent = t.btnTopMeasureM;
+    document.getElementById('btnTopCallM').textContent = t.btnTopCallM;
+    document.getElementById('btnTopQuoteM').textContent = t.btnTopQuoteM;
 
+    // trust
+    document.getElementById('trustTitle').textContent = t.trustTitle;
+    ['1','2','3','4'].forEach(i=>{
+      document.getElementById('trust'+i+'b').textContent = t['trust'+i+'b'];
+      document.getElementById('trust'+i+'s').textContent = t['trust'+i+'s'];
+    });
+
+    // products
     document.getElementById('productsTitle').textContent = t.productsTitle;
     document.getElementById('productsLead').textContent = t.productsLead;
     document.getElementById('prod1Title').textContent = t.prod1Title;
@@ -1245,6 +1279,7 @@
     document.getElementById('prod3Title').textContent = t.prod3Title;
     document.getElementById('prod3Desc').textContent = t.prod3Desc;
 
+    // services
     document.getElementById('servicesTitle').textContent = t.servicesTitle;
     document.getElementById('servicesLead').textContent = t.servicesLead;
     document.getElementById('srv1Title').textContent = t.srv1Title;
@@ -1254,32 +1289,33 @@
     document.getElementById('srv3Title').textContent = t.srv3Title;
     document.getElementById('srv3Desc').textContent = t.srv3Desc;
 
+    // process
     document.getElementById('processTitle').textContent = t.processTitle;
     document.getElementById('processLead').textContent = t.processLead;
-    for (let i=1;i<=6;i++){
+    ['1','2','3','4','5','6'].forEach(i=>{
       document.getElementById('st'+i+'b').textContent = t['st'+i+'b'];
       document.getElementById('st'+i+'s').textContent = t['st'+i+'s'];
-    }
+    });
 
+    // gallery
     document.getElementById('galleryTitle').textContent = t.galleryTitle;
     document.getElementById('galleryLead').textContent = t.galleryLead;
-    document.getElementById('g1cap').textContent = t.g1cap;
-    document.getElementById('g2cap').textContent = t.g2cap;
-    document.getElementById('g3cap').textContent = t.g3cap;
-    document.getElementById('g4cap').textContent = t.g4cap;
-    document.getElementById('g5cap').textContent = t.g5cap;
-    document.getElementById('galleryTip').textContent = t.galleryTip;
-
-    document.getElementById('faqTitle').textContent = t.faqTitle;
-    document.getElementById('faqLead').textContent = t.faqLead;
-    for (let i=1;i<=6;i++){
-      document.getElementById('q'+i).textContent = t['q'+i];
-      document.getElementById('a'+i).textContent = t['a'+i];
+    for (let i=1;i<=12;i++){
+      const el = document.getElementById('g'+i);
+      if (el) el.textContent = t.g + i;
     }
 
+    // faq
+    document.getElementById('faqTitle').textContent = t.faqTitle;
+    document.getElementById('faqLead').textContent = t.faqLead;
+    ['1','2','3','4','5','6'].forEach(i=>{
+      document.getElementById('q'+i).textContent = t['q'+i];
+      document.getElementById('a'+i).textContent = t['a'+i];
+    });
+
+    // contact
     document.getElementById('contactTitle').textContent = t.contactTitle;
     document.getElementById('contactLead').textContent = t.contactLead;
-
     document.getElementById('name').placeholder = t.placeholders.name;
     document.getElementById('phone').placeholder = t.placeholders.phone;
     document.getElementById('email').placeholder = t.placeholders.email;
@@ -1287,17 +1323,20 @@
     document.getElementById('message').placeholder = t.placeholders.message;
 
     document.getElementById('uploadTitle').textContent = t.uploadTitle;
-    document.getElementById('uploadHintText').textContent = t.uploadHint;
     document.getElementById('uploadBtn').textContent = t.uploadBtn;
-    document.getElementById('fileNote').innerHTML = t.fileNoteHTML;
+
+    // if no file picked, reset label text in current language
+    if (!fileInput.files || !fileInput.files.length){
+      fileNameEl.textContent = t.noFile;
+    }
 
     document.getElementById('btnSubmit').textContent = t.btnSubmit;
     document.getElementById('btnEmail').textContent = t.btnEmail;
-    document.getElementById('disclaimer').textContent = t.disclaimer;
     document.getElementById('toast').textContent = t.toast;
 
-    document.getElementById('footPhone').textContent = t.footPhone;
-    document.getElementById('footEmail').textContent = t.footEmail;
+    // footer
+    document.getElementById('footPhone').childNodes[0].textContent = t.footPhone.replace('0410830222 ','') ? '' : ''; // keep link text controlled by HTML
+    document.getElementById('footEmail').childNodes[0].textContent = t.footEmail.replace('sales@caawindows.com.au','') ? '' : '';
   }
 
   document.getElementById('langBtn').addEventListener('click', ()=>{
